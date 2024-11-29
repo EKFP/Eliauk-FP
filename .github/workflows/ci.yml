@@ -1,0 +1,14 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+      - main
+permissions:
+  contests: write
+jobs:
+  deploy:
+    runs-on: windows  
+    steps:
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --froce
