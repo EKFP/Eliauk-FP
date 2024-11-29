@@ -6,11 +6,50 @@ theme:
   name: material
   palette:
     primary: blue grey
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: 切换至暗色模式
+      primary: indigo
+      accent: indigo
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换至亮色模式
+      primary: indigo
+      accent: indigo
+  icon:
+    repo: fontawesome/brands/github      # 仓库图标
+    edit: material/pencil                # 编辑图标
+    view: material/eye                   # 查看图标
+    admonition:
+      note: octicons/tag-16             # 提示框图标
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+  features:
+    - navigation.top
+    - navigation.tabs        # 启用标签式导航
+    - navigation.sections    # 显示章节导航
+    - navigation.expand     # 展开导航
+    - navigation.indexes  
+    - toc.integrate    # 集成目录
+    - toc.follow  
 
 markdown_extensions:
   - pymdownx.arithmatex:  # latex支持
       generic: true
   - toc:
+      toc_depth: 3      # 目录深度
+      title: 目录  
       permalink: true # 固定标题位置为当前位置
   - pymdownx.highlight: # 代码块高亮
       anchor_linenums: true
