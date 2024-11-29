@@ -1,0 +1,797 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Eliauk">
+      
+      
+        <link rel="canonical" href="https://EKFP.github.io/Eliauk-FP/AtCoder/AT%20Edu%20DP%20Contest%20%E9%A2%98%E8%A7%A3/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>AT Edu DP Contest 题解 - Eliauk 的博客</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-frog-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Eliauk 的博客" class="md-header__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eliauk 的博客
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AT Edu DP Contest 题解
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Eliauk 的博客" class="md-nav__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Eliauk 的博客
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    欢迎来到 Eliauk 的博客！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AtCoder
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AtCoder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AT Edu DP Contest 题解
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    AT Edu DP Contest 题解
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-frog-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Frog 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-frog-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Frog 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-vacation" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Vacation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-knapsack-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Knapsack 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-knapsack-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      E. Knapsack 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-lcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      F. LCS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-longest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      G. Longest Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h-grid-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      H. Grid 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-coins" class="md-nav__link">
+    <span class="md-ellipsis">
+      I. Coins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j-sushi" class="md-nav__link">
+    <span class="md-ellipsis">
+      J. Sushi
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-frog-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Frog 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-frog-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Frog 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-vacation" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Vacation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-knapsack-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Knapsack 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-knapsack-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      E. Knapsack 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-lcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      F. LCS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#g-longest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      G. Longest Path
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#h-grid-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      H. Grid 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-coins" class="md-nav__link">
+    <span class="md-ellipsis">
+      I. Coins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#j-sushi" class="md-nav__link">
+    <span class="md-ellipsis">
+      J. Sushi
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>AT Edu DP Contest 题解</h1>
+
+<!--
+<details> 
+<summary> Code </summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
+</code></pre></div>
+
+</details>
+-->
+
+<p><strong>全称 AtCoder Educational DP Contest，是一个高质量的 DP 题单，题目较为基础，平均难度为绿，很多题都是练习基础 DP 不可多得的经典好题。</strong></p>
+<p>题单链接：<a href="https://www.luogu.com.cn/training/244301">Link</a></p>
+<p>题目编号格式为 <code>AT_dp_?</code>，<code>?</code> 为小写字母。题单共 <span class="arithmatex">\(26\)</span> 题。</p>
+<hr />
+<h2 id="a-frog-1">A. Frog 1<a class="headerlink" href="#a-frog-1" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p><span class="arithmatex">\(N\)</span> 个石头，编号为 <span class="arithmatex">\(1,2,...,N\)</span>。对于每个 <span class="arithmatex">\(i\)</span>（<span class="arithmatex">\(1 \leq i \leq N\)</span>），石头 <span class="arithmatex">\(i\)</span> 的高度为 <span class="arithmatex">\(h_i\)</span>。</p>
+<p>最初有一只青蛙在石头 <span class="arithmatex">\(1\)</span> 上。他将重复几次以下操作以到达石头 <span class="arithmatex">\(N\)</span>：</p>
+<ul>
+<li>如果青蛙当前在石头 <span class="arithmatex">\(i\)</span> 上，则跳到石头 <span class="arithmatex">\(i+1\)</span> 或石头 <span class="arithmatex">\(i+2\)</span>。需要 <span class="arithmatex">\(\lvert h_i - h_j \rvert\)</span> 的费用，而 <span class="arithmatex">\(j\)</span> 是要落到上面的石头。</li>
+</ul>
+<p>找到青蛙到达石头 <span class="arithmatex">\(N\)</span> 之前需要的最小总费用。</p>
+<ul>
+<li><span class="arithmatex">\(2 \leq N \leq 10^5\)</span>，<span class="arithmatex">\(1 \leq h_i \leq 10^4\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>设 <span class="arithmatex">\(f_i\)</span> 为跳到第 <span class="arithmatex">\(i\)</span> 块石头的最小花费，设 <span class="arithmatex">\(d_{i, j} = \lvert h_i - h_j \rvert\)</span>，容易得到状态转移方程</p>
+<div class="arithmatex">\[
+f_i = \min(f_{i-1} + d_{i,i-1}, f_{i-2} + d_{i,i-2})
+\]</div>
+<p>注意此时 <span class="arithmatex">\(i &gt; 2\)</span>。当 <span class="arithmatex">\(i = 2\)</span> 时，<span class="arithmatex">\(f_i = d_{1, 2}\)</span>。同时，其他的 <span class="arithmatex">\(f_i\)</span> 应该初始化为无穷大。</p>
+<p>当然，这题也可以建图，给 <span class="arithmatex">\(i,i+1\)</span> 和 <span class="arithmatex">\(i,i+2\)</span> 连边然后跑 <span class="arithmatex">\(\texttt{Dijkstra}\)</span>。</p>
+<hr />
+<h2 id="b-frog-2">B. Frog 2<a class="headerlink" href="#b-frog-2" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>河面上有 <span class="arithmatex">\(N\)</span> 块石头。有一只青蛙在第 <span class="arithmatex">\(1\)</span> 块石头上，它想跳到第 <span class="arithmatex">\(N\)</span> 块石头上。</p>
+<p>青蛙一次最多只能跳过 <span class="arithmatex">\(K\)</span> 块石头。从第<span class="arithmatex">\(i\)</span>块跳到第<span class="arithmatex">\(j\)</span>块需要花费青蛙 <span class="arithmatex">\(\lvert h_i - h_j \rvert\)</span> 的体力。求青蛙到达第<span class="arithmatex">\(N\)</span>块石头所耗费的最小体力值。</p>
+<ul>
+<li><span class="arithmatex">\(2 \leq N \leq 10^5\)</span>，<span class="arithmatex">\(1 \leq K \leq 100\)</span>，<span class="arithmatex">\(1 \leq h_i \leq 10^4\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>跟上一题一样，只不过 <span class="arithmatex">\(f_i\)</span> 不只是由 <span class="arithmatex">\(f_{i-1}\)</span> 和 <span class="arithmatex">\(f_{i-2}\)</span> 转移而来，而是由 <span class="arithmatex">\(f_{i-1},f_{i-2},f_{i-3} \cdots f_{i-k}\)</span> 转移过来。这样，容易得到状态转移方程</p>
+<div class="arithmatex">\[
+f_i = \min_{\max(0, i-k) \leq j &lt; i} f_j + d_{i, j}
+\]</div>
+<p>需要注意数组下标不能小于 <span class="arithmatex">\(0\)</span>。同时 <span class="arithmatex">\(f_i\)</span> 初始为无穷大，且 <span class="arithmatex">\(f_0 = 0\)</span>。</p>
+<hr />
+<h2 id="c-vacation">C. Vacation<a class="headerlink" href="#c-vacation" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>暑假有 <span class="arithmatex">\(N\)</span> 天。对于每一天 <span class="arithmatex">\(i\)</span>（<span class="arithmatex">\(1 \leq i \leq N\)</span>），太郎君可以选择以下活动之一：</p>
+<ul>
+<li>A：在海里游泳，获得幸福度 <span class="arithmatex">\(a_i\)</span>。</li>
+<li>B：在山上抓虫，获得幸福度 <span class="arithmatex">\(b_i\)</span>。</li>
+<li>C：在家做作业，获得幸福度 <span class="arithmatex">\(c_i\)</span>。</li>
+</ul>
+<p>由于太郎君容易厌倦，他不能连续两天及以上做同样的活动。</p>
+<p>请计算太郎君可以获得的最大总幸福度。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 10 ^ 5\)</span>，<span class="arithmatex">\(1 \leq a _ i, b _ i, c _ i \leq 10 ^ 4\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>设 <span class="arithmatex">\(f_{i, j}\)</span> 表示，前 <span class="arithmatex">\(i\)</span> 天，第 <span class="arithmatex">\(i\)</span> 天选取活动 <span class="arithmatex">\(j\)</span> 的最大总幸福值。为了方便，我们将这些活动的幸福值都拿一个二维数组存储，即 <span class="arithmatex">\(a_{i, j}\)</span> 表示第 <span class="arithmatex">\(i\)</span> 天选取活动 <span class="arithmatex">\(j\)</span> 的幸福值。这里，都有 <span class="arithmatex">\(1 \leq j \leq 3\)</span>。</p>
+<p>由于相邻的天不能选取同一种活动，<span class="arithmatex">\(f_{i, 1}\)</span> 只能由 <span class="arithmatex">\(f_{i-1,2}\)</span>、<span class="arithmatex">\(f_{i-1,3}\)</span> 转移过来，则有</p>
+<div class="arithmatex">\[
+f_{i,1} = \max(f_{i-1,2}, f_{i-1,3}) + a_{i, 1} 
+\]</div>
+<p>同理，有</p>
+<div class="arithmatex">\[
+f_{i,2} = \max(f_{i-1,1}, f_{i-1,3}) + a_{i,2}\\
+f_{i,3} = \max(f_{i-1,1}, f_{i-1,2}) + a_{i,3} 
+\]</div>
+<p>答案即为 <span class="arithmatex">\(\max(f_{n,1}, f_{n, 2}, f_{n, 3})\)</span>。</p>
+<hr />
+<h2 id="d-knapsack-1">D. Knapsack 1<a class="headerlink" href="#d-knapsack-1" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p><span class="arithmatex">\(N\)</span> 个物品，选取其中若干个物品，使得对选取的这些物品 <span class="arithmatex">\(\sum w_i\leq W\)</span> 的前提下最大化 <span class="arithmatex">\(\sum v_i\)</span>。  </p>
+<p>其中，<span class="arithmatex">\(w_i\)</span> 为重量，<span class="arithmatex">\(v_i\)</span> 为价值。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 100\)</span>，<span class="arithmatex">\(1 \leq w_i \leq W \leq 10^5\)</span>，<span class="arithmatex">\(1 \leq v_i \leq 10^9\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>01 背包板子题。设 <span class="arithmatex">\(f_{i, j}\)</span> 表示前 <span class="arithmatex">\(i\)</span> 个物品，用了 <span class="arithmatex">\(j\)</span> 容量的最大价值和。则有</p>
+<div class="arithmatex">\[
+f_{i, j} = \max(f_{i-1, j-w_i}+v_i, f_{i-1, j})
+\]</div>
+<p>答案为 <span class="arithmatex">\(f_{N, W}\)</span>。</p>
+<p>这个方程空间是二维的，考虑优化。</p>
+<p>我们注意到，第一维（即 <span class="arithmatex">\(i\)</span>）只由 <span class="arithmatex">\(i-1\)</span> 转移过来，那么 <span class="arithmatex">\(i-1\)</span> 前面的都与 <span class="arithmatex">\(i\)</span> 这维无关，而我们的答案是 <span class="arithmatex">\(f_{N, W}\)</span>，其实我们不需要前面这些东西。</p>
+<p>那么怎么办？我们可以直接省略掉第一维。这样，我们在计算 <span class="arithmatex">\(i\)</span> 的值之前，这个 <span class="arithmatex">\(f\)</span> 数组其实表示的就是 <span class="arithmatex">\(i-1\)</span> 对应值。这样，我们就有转移方程</p>
+<div class="arithmatex">\[
+f_j = \max(f_j, f_{j-w_i} + v_i)
+\]</div>
+<p>这种优化方法叫做<strong>滚动数组</strong>。</p>
+<p>注意一个小细节：在枚举 <span class="arithmatex">\(j\)</span> 时候，需要倒序循环，为什么？我们在转移时，<span class="arithmatex">\(f_{j-w_i}\)</span> 表示的是原来的 <span class="arithmatex">\(f_{i-1,j-w_i}\)</span>。但是，这个性质成立有个条件：<span class="arithmatex">\(f_{j-w_i}\)</span> 没被计算过。否则它表示的就是 <span class="arithmatex">\(f_{i, j-w_i}\)</span>。如果正序循环，它正好被计算过，所以表示的是 <span class="arithmatex">\(f_{i,j-w_i}\)</span>，这样显然是不行的。倒序循环就能很好地避免这个问题。</p>
+<details> 
+<summary> Code </summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#define int long long </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"> </span><span class="n">j</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">            </span><span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">m</span><span class="p">];</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="p">}</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="e-knapsack-2">E. Knapsack 2<a class="headerlink" href="#e-knapsack-2" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>与上一题一样，只不过 <span class="arithmatex">\(W\)</span> 的最大值变为 <span class="arithmatex">\(10^9\)</span>，<span class="arithmatex">\(v_i\)</span> 的最大值变为 <span class="arithmatex">\(v_i\)</span>。</p>
+<p>【解题思路】</p>
+<p>注意到 <span class="arithmatex">\(v_i\)</span> 的范围很小，那么我们只需要将状态变为 <span class="arithmatex">\(f_{j}\)</span> 表示选取<strong>价值</strong>为 <span class="arithmatex">\(j\)</span> 时的最小<strong>重量</strong>和。</p>
+<p>转移方程与上一题完全一样（当然，要把 <span class="arithmatex">\(v_i\)</span> 和 <span class="arithmatex">\(w_i\)</span> 交换）。</p>
+<p>如何求答案？枚举 <span class="arithmatex">\(1\)</span> 到最大价值（即价值和），合法（即 <span class="arithmatex">\(f_i \leq W\)</span>）就输出。倒序循环。</p>
+<hr />
+<h2 id="f-lcs">F. LCS<a class="headerlink" href="#f-lcs" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给定一个字符串 <span class="arithmatex">\(s\)</span> 和一个字符串 <span class="arithmatex">\(t\)</span> ，输出 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 的最长公共子序列。</p>
+<ul>
+<li><span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 的长度均小于 <span class="arithmatex">\(3000\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>设 <span class="arithmatex">\(f_{i, j}\)</span> 表示 <span class="arithmatex">\(s\)</span> 的前 <span class="arithmatex">\(i\)</span> 个字符，<span class="arithmatex">\(t\)</span> 的前 <span class="arithmatex">\(j\)</span> 个字符的最长公共子序列。则有</p>
+<div class="arithmatex">\[
+f_{i, j} = \begin{cases}f_{i-1,j-1}+1 &amp; s_i=t_j\\
+\max(f_{i-1,j}, f_{i,j-1}) &amp; s_i\neq t_j
+\end{cases}
+\]</div>
+<p>但是这题需要输出最长公共子序列。显然，在第一种转移中对最长公共子序列有贡献，那么只需要在第一种转移时记录一下字符即可。</p>
+<hr />
+<h2 id="g-longest-path">G. Longest Path<a class="headerlink" href="#g-longest-path" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>求<strong>有向无环图</strong>上的最长路长度。</p>
+<p>长度为路径上边的数量。</p>
+<p>【解题思路】</p>
+<p>注意到是 DAG（有向无环图），考虑拓扑排序。</p>
+<p>对于边 <span class="arithmatex">\((u, v)\)</span>，有 <span class="arithmatex">\(d_v = d_u + 1\)</span>。答案为 <span class="arithmatex">\(d_i\)</span> 的最大值。</p>
+<hr />
+<h2 id="h-grid-1">H. Grid 1<a class="headerlink" href="#h-grid-1" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给一个 <span class="arithmatex">\(H\times W\)</span> 的网格，一开始在左上角 <span class="arithmatex">\((1,1)\)</span> 每一步只能向右或向下走，不能经过 <code>#</code> 格子，求走到右下角 $(H,W) $ 有多少种走法。  </p>
+<p>答案对 <span class="arithmatex">\(10^9+7\)</span> 取模。</p>
+<ul>
+<li><span class="arithmatex">\(2 \leq H, W \leq 1000\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>直接二维 DP 就行，不讲了。</p>
+<hr />
+<h2 id="i-coins">I. Coins<a class="headerlink" href="#i-coins" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>设 <span class="arithmatex">\(N\)</span> 是一个正的奇数。</p>
+<p>有 <span class="arithmatex">\(N\)</span> 枚硬币，每枚硬币上标有编号 <span class="arithmatex">\(1, 2, \ldots, N\)</span>。对于每个 <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(1 \leq i \leq N\)</span>)，掷硬币 <span class="arithmatex">\(i\)</span> 时，正面朝上的概率是 <span class="arithmatex">\(p _ i\)</span>，反面朝上的概率是 <span class="arithmatex">\(1 - p _ i\)</span>。</p>
+<p>太郎君把这 <span class="arithmatex">\(N\)</span> 枚硬币全部投掷了一次。请计算正面朝上的硬币数多于反面朝上的硬币数的概率。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 1000\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>设 <span class="arithmatex">\(f_{i, j}\)</span> 为前 <span class="arithmatex">\(i\)</span> 个硬币，有 <span class="arithmatex">\(j\)</span> 个朝上的概率。考虑第 <span class="arithmatex">\(i\)</span> 个硬币的朝向，则有</p>
+<div class="arithmatex">\[
+f_{i, j} = f_{i-1, j-1} \times p_i + f_{i-1,j}\times (1-p_i)
+\]</div>
+<p>记答案为 <span class="arithmatex">\(Ans\)</span>，有</p>
+<div class="arithmatex">\[
+Ans = \sum_{i=\lceil\frac{n}{2}\rceil}^{n} f_{n, i}
+\]</div>
+<p>其实这题可以滚动数组将空间复杂度优化为 <span class="arithmatex">\(O(n)\)</span>，留作思考内容。</p>
+<p>其实这题还可以使用分治 FFT 将时间复杂度优化为 <span class="arithmatex">\(O(n \log ^2 n)\)</span>，但是我不会，留作思考内容。 </p>
+<hr />
+<h2 id="j-sushi">J. Sushi<a class="headerlink" href="#j-sushi" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>现有 <span class="arithmatex">\(N\)</span> 个盘子，编号为 <span class="arithmatex">\(1,2,3,…,N\)</span>。第 <span class="arithmatex">\(i\)</span> 个盘子中放有 <span class="arithmatex">\(a_i\)</span> 个寿司。</p>
+<p>接下来每次执行以下操作，直至吃完所有的寿司。从第 <span class="arithmatex">\(1,2,3,…,N\)</span> 个盘子中任选一个盘子，吃掉其中的一个寿司。若没有寿司则不吃。</p>
+<p>若将所有寿司吃完，请问此时操作次数的数学期望是多少？</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 300\)</span>，<span class="arithmatex">\(1 \leq a_i \leq 3\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>期望 DP，先咕了。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
