@@ -327,7 +327,7 @@ $N$ 个正整数组成的集合 $A = \{ a _ 1, a _ 2, \ldots, a _ N \}$。太郎
 
 注意区间 DP 需要先枚举区间长度再枚举区间两端点。否则可能在计算 $[l, r]$ 时并没有计算过 $[l + 1, r]$ 或 $[l, r - 1]$。
 
-具体见代码。
+具体做法见代码。
 
 <details> 
 <summary> Code </summary>
@@ -367,3 +367,58 @@ signed main() {
 【题目大意】
 
 $K$ 颗糖分给 $N$ 个人，第 $i$ 个人至少分得 $0$ 颗，至多分得 $a_i$ 颗，必须分完，求方案数，答案对 $10^9+7$ 取模。
+
+- $1 \leq N \leq 100$，$1 \leq K \leq 10^5$，$1 \leq a_i \leq K$。
+
+【解题思路】
+
+设 $f_{i, j}$ 表示前 $i$ 个人，已经用掉 $j$ 个糖果的方案数，那么有
+
+$$
+f_{i, j} = \sum_{k = \max(0, j-a_i)}^{K} f_{i-1,k}
+$$
+
+这个式子直接转移的复杂度是 $O(n K^2)$ 的，显然不能接受。
+
+观察这个式子，我们发现，后面那个 $\sum$ 是一个连续段的求值，可以直接对 $f_{i - 1, j}$ 做前缀和。这样我们可以做到 $O(1)$ 转移，总复杂度 $O(nK)$。
+
+具体做法见代码。
+
+<details> 
+<summary> Code </summary>
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long 
+using namespace std;
+
+const int N = 110;
+const int K = 1e5 + 10;
+const int P = 1e9 + 7;
+int n, k, a[N];
+int f[N][K], s[K];
+
+signed main() {
+    cin >> n >> k;
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i];
+    }
+    f[0][0] = 1ll;
+    for (int i = 1; i <= n; i++) {
+        s[0] = f[i - 1][0];
+        for (int j = 1; j <= k; j++) {
+            s[j] = (s[j - 1] + f[i - 1][j]) % P;
+        }
+        for (int j = 0; j <= k; j++) {
+            int p = max(0ll, j - a[i]);
+            if (p == 0) f[i][j] = s[j];
+            else f[i][j] = (s[j] - s[p - 1] + P) % P;
+        }
+    }
+    cout << f[n][k];
+    return 0;
+}
+```
+
+</details>
+
