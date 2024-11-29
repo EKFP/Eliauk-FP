@@ -886,9 +886,6 @@
 
   <h1>CF998</h1>
 
-<p>注：难度评级为 D 到 A，对标 NOIP T1 到 T4。+ 表示比原本难，- 反之。例如，D+ 比 D 难。<strong>难度评级仅供参考。</strong> 如果认为难度评级与实际难度不符，可以在评论区@我进行讨论。</p>
-<p>Upd 2024/11/18 10:01：将 E 题的实现难度 D+ 改为了 C。增加了一些说明。</p>
-<hr />
 <!--
 FE4C61
 F39C11
@@ -900,13 +897,8 @@ FFC116
 -->
 
 <h2 id="a-ballon">A. Ballon<a class="headerlink" href="#a-ballon" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/998/problem/A">Link-CF</a></p>
-<p><a href="https://www.luogu.com.cn/problem/CF998A">Link-Luogu</a></p>
-<p>【难度分析】</p>
-<p>思维难度：D-</p>
-<p>实现难度：D-</p>
-<p>总体难度：D-</p>
-<p>评级：<font color = F39C11> 普及- </font></p>
+<p><a href="https://codeforces.com/contest/998/problem/A">Link-CF</a> 
+<a href="https://www.luogu.com.cn/problem/CF998A">Link-Luogu</a></p>
 <p>【题目大意】</p>
 <p><span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品权值为 <span class="arithmatex">\(a_i\)</span>，分成 <span class="arithmatex">\(2\)</span> 堆，每堆至少有 <span class="arithmatex">\(1\)</span> 个物品，并且两堆的权值和不相等。如果存在一种分法，输出任意一种分法中，任意一堆的物品数量与物品编号。否则输出 <span class="arithmatex">\(-1\)</span>。</p>
 <ul>
@@ -920,13 +912,8 @@ FFC116
 </ul>
 <hr />
 <h2 id="b-cutting">B. Cutting<a class="headerlink" href="#b-cutting" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/998/problem/B">Link-CF</a></p>
-<p><a href="https://www.luogu.com.cn/problem/CF998B">Link-Luogu</a></p>
-<p>【难度分析】</p>
-<p>思维难度：D</p>
-<p>实现难度：D-</p>
-<p>总体难度：D-</p>
-<p>评级：<font color = FFC116> 普及/提高- </font></p>
+<p><a href="https://codeforces.com/contest/998/problem/B">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF998B">Link-Luogu</a></p>
 <p>【题目大意】</p>
 <p>给定一个序列 <span class="arithmatex">\(a\)</span>，奇数个数和偶数个数相同。你可以进行若干次切割操作。如果你在 <span class="arithmatex">\(i\)</span> 位置后面切割，序列会被分为两段，这次切割的花费为 <span class="arithmatex">\(\lvert a_{i + 1} - a_i \rvert\)</span>。你需要保证，在所有的切割之后，每段序列的奇数个数和偶数个数相同，我们称这样的切割是合法的。你需要在总花费不超过 <span class="arithmatex">\(B\)</span> 的情况下，最大化切割的次数。</p>
 <p>例：对序列 <span class="arithmatex">\([4, 1, 2, 3, 4, 5, 4, 4, 5, 5]\)</span> 进行两次切割操作后，变为 <span class="arithmatex">\([4, 1], [2, 3, 4, 5], [4, 4, 5, 5]\)</span>，它是一个合法的切割。</p>
@@ -940,13 +927,8 @@ FFC116
 <p>这样，我们就知道了合法的切割位置，每次我们可以贪心地选取花费少的区间进行切割，这样可以最大化我们的切割次数。用堆维护就可以。</p>
 <hr />
 <h2 id="c-convert-to-ones">C. Convert to Ones<a class="headerlink" href="#c-convert-to-ones" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/998/problem/C">Link-CF</a></p>
-<p><a href="https://www.luogu.com.cn/problem/CF997A">Link-Luogu</a></p>
-<p>【难度分析】</p>
-<p>思维难度：D</p>
-<p>实现难度：D-</p>
-<p>总体难度：D</p>
-<p>评级：<font color = FFC116> 普及/提高- </font></p>
+<p><a href="https://codeforces.com/contest/998/problem/C">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997A">Link-Luogu</a></p>
 <p>【题目大意】    </p>
 <p>给你一个长度为 <span class="arithmatex">\(n\)</span> 的 <span class="arithmatex">\(01\)</span> 串，你可以进行以下操作：</p>
 <ul>
@@ -962,13 +944,8 @@ FFC116
 <p>所以总代价为 <span class="arithmatex">\(\min(x, y) \times (k - 1) + y\)</span>。需要特判 <span class="arithmatex">\(k = 0\)</span> 的情况，此时总代价为 <span class="arithmatex">\(0\)</span>。</p>
 <hr />
 <h2 id="d-roman-digits">D. Roman Digits<a class="headerlink" href="#d-roman-digits" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/998/problem/D">Link-CF</a></p>
-<p><a href="https://www.luogu.com.cn/problem/CF997B">Link-Luogu</a></p>
-<p>【难度分析】</p>
-<p>思维难度：B</p>
-<p>实现难度：D-</p>
-<p>总体难度：C+</p>
-<p>评级：<font color = 3498DB> 提高+/省选- </font></p>
+<p><a href="https://codeforces.com/contest/998/problem/D">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997B">Link-Luogu</a></p>
 <p>【题目大意】</p>
 <p>罗马数字只有 <span class="arithmatex">\(4\)</span> 个字符，<span class="arithmatex">\(\tt{I, V, X, L}\)</span> 分别代表 <span class="arithmatex">\(1, 5, 10, 50\)</span>。一个罗马数字的值为该数字包含的字符代表数字的和，而与字符的顺序无关。例如 <span class="arithmatex">\(\tt{XXXV} = 35\)</span>，<span class="arithmatex">\(\tt{IXI} = 12\)</span>。</p>
 <p>现在求一个长度为 <span class="arithmatex">\(n\)</span> 的罗马数字可以有多少种不同的值。</p>
@@ -980,13 +957,8 @@ FFC116
 <p>通过打表可以发现，前面 <span class="arithmatex">\(11\)</span> 项是定值，后面是公差为 <span class="arithmatex">\(49\)</span> 的等差数列。证明有待完善。</p>
 <hr />
 <h2 id="e-sky-full-of-stars">E. Sky Full of Stars<a class="headerlink" href="#e-sky-full-of-stars" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/998/problem/E">Link-CF</a></p>
-<p><a href="https://www.luogu.com.cn/problem/CF997C">Link-Luogu</a></p>
-<p>【难度分析】</p>
-<p>思维难度：B+</p>
-<p>实现难度：C</p>
-<p>总体难度：B</p>
-<p>评级：<font color = 9D3DCF> 省选/NOI- </font></p>
+<p><a href="https://codeforces.com/contest/998/problem/E">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997C">Link-Luogu</a></p>
 <p>【题目大意】</p>
 <p>有一个 <span class="arithmatex">\(n \times n\)</span> 的正方形网格。用红色，绿色，蓝色三种颜色染色，求有多少种染色方案使得至少一行或一列是同一种颜色。结果对 <span class="arithmatex">\(998244353\)</span> 取模。</p>
 <ul>
