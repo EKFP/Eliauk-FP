@@ -5,7 +5,7 @@ site_author: Eliauk
 theme:
   name: material
   palette:
-    primary: blue grey
+    - primary: blue grey
     - scheme: default
       toggle:
         icon: material/brightness-7 
@@ -39,7 +39,7 @@ theme:
     - navigation.top
     - navigation.tabs        # 启用标签式导航
     - navigation.sections    # 显示章节导航
-    - navigation.expand     # 展开导航
+    #- navigation.expand     # 展开导航
     - navigation.indexes  
     - toc.integrate    # 集成目录
     - toc.follow  
