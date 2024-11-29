@@ -41,8 +41,8 @@ theme:
     - navigation.sections    # 显示章节导航
     #- navigation.expand     # 展开导航
     - navigation.indexes  
-    - toc.integrate    # 集成目录
-    - toc.follow  
+    #- toc.integrate    # 集成目录
+    #- toc.follow  
 
 markdown_extensions:
   - pymdownx.arithmatex:  # latex支持
