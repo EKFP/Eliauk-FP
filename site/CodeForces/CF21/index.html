@@ -1,0 +1,823 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Eliauk">
+      
+      
+        <link rel="canonical" href="https://EKFP.github.io/Eliauk-FP/CodeForces/CF21/">
+      
+      
+        <link rel="prev" href="../CF20/">
+      
+      
+        <link rel="next" href="../CF404/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>CF21 - Eliauk 的博客</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-jabber-id" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Eliauk 的博客" class="md-header__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eliauk 的博客
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CF21
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Eliauk 的博客" class="md-nav__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Eliauk 的博客
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    欢迎来到 Eliauk 的博客！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AtCoder
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AtCoder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AtCoder/AT%20Edu%20DP%20Contest%20%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AT Edu DP Contest 题解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CodeForces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CodeForces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF1978/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF1978
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CF21
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    CF21
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-jabber-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Jabber ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-intersection" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Intersection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-stripe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Stripe 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-traveling-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Traveling Graph
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF404/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF404
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF520/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF520
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF558/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF558
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF628/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF628
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF847/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF847
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF998/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF998
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-jabber-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Jabber ID
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-intersection" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Intersection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-stripe-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Stripe 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-traveling-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Traveling Graph
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>CF21</h1>
+
+<p><strong>这次不放难度了。<del>因为我懒</del></strong></p>
+<h2 id="a-jabber-id">A. Jabber ID<a class="headerlink" href="#a-jabber-id" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>一个地址由 <code>&lt;username&gt;@&lt;hostname&gt;[/resource]</code> 组成，其中 <code>[/resource]</code> 可以被省略。</p>
+<ul>
+<li><code>&lt;username&gt;</code> 字段允许大写、小写字母，数字、下划线，其长度应在 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(16\)</span> 之间。</li>
+<li><code>&lt;hostname&gt;</code> 字段允许用 <code>.</code> 来分隔。每一段的要求同  <code>&lt;username&gt;</code> 字段，分隔出的每一部分长度在 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(16\)</span>，<code>&lt;hostname&gt;</code> 字段的总长度在 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(32\)</span> 之间。</li>
+<li><code>&lt;resource&gt;</code> 字段要求同 <code>&lt;username&gt;</code> 字段。</li>
+</ul>
+<p>给出一个地址，询问是否合法。</p>
+<p>【解题思路】</p>
+<p><strong>正则表达式：</strong></p>
+<p>分别匹配以下两个正则表达式：</p>
+<ul>
+<li><code>^\w{1,16}@\w{1,16}(\.\w{1,16})*(\/\w{1,16})?$</code></li>
+<li><code>^\w{1,16}@((\w|\.){1,32})(\/\w{1,16})?$</code></li>
+</ul>
+<p>这里需要两个匹配都成功（事实上，这题数据过水，你只匹配第一个正则表达式也能通过）。</p>
+<p>解释：</p>
+<ul>
+<li><code>^</code>、<code>$</code> 分别表示字符串的开始和结束。</li>
+<li><code>\w</code> 表示字母、数字、下划线。</li>
+<li><code>{a, b}</code> 表示匹配最少 <span class="arithmatex">\(a\)</span> 个字符，最多 <span class="arithmatex">\(b\)</span> 个。</li>
+<li><code>@</code>、<code>\.</code>、<code>\/</code> 分别表示字符 <code>@</code>、<code>.</code>、<code>/</code>。后两者加 <code>\</code> 是因为 <code>.</code>、<code>/</code> 在正则表达式中有特殊意义。</li>
+<li><code>*</code> 表示可以匹配任意次</li>
+<li><code>?</code> 表示可以匹配 <span class="arithmatex">\(0\)</span> 次或者 <span class="arithmatex">\(1\)</span> 次。</li>
+<li><code>a|b</code> 表示匹配 <code>a</code> 或 <code>b</code>。这里，<code>a</code>、<code>b</code> 均表示字符串。</li>
+</ul>
+<p>注意，在 C++ 中，<code>\</code> 有特殊意义，需要在前面再加一个 <code>\</code>，变为 <code>\\</code>。这样，正则表达式变为：</p>
+<ul>
+<li><code>^\\w{1,16}@\\w{1,16}(\\.\\w{1,16})*(\\/\\w{1,16})?$</code></li>
+<li><code>^\\w{1,16}@((\\w|\\.){1,32})(\\/\\w{1,16})?$</code></li>
+</ul>
+<p><strong>使用方法：</strong></p>
+<ul>
+<li><code>regex()</code> 表示一个正则表达式，<code>()</code> 内填上面的正则表达式。变量类型是 <code>regex</code>。当然，也可以用 <code>regex</code> 声明一个正则表达式类型的变量。</li>
+<li><code>regex_match(string, regex)</code> 匹配成功返回 <code>true</code>，失败返回 <code>false</code>。<code>string</code> 表示字符串类型，<code>regex</code> 表示正则表达式类型。</li>
+</ul>
+<p>示例：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;regex&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;123456&quot;</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">regex</span><span class="w"> </span><span class="n">pattern</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">w&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">match1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex_match</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">match2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regex_match</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\\</span><span class="s">w*&quot;</span><span class="p">));</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">match1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;YES&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;NO&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">match2</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;YES&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;NO&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>输出：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>NO
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>YES 
+</code></pre></div>
+<p>（因为第一个正则表达式 <code>\w</code> 没加表示可以匹配任意次的 <code>*</code>。）</p>
+<hr />
+<h2 id="b-intersection">B. Intersection<a class="headerlink" href="#b-intersection" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给定两个一次函数 <span class="arithmatex">\(A_1 x + B_1 y + C_1 = 0\)</span> 和 <span class="arithmatex">\(A_2 x + B_2 y + C_2 = 0\)</span>，输出两个一次函数的交点个数，如果有无穷个交点，则输出 <code>-1</code>。</p>
+<ul>
+<li>输入的数均为绝对值不超过 <span class="arithmatex">\(100\)</span> 的整数。</li>
+</ul>
+<p>【解题思路】</p>
+<p>两直线平行的条件是 <span class="arithmatex">\(\frac{A_1}{B_1} = \frac{A_2}{B_2}\)</span> 且 <span class="arithmatex">\(\frac{C_1}{B_1} \neq \frac{C_2}{B_2}\)</span>。</p>
+<p>两直线重合的条件是 <span class="arithmatex">\(\frac{A_1}{B_1} = \frac{A_2}{B_2}\)</span> 且 <span class="arithmatex">\(\frac{C_1}{B_1} = \frac{C_2}{B_2}\)</span>。</p>
+<p>前者输出 <code>0</code>，后者输出 <code>-1</code>，其他输出 <code>1</code>。</p>
+<p>注意特判 <span class="arithmatex">\(B_1 = 0\)</span> 或 <span class="arithmatex">\(B_2 = 0\)</span> 的情况。</p>
+<p>这题还有 <span class="arithmatex">\(A_1 = 0\)</span>，<span class="arithmatex">\(B_1 = 0\)</span> 或者 <span class="arithmatex">\(A_2 = 0\)</span>，<span class="arithmatex">\(B_2 = 0\)</span> 的情况，也需要特判（也就是说，有可能输入的<strong>一次函数</strong>表示<strong>一个平面</strong>或者是<strong>空集</strong>，不愧是 CF 的出题人，真是良苦用心啊）。</p>
+<hr />
+<h2 id="c-stripe-2">C. Stripe 2<a class="headerlink" href="#c-stripe-2" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给出一个长度为 <span class="arithmatex">\(n\)</span> 的序列 <span class="arithmatex">\(a\)</span>，问有多少种方案将序列 <span class="arithmatex">\(a\)</span> 划分为恰好连续的三段（每个元素都属于某一段），使得每一段的和都相等。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 10^5\)</span>，<span class="arithmatex">\(0 \leq \lvert a_i \rvert \leq 10^4\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>先对 <span class="arithmatex">\(a\)</span> 做前缀和，设前缀和数组为 <span class="arithmatex">\(s\)</span>。</p>
+<p>如果 <span class="arithmatex">\(s_n \bmod 3 \neq 0\)</span>，那显然不成立，输出 <code>0</code>。</p>
+<p>否则，如果找到了一个 <span class="arithmatex">\(s_i\)</span>，使得 <span class="arithmatex">\(s_i = \frac{2 \times s_n}{3}\)</span>，那么它对答案的贡献是满足 <span class="arithmatex">\(s_j = \frac{s_n}{3}\)</span> 的小于 <span class="arithmatex">\(i\)</span> 的 <span class="arithmatex">\(j\)</span> 的数量。</p>
+<p>形式化地，记答案为 <span class="arithmatex">\(Ans\)</span>，则有</p>
+<div class="arithmatex">\[
+Ans = \sum_{i=1}^{n-1} [s_i = \frac{2 \times s_n}{3}] \times \sum_{j=1}^{i-1}[s_j=\frac{s_n}{3}]
+\]</div>
+<hr />
+<h2 id="d-traveling-graph">D. Traveling Graph<a class="headerlink" href="#d-traveling-graph" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给定一个有 <span class="arithmatex">\(n\)</span> 个顶点，<span class="arithmatex">\(m\)</span> 条边的带边权无向图，要求从顶点 <span class="arithmatex">\(1\)</span> 开始经过每一条边至少一次最后回到起点 <span class="arithmatex">\(1\)</span> ，要求走过的边权值总和最小。注意：可能有重边和自环。</p>
+<p>若无解则输出 <code>-1</code>。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 15\)</span>，<span class="arithmatex">\(1 \leq m \leq 2000\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p><strong>不会，咕了。</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

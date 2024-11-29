@@ -1,0 +1,900 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Eliauk">
+      
+      
+        <link rel="canonical" href="https://EKFP.github.io/Eliauk-FP/CodeForces/CF998/">
+      
+      
+        <link rel="prev" href="../CF847/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>CF998 - Eliauk 的博客</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-ballon" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Eliauk 的博客" class="md-header__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Eliauk 的博客
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CF998
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Eliauk 的博客" class="md-nav__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Eliauk 的博客
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    欢迎来到 Eliauk 的博客！
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    AtCoder
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            AtCoder
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AtCoder/AT%20Edu%20DP%20Contest%20%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AT Edu DP Contest 题解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CodeForces
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            CodeForces
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF1978/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF1978
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF20
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF21/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF21
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF404/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF404
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF520/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF520
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF558/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF558
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF628/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF628
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CF847/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF847
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    CF998
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    CF998
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-ballon" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Ballon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-cutting" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Cutting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-convert-to-ones" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Convert to Ones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-roman-digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Roman Digits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-sky-full-of-stars" class="md-nav__link">
+    <span class="md-ellipsis">
+      E. Sky Full of Stars
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-ballon" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Ballon
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-cutting" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Cutting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-convert-to-ones" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Convert to Ones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-roman-digits" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Roman Digits
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-sky-full-of-stars" class="md-nav__link">
+    <span class="md-ellipsis">
+      E. Sky Full of Stars
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>CF998</h1>
+
+<p>注：难度评级为 D 到 A，对标 NOIP T1 到 T4。+ 表示比原本难，- 反之。例如，D+ 比 D 难。<strong>难度评级仅供参考。</strong> 如果认为难度评级与实际难度不符，可以在评论区@我进行讨论。</p>
+<p>Upd 2024/11/18 10:01：将 E 题的实现难度 D+ 改为了 C。增加了一些说明。</p>
+<hr />
+<!--
+FE4C61
+F39C11
+FFC116
+52C41A
+3498DB
+9D3DCF
+0E1D69
+-->
+
+<h2 id="a-ballon">A. Ballon<a class="headerlink" href="#a-ballon" title="Permanent link">&para;</a></h2>
+<p><a href="https://codeforces.com/contest/998/problem/A">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF998A">Link-Luogu</a></p>
+<p>【难度分析】</p>
+<p>思维难度：D-
+实现难度：D-
+总体难度：D-
+评级：<font color = F39C11> 普及- </font></p>
+<p>【题目大意】</p>
+<p><span class="arithmatex">\(n\)</span> 个物品，第 <span class="arithmatex">\(i\)</span> 个物品权值为 <span class="arithmatex">\(a_i\)</span>，分成 <span class="arithmatex">\(2\)</span> 堆，每堆至少有 <span class="arithmatex">\(1\)</span> 个物品，并且两堆的权值和不相等。如果存在一种分法，输出任意一种分法中，任意一堆的物品数量与物品编号。否则输出 <span class="arithmatex">\(-1\)</span>。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 10, 1 \leq a_i \leq 10^3\)</span></li>
+</ul>
+<p>【解题思路】</p>
+<p>考虑这样一种构造：权值最小的物品一堆，其他的一堆。</p>
+<ul>
+<li>在 <span class="arithmatex">\(n = 1\)</span> 或 <span class="arithmatex">\(n = 2\)</span> 且 <span class="arithmatex">\(a_1 = a_2\)</span> 时。显然，无论如何分都不能使两堆权值和不相等。</li>
+<li>其他情况，容易证明它是成立的。</li>
+</ul>
+<hr />
+<h2 id="b-cutting">B. Cutting<a class="headerlink" href="#b-cutting" title="Permanent link">&para;</a></h2>
+<p><a href="https://codeforces.com/contest/998/problem/B">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF998B">Link-Luogu</a></p>
+<p>【难度分析】</p>
+<p>思维难度：D
+实现难度：D-
+总体难度：D-
+评级：<font color = FFC116> 普及/提高- </font></p>
+<p>【题目大意】</p>
+<p>给定一个序列 <span class="arithmatex">\(a\)</span>，奇数个数和偶数个数相同。你可以进行若干次切割操作。如果你在 <span class="arithmatex">\(i\)</span> 位置后面切割，序列会被分为两段，这次切割的花费为 <span class="arithmatex">\(\lvert a_{i + 1} - a_i \rvert\)</span>。你需要保证，在所有的切割之后，每段序列的奇数个数和偶数个数相同，我们称这样的切割是合法的。你需要在总花费不超过 <span class="arithmatex">\(B\)</span> 的情况下，最大化切割的次数。</p>
+<p>例：对序列 <span class="arithmatex">\([4, 1, 2, 3, 4, 5, 4, 4, 5, 5]\)</span> 进行两次切割操作后，变为 <span class="arithmatex">\([4, 1], [2, 3, 4, 5], [4, 4, 5, 5]\)</span>，它是一个合法的切割。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 100, 1 \leq B \leq 100, 1 \leq a_i \leq 100\)</span></li>
+</ul>
+<p>【解题思路】</p>
+<p>令 <span class="arithmatex">\(f_i\)</span> 表示 <span class="arithmatex">\(a_1\)</span> 到 <span class="arithmatex">\(a_i\)</span> 中，奇数个数与偶数个数的差。<span class="arithmatex">\(f_i\)</span> 容易通过预处理出。这样，区间 <span class="arithmatex">\([l, r]\)</span> 中，奇数个数与偶数个数的差就是 <span class="arithmatex">\(f_r - f_{l - 1}\)</span>。</p>
+<p>对于区间 <span class="arithmatex">\([l, r]\)</span> 来说，如果需要操作合法，那么就要使这个区间内奇数个数与偶数个数的差为 <span class="arithmatex">\(0\)</span>。因为如果这个值不为 <span class="arithmatex">\(0\)</span>，那么无论经过多少次切割之后，必会留下一个区间，它的奇数个数不等于偶数个数。这是显然的。</p>
+<p>由于 <span class="arithmatex">\(f_0 = 0, f_n = 0\)</span>，所以我们每次切割时，必须选择 <span class="arithmatex">\(f_i = 0\)</span> 的位置 <span class="arithmatex">\(i\)</span> 切割。否则必定有一个区间的 <span class="arithmatex">\(f_r - f_{l - 1}\)</span> 不为 <span class="arithmatex">\(0\)</span>。</p>
+<p>这样，我们就知道了合法的切割位置，每次我们可以贪心地选取花费少的区间进行切割，这样可以最大化我们的切割次数。用堆维护就可以。</p>
+<hr />
+<h2 id="c-convert-to-ones">C. Convert to Ones<a class="headerlink" href="#c-convert-to-ones" title="Permanent link">&para;</a></h2>
+<p><a href="https://codeforces.com/contest/998/problem/C">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997A">Link-Luogu</a></p>
+<p>【难度分析】</p>
+<p>思维难度：D
+实现难度：D-
+总体难度：D
+评级：<font color = FFC116> 普及/提高- </font></p>
+<p>【题目大意】    </p>
+<p>给你一个长度为 <span class="arithmatex">\(n\)</span> 的 <span class="arithmatex">\(01\)</span> 串，你可以进行以下操作：</p>
+<ul>
+<li>翻转一个字串，花费为 <span class="arithmatex">\(x\)</span></li>
+<li>反转（将 <span class="arithmatex">\(0\)</span> 变成 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(1\)</span> 变成 <span class="arithmatex">\(0\)</span>）一个字串，花费为 <span class="arithmatex">\(y\)</span></li>
+</ul>
+<p>求你将这个 <span class="arithmatex">\(01\)</span> 串变成全是 <span class="arithmatex">\(1\)</span> 的串的最少花费。</p>
+<p>【解题思路】</p>
+<p>我们注意到一个性质：操作的代价与子串长度无关。</p>
+<p>这就意味着，连续的 <span class="arithmatex">\(0\)</span> 与单个的 <span class="arithmatex">\(0\)</span> 没有区别。接下来的讨论将这些连续段每个缩为一个 <span class="arithmatex">\(0\)</span>，同时令 <span class="arithmatex">\(k\)</span> 为连续段的数量。</p>
+<p>那么，我们的目标是将 <span class="arithmatex">\(0\)</span> 删除。对于两个最近的 <span class="arithmatex">\(0\)</span>，我们可以进行一次字串翻转，使他们变成相邻的 <span class="arithmatex">\(0\)</span>，最后可以一并反转删除。当然我们也可以直接反转一段，减少一个 <span class="arithmatex">\(0\)</span> 的数量。</p>
+<p>如果 <span class="arithmatex">\(x &lt; y\)</span>，那么翻转操作更优，我们需要翻转 <span class="arithmatex">\(k - 1\)</span> 次，把它变成一个连续段，然后一并反转删除，代价为 <span class="arithmatex">\(x \times (k - 1) + y\)</span>。否则，一个个反转删除，代价为 <span class="arithmatex">\(y * k\)</span>。</p>
+<p>所以总代价为 <span class="arithmatex">\(\min(x, y) \times (k - 1) + y\)</span>。需要特判 <span class="arithmatex">\(k = 0\)</span> 的情况，此时总代价为 <span class="arithmatex">\(0\)</span>。</p>
+<hr />
+<h2 id="d-roman-digits">D. Roman Digits<a class="headerlink" href="#d-roman-digits" title="Permanent link">&para;</a></h2>
+<p><a href="https://codeforces.com/contest/998/problem/D">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997B">Link-Luogu</a></p>
+<p>【难度分析】</p>
+<p>思维难度：B
+实现难度：D-
+总体难度：C+
+评级：<font color = 3498DB> 提高+/省选- </font></p>
+<p>【题目大意】</p>
+<p>罗马数字只有 <span class="arithmatex">\(4\)</span> 个字符，<span class="arithmatex">\(\tt{I, V, X, L}\)</span> 分别代表 <span class="arithmatex">\(1, 5, 10, 50\)</span>。一个罗马数字的值为该数字包含的字符代表数字的和，而与字符的顺序无关。例如 <span class="arithmatex">\(\tt{XXXV} = 35\)</span>，<span class="arithmatex">\(\tt{IXI} = 12\)</span>。</p>
+<p>现在求一个长度为 <span class="arithmatex">\(n\)</span> 的罗马数字可以有多少种不同的值。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 10^9\)</span></li>
+</ul>
+<p>【解题思路】</p>
+<p>打表找规律题。</p>
+<p>通过打表可以发现，前面 <span class="arithmatex">\(11\)</span> 项是定值，后面是公差为 <span class="arithmatex">\(49\)</span> 的等差数列。证明有待完善。</p>
+<hr />
+<h2 id="e-sky-full-of-stars">E. Sky Full of Stars<a class="headerlink" href="#e-sky-full-of-stars" title="Permanent link">&para;</a></h2>
+<p><a href="https://codeforces.com/contest/998/problem/E">Link-CF</a>
+<a href="https://www.luogu.com.cn/problem/CF997C">Link-Luogu</a></p>
+<p>【难度分析】</p>
+<p>思维难度：B+
+实现难度：C
+总体难度：B
+评级：<font color = 9D3DCF> 省选/NOI- </font></p>
+<p>【题目大意】</p>
+<p>有一个 <span class="arithmatex">\(n \times n\)</span> 的正方形网格。用红色，绿色，蓝色三种颜色染色，求有多少种染色方案使得至少一行或一列是同一种颜色。结果对 <span class="arithmatex">\(998244353\)</span> 取模。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq n \leq 10 ^ 6\)</span></li>
+</ul>
+<p>【解题思路】</p>
+<p><strong>本题公式较多，请仔细阅读。</strong></p>
+<p>令 <span class="arithmatex">\(f(i, j)\)</span> 表示有 <span class="arithmatex">\(i\)</span> 行和 <span class="arithmatex">\(j\)</span> 列被染成相同颜色的方案数（<span class="arithmatex">\(i \times j &gt; 0\)</span>）。则有</p>
+<div class="arithmatex">\[
+f(i, j) = 3 \times 3^{(n - i) \times (n - j)} 
+\]</div>
+<p>将 <span class="arithmatex">\(i \times j = 0\)</span> 的答案 <span class="arithmatex">\(A1\)</span> 单独考虑，则有</p>
+<div class="arithmatex">\[
+A1 = 2\times \sum_{i = 1}^{n} {n \choose i} \times (-1)^{i + 1}\times3^{n \times (n - i) + i}
+\]</div>
+<p>其余的答案记为 <span class="arithmatex">\(A2\)</span>，则有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A2 &amp;= \sum_{i=1}^{n}\sum_{j=1}^{n}{n\choose i}{n\choose j}\times (-1)^{i+j+1}\times f(i, j) \\ 
+&amp;= \sum_{i=1}^{n}\sum_{j=1}^{n}{n\choose i}{n\choose j}\times (-1)^{i+j+1}\times 3 \times 3^{(n - i) \times (n - j)} \\ 
+&amp;= 3 \times \sum_{i=1}^{n}\sum_{j=1}^{n}{n\choose i}{n\choose j}\times (-1)^{i+j+1}\times 3^{(n - i) \times (n - j)} 
+\end{aligned}
+\]</div>
+<p>记总答案为 <span class="arithmatex">\(Ans\)</span>，则有</p>
+<div class="arithmatex">\[
+Ans = A1 + A2
+\]</div>
+<p>由于计算 <span class="arithmatex">\(A2\)</span> 的复杂度是 <span class="arithmatex">\(O(n ^ 2)\)</span> 的，所以考虑化简 <span class="arithmatex">\(A2\)</span>。</p>
+<p>考虑换元，<span class="arithmatex">\(i\gets n - i\)</span>，<span class="arithmatex">\(j \gets n - j\)</span>，则有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A2 &amp;= 3 \times \sum_{i=0}^{n-1}\sum_{j=0}^{n-1}{n\choose n-i}{n\choose n-j}\times (-1)^{n-i+n-j+1}\times 3^{i \times j} \\
+&amp;= 3 \times \sum_{i=0}^{n-1}\sum_{j=0}^{n-1}{n\choose i}{n\choose j}\times (-1)^{i+j+1}\times 3^{i \times j} \\
+\end{aligned}
+\]</div>
+<p>继续化简，有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+A2 &amp;= 3 \times \sum_{i=0}^{n-1}{n\choose i}\times(-1)^{i+1} \sum_{j=0}^{n-1} {n\choose j}\times (-1)^{j}\times 3^{i \times j} \\
+&amp;= 3 \times \sum_{i=0}^{n-1}{n\choose i}\times(-1)^{i+1} \sum_{j=0}^{n-1} {n\choose j}\times ({-3^i})^j \\
+\end{aligned}
+\]</div>
+<p>注意到有</p>
+<div class="arithmatex">\[
+\sum_{j=0}^{n-1} {n\choose j}\times ({-3^i})^j = (1+(-3^i)) ^n-(-3^i)^n
+\]</div>
+<p>那么有</p>
+<div class="arithmatex">\[
+A2 = 3 \times \sum_{i=0}^{n-1}{n\choose i}\times(-1)^{i+1} \times ((1+(-3^i)) ^n-(-3^i)^n) 
+\]</div>
+<p>这样，我们就可以通过通过 <span class="arithmatex">\(O(n\log n)\)</span> 的复杂度计算 <span class="arithmatex">\(A2\)</span> 了（那个 <span class="arithmatex">\(\log\)</span> 是快速幂的复杂度）。</p>
+<p>最后，有总答案</p>
+<div class="arithmatex">\[
+Ans = 2\times \sum_{i = 1}^{n} {n \choose i} \times (-1)^{i + 1}\times3^{n \times (n - i) + i} + 3 \times \sum_{i=0}^{n-1}{n\choose i}\times(-1)^{i+1} \times ((1+(-3^i)) ^n-(-3^i)^n) 
+\]</div>
+<p>实现较为简单。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
