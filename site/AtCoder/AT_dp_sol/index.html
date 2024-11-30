@@ -616,6 +616,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#n-slimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      N. Slimes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      O. Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-independent-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      P. Independent Set
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -747,6 +774,27 @@
   
   <span class="md-ellipsis">
     CF628
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CodeForces/CF847/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF847
   </span>
   
 
@@ -993,6 +1041,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#n-slimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      N. Slimes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#o-matching" class="md-nav__link">
+    <span class="md-ellipsis">
+      O. Matching
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-independent-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      P. Independent Set
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1026,6 +1101,7 @@
 <p><strong>全称 AtCoder Educational DP Contest，是一个高质量的 DP 题单，题目较为基础，平均难度为绿，很多题都是练习基础 DP 不可多得的经典好题。</strong></p>
 <p>题单链接：<a href="https://www.luogu.com.cn/training/244301">Link</a></p>
 <p>题目编号格式为 <code>AT_dp_?</code>，<code>?</code> 为小写字母。题单共 <span class="arithmatex">\(26\)</span> 题。</p>
+<p>题目 A 到 N 较基础，O 到 Z 为进阶内容。</p>
 <hr />
 <h2 id="a-frog-1">A. Frog 1<a class="headerlink" href="#a-frog-1" title="Permanent link">&para;</a></h2>
 <p>【题目大意】</p>
@@ -1277,7 +1353,7 @@ Ans = \sum_{i=\lceil\frac{n}{2}\rceil}^{n} f_{n, i}
 f_{i, j} = \sum_{k = \max(0, j-a_i)}^{K} f_{i-1,k}
 \]</div>
 <p>这个式子直接转移的复杂度是 <span class="arithmatex">\(O(n K^2)\)</span> 的，显然不能接受。</p>
-<p>观察这个式子，我们发现，后面那个 <span class="arithmatex">\(\sum\)</span> 是一个连续段的求值，可以直接对 <span class="arithmatex">\(f_{i - 1, j}\)</span> 做前缀和。这样我们可以做到 <span class="arithmatex">\(O(1)\)</span> 转移，总复杂度 <span class="arithmatex">\(O(nK)\)</span>。</p>
+<p>观察这个式子，我们发现，后面那个 <span class="arithmatex">\(\sum\)</span> 是一个连续段的求值，可以直接对 <span class="arithmatex">\(f_{i - 1, j}\)</span> 做前缀和。这样我们可以做到 <span class="arithmatex">\(O(1)\)</span> 转移，总时间复杂度 <span class="arithmatex">\(O(nK)\)</span>。</p>
 <p>具体做法见代码。</p>
 <details> 
 <summary> Code </summary>
@@ -1312,6 +1388,138 @@ f_{i, j} = \sum_{k = \max(0, j-a_i)}^{K} f_{i-1,k}
 <a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">];</span>
 <a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="p">}</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="n-slimes">N. Slimes<a class="headerlink" href="#n-slimes" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>有 <span class="arithmatex">\(N\)</span> 个数，第 <span class="arithmatex">\(i\)</span> 个数是 <span class="arithmatex">\(a_i\)</span> ，现在要进行 <span class="arithmatex">\(N-1\)</span> 次操作。</p>
+<p>对于每一次操作，可以把相邻两个数合并起来，并写上他们的和，这次操作的代价就是这个和。</p>
+<p>求代价最小值。</p>
+<ul>
+<li><span class="arithmatex">\(2 \leq N \leq 400\)</span>，<span class="arithmatex">\(1 \leq a_i \leq 10^9\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>区间 DP。</p>
+<p>设 <span class="arithmatex">\(f_{l, r}\)</span> 表示合并区间 <span class="arithmatex">\([l, r]\)</span> 的最小代价。枚举区间内的“断点” <span class="arithmatex">\(k\)</span>，有</p>
+<div class="arithmatex">\[
+f_{l, r} = \min_{l \leq k &lt; r} (f_{l, k} + f_{k + 1, r} + \sum_{i = l}^r a_i)
+\]</div>
+<p>直接枚举即可。</p>
+<hr />
+<h2 id="o-matching">O. Matching<a class="headerlink" href="#o-matching" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给定二分图，两个集合都有 <span class="arithmatex">\(N\)</span> 个点，<span class="arithmatex">\(a_{i,j}=1\)</span> 表示第一个集合第 <span class="arithmatex">\(i\)</span> 个点与第二个集合第 <span class="arithmatex">\(j\)</span> 个点连边。</p>
+<p>求二分图完备匹配数，答案对 <span class="arithmatex">\(10^9+7\)</span> 取模。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 21\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>令符号 <span class="arithmatex">\(|\)</span> 表示按位或运算。</p>
+<p>观察数据范围可知，这题是状压 DP。</p>
+<p>令 <span class="arithmatex">\(f_{i, j}\)</span> 表示第一个集合前 <span class="arithmatex">\(i\)</span> 个点<strong>全部</strong>匹配完，此时第二个集合匹配状态为 <span class="arithmatex">\(j\)</span> 时，匹配的数量。</p>
+<p>这里，状态 <span class="arithmatex">\(j\)</span> 表示：如果在二进制下，<span class="arithmatex">\(j\)</span> 的第 <span class="arithmatex">\(t\)</span> 位为 <span class="arithmatex">\(1\)</span>，说明第二个集合的点 <span class="arithmatex">\(t\)</span> 被匹配了，否则未匹配。 </p>
+<p>容易知道，二进制下，<span class="arithmatex">\(j\)</span> 中 <span class="arithmatex">\(1\)</span> 的数量一定为 <span class="arithmatex">\(i\)</span>，否则匹配不成立。统计二进制下 <span class="arithmatex">\(1\)</span> 的个数可以使用 <code>__builtin_popcount()</code>。</p>
+<p>考虑由 <span class="arithmatex">\(f_{i, j}\)</span> 转移到 <span class="arithmatex">\(f_{i + 1, ?}\)</span>，枚举第 <span class="arithmatex">\(i + 1\)</span> 个点匹配的点 <span class="arithmatex">\(k\)</span>，那么状态变为 <span class="arithmatex">\(j | 2^k\)</span>。即</p>
+<div class="arithmatex">\[
+f_{i, j} \to f_{i+1, j | 2^k} (a_{i, k} = 1)
+\]</div>
+<p>具体实现见代码。</p>
+<details> 
+<summary> Code </summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">);</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">N</span><span class="p">];</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="n">M</span><span class="p">];</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">__builtin_popcount</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">])</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">                </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">k</span><span class="p">)]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">][(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="p">}</span>
+</code></pre></div>
+
+</details>
+
+<hr />
+<h2 id="p-independent-set">P. Independent Set<a class="headerlink" href="#p-independent-set" title="Permanent link">&para;</a></h2>
+<p>【题目大意】</p>
+<p>给一棵 <span class="arithmatex">\(N\)</span> 个点的树，每一个点可以染成黑色或白色，任意两个相邻节点不能都是黑色，求方案数，结果对 <span class="arithmatex">\(10^9+7\)</span> 取模。</p>
+<ul>
+<li><span class="arithmatex">\(1 \leq N \leq 10^5\)</span>。</li>
+</ul>
+<p>【解题思路】</p>
+<p>记 <span class="arithmatex">\(S_u\)</span> 表示点 <span class="arithmatex">\(u\)</span> 的子节点数量。</p>
+<p>设 <span class="arithmatex">\(f_{i, 0} / f_{i, 1}\)</span> 分别表示第 <span class="arithmatex">\(i\)</span> 个点染成白色/黑色的方案数。容易得到状态转移方程</p>
+<div class="arithmatex">\[
+f_{u, 0} = \prod_{v \in S_u} f_{v, 0} + f_{v, 1}  \\
+f_{u, 1} = \prod_{v \in S_u} f_{v, 0}
+\]</div>
+<p>在 DFS 的时候转移即可。具体实现见代码。</p>
+<details> 
+<summary> Code </summary>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cp">#define int long long </span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1e9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">N</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">N</span><span class="p">],</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">struct</span><span class="w"> </span><span class="nc">edge</span><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">nxt</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span><span class="n">e</span><span class="p">[</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="kt">void</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="n">e</span><span class="p">[</span><span class="o">++</span><span class="n">tot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">]};</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="kt">void</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fa</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">nxt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">;</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">fa</span><span class="p">)</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span><span class="w">        </span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="n">f</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">        </span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="n">v</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">}</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="kt">signed</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a><span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%lld%lld&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">v</span><span class="p">);</span>
+<a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="w">        </span><span class="n">add</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
+<a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">P</span><span class="p">;</span>
+<a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="p">}</span>
 </code></pre></div>
 
 </details>

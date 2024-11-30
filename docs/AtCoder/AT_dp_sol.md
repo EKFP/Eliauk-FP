@@ -15,6 +15,8 @@
 
 题目编号格式为 `AT_dp_?`，`?` 为小写字母。题单共 $26$ 题。
 
+题目 A 到 N 较基础，O 到 Z 为进阶内容。
+
 ----
 
 ## A. Frog 1
@@ -380,7 +382,7 @@ $$
 
 这个式子直接转移的复杂度是 $O(n K^2)$ 的，显然不能接受。
 
-观察这个式子，我们发现，后面那个 $\sum$ 是一个连续段的求值，可以直接对 $f_{i - 1, j}$ 做前缀和。这样我们可以做到 $O(1)$ 转移，总复杂度 $O(nK)$。
+观察这个式子，我们发现，后面那个 $\sum$ 是一个连续段的求值，可以直接对 $f_{i - 1, j}$ 做前缀和。这样我们可以做到 $O(1)$ 转移，总时间复杂度 $O(nK)$。
 
 具体做法见代码。
 
@@ -416,6 +418,172 @@ signed main() {
         }
     }
     cout << f[n][k];
+    return 0;
+}
+```
+
+</details>
+
+----
+
+## N. Slimes
+
+【题目大意】
+
+有 $N$ 个数，第 $i$ 个数是 $a_i$ ，现在要进行 $N-1$ 次操作。
+
+对于每一次操作，可以把相邻两个数合并起来，并写上他们的和，这次操作的代价就是这个和。
+
+求代价最小值。
+
+- $2 \leq N \leq 400$，$1 \leq a_i \leq 10^9$。
+
+【解题思路】
+
+区间 DP。
+
+设 $f_{l, r}$ 表示合并区间 $[l, r]$ 的最小代价。枚举区间内的“断点” $k$，有
+
+$$
+f_{l, r} = \min_{l \leq k < r} (f_{l, k} + f_{k + 1, r} + \sum_{i = l}^r a_i)
+$$
+
+直接枚举即可。
+
+----
+
+## O. Matching
+
+【题目大意】
+
+给定二分图，两个集合都有 $N$ 个点，$a_{i,j}=1$ 表示第一个集合第 $i$ 个点与第二个集合第 $j$ 个点连边。
+
+求二分图完备匹配数，答案对 $10^9+7$ 取模。
+
+- $1 \leq N \leq 21$。
+
+【解题思路】
+
+令符号 $|$ 表示按位或运算。
+
+观察数据范围可知，这题是状压 DP。
+
+令 $f_{i, j}$ 表示第一个集合前 $i$ 个点**全部**匹配完，此时第二个集合匹配状态为 $j$ 时，匹配的数量。
+
+这里，状态 $j$ 表示：如果在二进制下，$j$ 的第 $t$ 位为 $1$，说明第二个集合的点 $t$ 被匹配了，否则未匹配。 
+
+容易知道，二进制下，$j$ 中 $1$ 的数量一定为 $i$，否则匹配不成立。统计二进制下 $1$ 的个数可以使用 `__builtin_popcount()`。
+
+
+考虑由 $f_{i, j}$ 转移到 $f_{i + 1, ?}$，枚举第 $i + 1$ 个点匹配的点 $k$，那么状态变为 $j | 2^k$。即
+
+$$
+f_{i, j} \to f_{i+1, j | 2^k} (a_{i, k} = 1)
+$$
+
+具体实现见代码。
+
+<details> 
+<summary> Code </summary>
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+const int N = 22;
+const int M = (1 << N);
+const int P = 1e9 + 7;
+int n, a[N][N];
+int f[N][M];
+
+int main() {
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> a[i][j];
+        }
+    }
+    f[0][0] = 1;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < (1 << n); j++) {
+            if (__builtin_popcount(j) != i) continue;
+            for (int k = 0; k < n; k++) {
+                if (!a[i][k]) continue;
+                f[i + 1][j | (1 << k)] = (f[i + 1][j | (1 << k)] + f[i][j]) % P;
+            }
+        }
+    }
+    cout << f[n][(1 << n) - 1];
+    return 0;
+}
+```
+
+</details>
+
+----
+
+## P. Independent Set
+
+【题目大意】
+
+给一棵 $N$ 个点的树，每一个点可以染成黑色或白色，任意两个相邻节点不能都是黑色，求方案数，结果对 $10^9+7$ 取模。
+
+- $1 \leq N \leq 10^5$。
+
+【解题思路】
+
+记 $S_u$ 表示点 $u$ 的子节点数量。
+
+设 $f_{i, 0} / f_{i, 1}$ 分别表示第 $i$ 个点染成白色/黑色的方案数。容易得到状态转移方程
+
+$$
+f_{u, 0} = \prod_{v \in S_u} f_{v, 0} + f_{v, 1}  \\
+f_{u, 1} = \prod_{v \in S_u} f_{v, 0}
+$$
+
+在 DFS 的时候转移即可。具体实现见代码。
+
+<details> 
+<summary> Code </summary>
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long 
+using namespace std;
+
+const int N = 1e5 + 10;
+const int P = 1e9 + 7;
+int n, f[N][2];
+int h[N], tot;
+
+struct edge{
+    int to, nxt;
+}e[N << 1];
+
+void add(int u, int v) {
+    e[++tot] = {v, h[u]};
+    h[u] = tot;
+}
+void dfs(int u, int fa) {
+    f[u][0] = f[u][1] = 1;
+    for (int i = h[u]; i; i = e[i].nxt) {
+        int v = e[i].to;
+        if (v == fa) continue;        
+        dfs(v, u);
+        f[u][0] = (f[u][0] * ((f[v][1] + f[v][0]) % P)) % P;
+        f[u][1] = (f[u][1] * f[v][0]) % P;
+    }
+}
+
+signed main() {
+    scanf("%lld", &n);
+    for (int i = 1; i < n; i++) {
+        int u, v;
+        scanf("%lld%lld", &u, &v);
+        add(u, v), add(v, u);
+    }
+    dfs(1, 0);
+    cout << (f[1][0] + f[1][1]) % P;
     return 0;
 }
 ```
