@@ -1475,7 +1475,7 @@ f_{i, j} \to f_{i+1, j | 2^k} (a_{i, k} = 1)
 <p>设 <span class="arithmatex">\(f_{i, 0} / f_{i, 1}\)</span> 分别表示第 <span class="arithmatex">\(i\)</span> 个点染成白色/黑色的方案数。容易得到状态转移方程</p>
 <div class="arithmatex">\[
 f_{u, 0} = \prod_{v \in S_u} f_{v, 0} + f_{v, 1}  
-\newline
+\newline 
 f_{u, 1} = \prod_{v \in S_u} f_{v, 0}
 \]</div>
 <p>在 DFS 的时候转移即可。具体实现见代码。</p>
