@@ -1,8 +1,33 @@
-#[Info]
+# Project Information
 site_name: Eliauk 的博客
-site_url: https://ekfp.github.io/Eliauk-FP/
+site_description: 这里是 Eliuak 的博客
 site_author: Eliauk
-#[UI]
+site_url: https://ekfp.github.io/Eliauk-FP/
+strict: false
+
+# Repository
+edit_uri: edit/main/docs # 编辑按钮跳转的链接 
+repo_url: https://github.com/EKFP/ # 右上角点击跳转的链接
+repo_name: EKFP 的 GitHub # 右上角的名字
+
+# Copyright
+
+# Contents
+nav:
+  - 简介: 
+    - 关于我: index.md
+  - AtCoder:
+    - AT Edu DP Contest 题解: AT_dp_sol.md
+  - CodeForces:
+    - CF404: CodeForces/CF404.md
+    - CF520: CodeForces/CF520.md
+    - CF558: CodeForces/CF558.md
+    - CF628: CodeForces/CF628.md
+    - CF998: CodeForces/CF998.md
+  - 专题:
+    - 二位数点: Subject/2D-Point.md
+
+# Theme
 theme:
   name: material
   palette:
@@ -34,43 +59,32 @@ theme:
     #- navigation.indexes #启用节索引页后，可以将文档直接附加到节
     - search.share #搜索分享按钮
   language: zh # 一些提示性的文字会变成中文
-  
- 
   icon: 
     repo: fontawesome/brands/github #右上角图标
-edit_uri: edit/main/docs # 编辑按钮跳转的链接 
-repo_url: https://github.com/EKFP/ # 右上角点击跳转的链接
-repo_name: EKFP 的 GitHub # 右上角的名字
-  
-  
-#cookie 
-  # analytics: 
-  #   provider: google
-  #   property: !ENV GOOGLE_ANALYTICS_KEY
-  #   feedback:
-  #     title: Was this page helpful?
-  #     ratings:
-  #       - icon: material/heart
-  #         name: This page was helpful
-  #         data: 1
-  #         note: >-
-  #           Thanks for your feedback!
-  #       - icon: material/heart-broken
-  #         name: This page could be improved
-  #         data: 0
-  #         note: >- 
-  #           Thanks for your feedback! Help us improve this page by
-  #           using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
-  # consent:
-  #   title: Cookie consent
-  #   description: >- 
-  #     我们也使用cookies来识别您的重复访问和偏好来衡量我们文档的有效性以及用户是否找到他们要找的东西。
-  #     如果你同意,你可以帮助我们让我们的网站更好~
-    #描述
-      
-plugins:
-  - search
-  - tags  #标签
+
+plugins: []
+
+# Customization
+extra:
+  disqus: 'Eliauk'
+  copyright: '<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh">CC BY-SA 4.0</a> 和 <a href="https://github.com/zTrix/sata-license">SATA</a>'
+  pagetime: 'on'
+  manifest: 'manifest.webmanifest'
+  githash: ''
+  analytics:
+    provider: google
+    property: UA-124485594-1
+
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# Extensions
 markdown_extensions:
   - abbr
   - pymdownx.caret
@@ -94,11 +108,3 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences # 代码块高亮插件
   - meta # 支持Markdown文件上方自定义标题标签等
-     
-extra_javascript:
-  - javascripts/extra.js
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-extra_css:
-  - stylesheets/extra.css
