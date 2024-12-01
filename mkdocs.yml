@@ -113,14 +113,7 @@ markdown_extensions:
 extra_javascript:
   - javascripts/extra.js
   - javascripts/mathjax.js
-  - javascripts/mathjax.js
-  - javascripts/katex.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://unpkg.com/katex@0/dist/katex.min.js
-  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
-  
 extra_css:
   - stylesheets/extra.css
-  - https://unpkg.com/katex@0/dist/katex.min.css
- 
