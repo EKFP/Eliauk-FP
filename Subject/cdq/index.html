@@ -768,6 +768,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要内容
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -817,6 +826,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      主要内容
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -840,7 +858,7 @@
 <h2 id="_1">引入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <details class="note" open="open">
 <summary>模板</summary>
-<p>给定 <span class="arithmatex">\(n\)</span> 个三维点 <span class="arithmatex">\((x_i, y_i, z_i)\)</span>。<span class="arithmatex">\(q\)</span> 次查询，每次查询给定点 <span class="arithmatex">\((x_0, y_0, z_0)\)</span>，求满足 <span class="arithmatex">\(x_0 \leq x_j, y_0 \leq y_j, z_0 \leq z_j\)</span> 的点 <span class="arithmatex">\((x_j, y_j, z_j)\)</span> 的数量。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个三维点 <span class="arithmatex">\((x_i, y_i, z_i)\)</span>。<span class="arithmatex">\(q\)</span> 次查询，每次查询给定点 <span class="arithmatex">\((x_0, y_0, z_0)\)</span>，求满足 <span class="arithmatex">\(x_0 \leq x_j, y_0 \leq y_j, z_0 \leq z_j\)</span> 的 <span class="arithmatex">\(j(j \neq 0)\)</span> 的数量。</p>
 </details>
 <p>这相当于查询一个八分之一空间内点的个数。常见的做法有 CDQ 分治、树套树、KDT 等。这篇文章中主要讨论 CDQ 分治做法。</p>
 <details class="note">
@@ -851,6 +869,15 @@
 <li>KDT：<span class="arithmatex">\((n + q)\sqrt{n}\)</span>。</li>
 </ul>
 </details>
+<h2 id="_2">主要内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们结合一道例题来讲解 CDQ 分治的主要内容。</p>
+<details class="note" open="open">
+<summary><a href="https://www.luogu.com.cn/problem/P3810">P3810</a></summary>
+<p>给定 <span class="arithmatex">\(n\)</span> 个三维点 <span class="arithmatex">\((x_i, y_i, z_i)\)</span>。对于每个 <span class="arithmatex">\(i\)</span>，求满足 <span class="arithmatex">\(x_i \leq x_j, y_i \leq y_j, z_i \leq z_j\)</span> 的 <span class="arithmatex">\(j(j \neq i)\)</span> 的数量。</p>
+</details>
+<p>我们已经知道二维数点的做法了，那么现在是三维数点。如果我们能想办法去掉一维，那么题目也就好做多了。</p>
+<p>CDQ 分治给出的方法是，对第一维 <span class="arithmatex">\(x\)</span> 的<strong>值域</strong>进行分治。具体地，对于区间 <span class="arithmatex">\([l, r]\)</span>，把它分为 <span class="arithmatex">\([l, mid]\)</span> 和 <span class="arithmatex">\([mid, r]\)</span> 两个区间，其中 <span class="arithmatex">\(mid\)</span> 是区间 <span class="arithmatex">\([l, r]\)</span> 的中点。</p>
+<p>显然，左区间点的 <span class="arithmatex">\(x\)</span> 值一定小于等于右区间。这样，左区间的<strong>所有</strong>点都会对右区间的<strong>询问</strong>点产生贡献。这时，这一维已经满足偏序了，我们只需要统计剩下两维的偏序数量，这就是经典的二维数点问题。</p>
 
 
 
