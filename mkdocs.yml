@@ -17,6 +17,7 @@ nav:
     - CF998: CodeForces/CF998.md
   - 专题:
     - 二维数点: Subject/2D-Point.md
+    - CDQ 分治: Subject/cdq.md
 
 #[UI]
 theme:
@@ -87,10 +88,12 @@ plugins:
   - search
   - tags  #标签
 markdown_extensions:
+  - admonition
   - abbr
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.details
   - md_in_html
   - pymdownx.arithmatex:  # latex支持
       generic: true
@@ -102,7 +105,6 @@ markdown_extensions:
       # auto_title: true # 显示编程语言名称
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji

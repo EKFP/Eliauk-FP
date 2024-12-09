@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/AtCoder/AT_dp_sol/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF404/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF520/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF558/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF628/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF847/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/CodeForces/CF998/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
     </url>
     <url>
          <loc>https://ekfp.github.io/Eliauk-FP/Subject/2D-Point/</loc>
-         <lastmod>2024-12-01</lastmod>
+         <lastmod>2024-12-08</lastmod>
+    </url>
+    <url>
+         <loc>https://ekfp.github.io/Eliauk-FP/Subject/cdq/</loc>
+         <lastmod>2024-12-08</lastmod>
     </url>
 </urlset>
