@@ -923,7 +923,94 @@ $$
 
 【解题思路】
 
-比较复杂的计数 DP，先咕了。
+注意到 $N$ 的范围较小，考虑从障碍物入手。
+
+!!! note "引理"
+    从点 $(x_1, y_1)$ 走到 $(x_2, y_2)$，一共有 ${x_2-x_1+y_2-y_1 \choose x_2-x_1}$ 种走法。
+
+??? note "证明"
+    一共需要走 $x_2-x_1+y_2-y_1$ 步，其中需要选取 $x_2-x_1$ 步走在 $x$ 轴方向上。
+
+设 $f_i$ 为从 $(1,1)$ 走到第 $i$ 个障碍物的方案数。为了方便处理，记点 $(H,W)$ 为第 $N+1$ 个障碍物，那么答案即为 $f_{N+1}$。
+
+如何转移？考虑容斥。$f_i$ 即为从 $(1,1)$ 走到 $(r_i,c_i)$ 的方案数（不考虑障碍物），减去至少经过一个障碍物的方案数。
+
+显然，只有这个点左上角的障碍物才会对 $f_i$ 产生影响，枚举障碍物转移即可。
+
+具体地，有状态转移方程
+
+$$
+f_i = {r_i+c_i-2\choose r_i-1} - \sum_{1\leq j\leq N \land i\neq j \land r_j\leq r_i \land c_j\leq c_i}f_j+{r_i-r_j+c_i-c_j \choose c_i-c_j}
+$$
+
+注意先对点排序，以确保转移顺序合法。具体实现见代码。
+
+<details> 
+<summary> Code </summary>
+
+```cpp
+#include <bits/stdc++.h>
+#define int long long 
+using namespace std;
+
+const int N = 2e5 + 10;
+const int P = 1e9 + 7;
+int h, w, n;
+int f[N];
+int fac[N], inv[N];
+
+struct node{
+    int x, y;
+    bool operator < (const node &tx) const {
+        if (x == tx.x) return y < tx.y;
+        return x < tx.x;
+    }
+}a[N];
+
+int qp(int a, int b) {
+    int as = 1;
+    while (b) {
+        if (b & 1) {
+            as = (as * a) % P;
+        }
+        a = (a * a) % P;
+        b >>= 1;
+    }
+    return as % P;
+}
+int C(int n, int m) {
+    if (n < m) return 0;
+    return fac[n] * inv[m] % P * inv[n - m] % P;
+}
+
+signed main() {
+    cin >> h >> w >> n;
+    for (int i = 1; i <= n; i++) {
+        cin >> a[i].x >> a[i].y;
+    }
+    fac[0] = inv[0] = 1;
+    for (int i = 1; i < N; i++) {
+        fac[i] = fac[i - 1] * i % P;
+        inv[i] = qp(fac[i], P - 2) % P;
+    }
+    sort(a + 1, a + n + 1);
+    a[n + 1].x = h, a[n + 1].y = w;
+    f[0] = 1ll;
+    for (int i = 1; i <= n + 1; i++) {
+        int tx = a[i].x, ty = a[i].y;
+        f[i] = C(tx + ty - 2, tx - 1) % P;
+        for (int j = 1; j < i; j++) {
+            int nx = a[j].x, ny = a[j].y;
+            if (nx > tx || ny > ty) continue;
+            f[i] = (f[i] - (f[j] * C(tx - nx + ty - ny, tx - nx)) % P + P) % P;
+        }
+    }
+    cout << f[n + 1] % P;
+    return 0;
+}
+```
+
+</details>
 
 ----
 
