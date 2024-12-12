@@ -1970,7 +1970,23 @@ g_u = g_{F_u} \times \prod_{v \in S_{F_u} \land v\neq u} (g_v + 1) + 1
 <li><span class="arithmatex">\(2 \leq H, W \leq 10^5\)</span>，<span class="arithmatex">\(1 \leq N \leq 3000\)</span>。</li>
 </ul>
 <p>【解题思路】</p>
-<p>比较复杂的计数 DP，先咕了。</p>
+<p>注意到 <span class="arithmatex">\(N\)</span> 的范围较小，考虑从障碍物入手。</p>
+<div class="admonition note 引理">
+<p class="admonition-title">Note</p>
+<p>从点 <span class="arithmatex">\((x_1, y_1)\)</span> 走到 <span class="arithmatex">\((x_2, y_2)\)</span>，一共有 <span class="arithmatex">\({x_2-x_1+y_2-y_1 \choose x_2-x_1}\)</span> 种走法。</p>
+</div>
+<details class="note 证明">
+<summary>Note</summary>
+<p>一共需要走 <span class="arithmatex">\(x_2-x_1+y_2-y_1\)</span> 步，其中需要选取 <span class="arithmatex">\(x_2-x_1\)</span> 步走在 <span class="arithmatex">\(x\)</span> 轴方向上。</p>
+</details>
+<p>设 <span class="arithmatex">\(f_i\)</span> 为从 <span class="arithmatex">\((1,1)\)</span> 走到第 <span class="arithmatex">\(i\)</span> 个障碍物的方案数。为了方便处理，记点 <span class="arithmatex">\((H,W)\)</span> 为第 <span class="arithmatex">\(N+1\)</span> 个障碍物，那么答案即为 <span class="arithmatex">\(f_{N+1}\)</span>。</p>
+<p>如何转移？考虑容斥。<span class="arithmatex">\(f_i\)</span> 即为从 <span class="arithmatex">\((1,1)\)</span> 走到 <span class="arithmatex">\((r_i,c_i)\)</span> 的方案数（不考虑障碍物），减去至少经过一个障碍物的方案数。</p>
+<p>显然，只有这个点左上角的障碍物才会对 <span class="arithmatex">\(f_i\)</span> 产生影响，枚举障碍物转移即可。</p>
+<p>具体地，有状态转移方程</p>
+<div class="arithmatex">\[
+f_i = {r_i+c_i-2\choose r_i-1} - \sum_{1\leq j\leq N \land i\neq j \land r_j\leq r_i \land l_j\leq l_i}f_j+{r_i-r_j+l_i-l_j \choose l_i-l_j}
+\]</div>
+<p>注意先对点排序，以确保转移顺序合法。</p>
 <hr />
 <h2 id="z-frog-3">Z. Frog 3<a class="headerlink" href="#z-frog-3" title="Permanent link">&para;</a></h2>
 <p>【题目大意】</p>
