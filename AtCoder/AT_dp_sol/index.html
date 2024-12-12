@@ -1984,7 +1984,7 @@ g_u = g_{F_u} \times \prod_{v \in S_{F_u} \land v\neq u} (g_v + 1) + 1
 <p>显然，只有这个点左上角的障碍物才会对 <span class="arithmatex">\(f_i\)</span> 产生影响，枚举障碍物转移即可。</p>
 <p>具体地，有状态转移方程</p>
 <div class="arithmatex">\[
-f_i = {r_i+c_i-2\choose r_i-1} - \sum_{1\leq j\leq N \land i\neq j \land r_j\leq r_i \land l_j\leq l_i}f_j+{r_i-r_j+l_i-l_j \choose l_i-l_j}
+f_i = {r_i+c_i-2\choose r_i-1} - \sum_{1\leq j\leq N \land i\neq j \land r_j\leq r_i \land c_j\leq c_i}f_j+{r_i-r_j+c_i-c_j \choose c_i-c_j}
 \]</div>
 <p>注意先对点排序，以确保转移顺序合法。具体实现见代码。</p>
 <details> 
