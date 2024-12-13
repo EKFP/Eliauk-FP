@@ -1045,7 +1045,7 @@
 <p><img alt="" src="../images/img2.png" /></p>
 <p>那么我们使用绿色部分的排名（即原排名，<span class="arithmatex">\(rk\)</span> 数组）为第一关键字，黄色部分的排名（即对于后缀 <span class="arithmatex">\(i\)</span>，第一个图的蓝色部分是后缀 <span class="arithmatex">\(i + 2\)</span>，那么黄色部分的排名即为后缀 <span class="arithmatex">\(i + 2\)</span> 的原排名，即 <span class="arithmatex">\(rk[i + 2]\)</span>）为第二关键字，进行排序，结果如下：</p>
 <p><img alt="" src="../images/img3.png" /></p>
-<p>很好，现在绿色部分（已排序部分）的长度由 <span class="arithmatex">\(2\)</span> 变为了 <span class="arithmatex">\(4\)</span>。我们接下来再选取长度为 <span class="arithmatex">\(4\)</span> 的黄色部分，这样，我们就成功对后缀的前 <span class="arithmatex">\(8\)</span> 个字符排序了。以此类推，我们每次都倍增排序长度，并且重复以上操作，那么我们就可以在 <span class="arithmatex">\(O(n \log^2{n})\)</span> 的复杂度内解决掉这个问题了（排序 <span class="arithmatex">\(n\log n\)</span>，倍增 <span class="arithmatex">\(\log n\)</span>）。</p>
+<p>很好，现在绿色部分（已排序部分）的长度由 <span class="arithmatex">\(2\)</span> 变为了 <span class="arithmatex">\(4\)</span>。我们接下来再选取长度为 <span class="arithmatex">\(4\)</span> 的黄色部分，这样，我们就成功对后缀的前 <span class="arithmatex">\(8\)</span> 个字符排序了。以此类推，我们每次都倍增排序长度，并且重复以上操作，那么我们就可以在 <span class="arithmatex">\(O(n \log^2{n})\)</span> 的复杂度内解决掉这个问题了（排序 <span class="arithmatex">\(O(n\log n)\)</span>，倍增 <span class="arithmatex">\(O(\log n)\)</span>）。</p>
 <details class="note" open="open">
 <summary>形式化的解法</summary>
 <p>设需要排序长度为 <span class="arithmatex">\(w\)</span>。</p>
