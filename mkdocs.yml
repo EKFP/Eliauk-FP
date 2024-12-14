@@ -18,6 +18,8 @@ nav:
   - 专题:
     - 二维数点: Subject/2D-Point.md
     - CDQ 分治: Subject/cdq.md
+  - 学习笔记:
+    - 后缀数组: Notes/SA.md
 
 #[UI]
 theme:
