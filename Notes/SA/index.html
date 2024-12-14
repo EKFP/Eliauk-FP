@@ -1024,6 +1024,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#textlcp-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{LCP Theorem}\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1262,6 +1271,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#textlcp-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{LCP Theorem}\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1433,7 +1451,7 @@ H[i+1] &amp;= \text{lcp}(i+1,sa[p-1]) \\
 H[i] \geq H[i-1]-1
 \]</div>
 <p>证毕。</p>
-<p>注：证明中与 <span class="arithmatex">\(\text{lcp}(i,j)\)</span> 和 <span class="arithmatex">\(\text{suf}(i)\)</span> 有关的引理的证明在附录。即，本证明中“显然”的部分均在附录中给出详细说明。</p>
+<p>注：证明中与 <span class="arithmatex">\(\text{lcp}(i,j)\)</span> 和 <span class="arithmatex">\(\text{suf}(i)\)</span> 有关的引理的详细说明在附录。</p>
 </details>
 <h4 id="_6">求法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>利用上面的引理，我们可以暴力地求出 <span class="arithmatex">\(ht\)</span> 数组，代码如下：</p>
@@ -1504,9 +1522,46 @@ H[i] \geq H[i-1]-1
 <p>综上所述，有 <span class="arithmatex">\(q \geq p\)</span>，且 <span class="arithmatex">\(q \leq p\)</span>，则 <span class="arithmatex">\(q = p\)</span>，所以 <span class="arithmatex">\(\text{lcp}(i,k) = p\)</span>，即 <span class="arithmatex">\(\text{lcp}(i,k) = \min\{\text{lcp}(i,j),\text{lcp}(j,k)\}\)</span>。</p>
 <p>证毕。</p>
 </details>
+<h4 id="textlcp-theorem"><span class="arithmatex">\(\text{LCP Theorem}\)</span><a class="headerlink" href="#textlcp-theorem" title="Permanent link">&para;</a></h4>
+<p>设 <span class="arithmatex">\(i &lt; j\)</span>，有</p>
+<div class="arithmatex">\[
+\text{lcp}(i, j) = \min_{i &lt; k \leq j}\{\text{lcp}(k-1, k)\}
+\]</div>
+<p>这其实就是 <span class="arithmatex">\(\text{Height}\)</span> 数组的第一个应用。</p>
+<details class="note" open="open">
+<summary>证明</summary>
+<p>令 <span class="arithmatex">\(j=i+x\)</span>，原命题等价于</p>
+<div class="arithmatex">\[
+\text{lcp}(i, i+t) = \min_{1 &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
+\]</div>
+<p>对 <span class="arithmatex">\(t\)</span> 使用数学归纳法，当 <span class="arithmatex">\(t=1\)</span> 或 <span class="arithmatex">\(t=2\)</span> 时显然成立。</p>
+<p>由 <span class="arithmatex">\(\text{LCP Lemma}\)</span>，有</p>
+<div class="arithmatex">\[
+\text{lcp}(i, i+t) = \min\{\text{lcp}(i, i+t-1),\text{lcp}(i+t-1,i+t)\}
+\]</div>
+<p>由归纳假设，有</p>
+<div class="arithmatex">\[
+\text{lcp}(i, i+t-1) = \min_{1 &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\}
+\]</div>
+<p>即</p>
+<div class="arithmatex">\[
+\text{lcp}(i, i+t) = \min\{\min_{1 &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\},\text{lcp}(i+t-1,i+t)\}
+\]</div>
+<p>即 </p>
+<div class="arithmatex">\[
+\text{lcp}(i, i+t) = \min_{1 &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
+\]</div>
+<p>证毕。</p>
+</details>
 <h3 id="_11">参考资料<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
 <p><a href="https://oi-wiki.org/string/sa/">后缀数组简介 - OI Wiki</a></p>
+</li>
+<li>
 <p><a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2004%E8%AE%BA%E6%96%87%E9%9B%86/%E8%AE%B8%E6%99%BA%E7%A3%8A--%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf">国家集训队2004论文-许智磊-后缀数组</a></p>
+</li>
+</ol>
 
 
 
