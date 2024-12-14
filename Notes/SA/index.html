@@ -1359,22 +1359,22 @@ H[i] \geq H[i-1]-1
 </details>
 <h4 id="_7">应用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p><span class="arithmatex">\(\text{Height}\)</span> 数组应用十分广泛。</p>
-<div class="admonition note">
-<p class="admonition-title">子串的最长公共前缀</p>
+<details class="note" open="open">
+<summary>子串的最长公共前缀</summary>
 <p>有</p>
 <div class="arithmatex">\[
 \text{lcp}(sa[i], sa[j]) = \min_{i &lt; k \leq j} \{ht[k]\}
 \]</div>
 <p>这样，我们可以将原问题转化为 RMQ 问题，容易使用 ST 表或者线段树维护。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">不同字串的数目</p>
+</details>
+<details class="note">
+<summary>不同字串的数目</summary>
 <p>答案为</p>
 <div class="arithmatex">\[
 \frac{n(n + 1)}{2} - \sum_{i=2}^n ht[i]
 \]</div>
 <p>证明略。</p>
-</div>
+</details>
 <p>更多 <span class="arithmatex">\(ht\)</span> 数组的应用我们结合例题来分析。</p>
 <h2 id="_8">例题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="p3809"><a href="https://www.luogu.com.cn/problem/P3809">P3809 【模板】后缀排序</a><a class="headerlink" href="#p3809" title="Permanent link">&para;</a></h3>
