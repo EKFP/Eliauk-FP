@@ -943,6 +943,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#textlcp-corollary" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{LCP Corollary}\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1169,6 +1178,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#textlcp-corollary" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\text{LCP Corollary}\)
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1370,8 +1388,10 @@
 <h2 id="textheight"><span class="arithmatex">\(\text{Height}\)</span> 数组<a class="headerlink" href="#textheight" title="Permanent link">&para;</a></h2>
 <p>这部分主要讲解 <span class="arithmatex">\(\text{Height}\)</span> 数组，记为 <span class="arithmatex">\(ht[i]\)</span>。</p>
 <h3 id="_4">最长公共前缀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>对于字符串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span>，定义其最长公共前缀 <span class="arithmatex">\(\text{LCP}\)</span> 为最大的 <span class="arithmatex">\(k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})\)</span>，使得对于任意 <span class="arithmatex">\(i(1 \leq i \leq k)\)</span>，有 <span class="arithmatex">\(S_i = T_i\)</span>。</p>
-<p>记 <span class="arithmatex">\(\text{lcp}(i, j)\)</span> 为后缀 <span class="arithmatex">\(i\)</span> 与后缀 <span class="arithmatex">\(j\)</span> 的最长公共前缀。</p>
+<p>记 <span class="arithmatex">\(\text{suf}(i)\)</span> 表示后缀 <span class="arithmatex">\(i\)</span>。</p>
+<p>对于字符串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span>，定义其最长公共前缀 <span class="arithmatex">\(\text{LCP}(S,T)\)</span> 为最大的 <span class="arithmatex">\(k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})\)</span>，使得对于任意 <span class="arithmatex">\(i(1 \leq i \leq k)\)</span>，有 <span class="arithmatex">\(S_i = T_i\)</span>。</p>
+<p>记 <span class="arithmatex">\(\text{lcp}(i, j)\)</span> 为后缀 <span class="arithmatex">\(sa[i]\)</span> 与后缀 <span class="arithmatex">\(sa[j]\)</span> 的最长公共前缀的长度。</p>
+<p>容易知道 <span class="arithmatex">\(\text{lcp}(i, j) = \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j]))\)</span></p>
 <h4 id="textlcp-lemma"><span class="arithmatex">\(\text{LCP Lemma}\)</span><a class="headerlink" href="#textlcp-lemma" title="Permanent link">&para;</a></h4>
 <p>对任意 <span class="arithmatex">\(1 \leq i &lt; j &lt; k \leq n\)</span>，有</p>
 <div class="arithmatex">\[
@@ -1393,7 +1413,6 @@
 <div class="arithmatex">\[
 \text{lcp}(i, j) = \min_{i &lt; k \leq j}\{\text{lcp}(k-1, k)\}
 \]</div>
-<p>这其实就是 <span class="arithmatex">\(\text{Height}\)</span> 数组的第一个应用。</p>
 <details class="note" open="open">
 <summary>证明</summary>
 <p>令 <span class="arithmatex">\(j=i+t\)</span>，原命题等价于</p>
@@ -1419,10 +1438,16 @@
 \]</div>
 <p>证毕。</p>
 </details>
+<h4 id="textlcp-corollary"><span class="arithmatex">\(\text{LCP Corollary}\)</span><a class="headerlink" href="#textlcp-corollary" title="Permanent link">&para;</a></h4>
+<p>对于 <span class="arithmatex">\(i \leq j &lt; k\)</span>，有</p>
+<div class="arithmatex">\[
+\text{lcp}(j, k) \geq \text{lcp}(i, k)
+\]</div>
+<p>利用 <span class="arithmatex">\(\text{LCP Theorem}\)</span>，证明显然。</p>
 <h3 id="_5">基本定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>有定义</p>
 <div class="arithmatex">\[
-ht[i] = \text{lcp}(sa[i], sa[i - 1])
+ht[i] = \text{lcp}(i-1,i)
 \]</div>
 <p>其中 <span class="arithmatex">\(ht[1] = 0\)</span>。</p>
 <p>定义数组 <span class="arithmatex">\(H[i]\)</span>，有 <span class="arithmatex">\(H[i] = ht[rk[i]]\)</span>，即 <span class="arithmatex">\(ht[i] = H[sa[i]]\)</span>。</p>
@@ -1431,35 +1456,43 @@ ht[i] = \text{lcp}(sa[i], sa[i - 1])
 <div class="arithmatex">\[
 H[i] \geq H[i - 1] - 1
 \]</div>
-<div class="admonition note">
-<p class="admonition-title">证明</p>
+<details class="note" open="open">
+<summary>证明</summary>
 <p>若 <span class="arithmatex">\(H[i] \leq 1\)</span>，引理显然成立，下面我们讨论 <span class="arithmatex">\(H[i] &gt; 1\)</span> 的情况。</p>
-<p>首先，显然有 <span class="arithmatex">\(\text{lcp}(i+1,j+1) = \text{lcp}(i,j)-1\)</span>（有 <span class="arithmatex">\(\text{lcp}(i,j) \geq 1\)</span>），这相当于把两个后缀都往后移了一个字符，证明略。</p>
-<p>设 <span class="arithmatex">\(sa[j] = i\)</span>，<span class="arithmatex">\(sa[j - 1] = k\)</span>，那么有</p>
-<div class="arithmatex">\[
-H[i] = ht[j] = \text{lcp}(sa[j], sa[j - 1]) = \text{lcp}(i, k)
-\]</div>
-<p>记 <span class="arithmatex">\(\text{suf}(i)\)</span> 表示后缀 <span class="arithmatex">\(i\)</span>，显然 <span class="arithmatex">\(\text{suf}(k) &lt; \text{suf}(i)\)</span>，那么容易知道 <span class="arithmatex">\(\text{suf}(k + 1) &lt; \text{suf}(i + 1)\)</span>。</p>
-<p>记 <span class="arithmatex">\(p = rk[i+1]\)</span>，那么有 </p>
-<div class="arithmatex">\[
-\text{suf}(i + 1) &gt; \text{suf}(sa[p-1]) \geq \text{suf}(k + 1)
-\]</div>
-<p>应用 则有</p>
+<p>首先，显然有 <span class="arithmatex">\(\text{LCP}(\text{suf}(i+1),\text{suf}(j+1)) = \text{LCP}(\text{suf}(i),\text{suf}(j))-1\)</span>（有 <span class="arithmatex">\(\text{LCP}(\text{suf}(i),\text{suf}(j)) \geq 1\)</span>），这相当于把两个后缀都往后移了一个字符，证明略。记上述性质为性质 X。</p>
+<p>记 <span class="arithmatex">\(j=sa[rk[i-1]-1]\)</span>。显然有 <span class="arithmatex">\(\text{suf}(j) &lt; \text{suf}(i-1)\)</span>。</p>
+<p>根据 <span class="arithmatex">\(H\)</span> 数组的定义，有</p>
 <div class="arithmatex">\[
 \begin{aligned}
-H[i+1] &amp;= \text{lcp}(i+1,sa[p-1]) \\
-       &amp;\geq \text{lcp}(i+1,k+1) \\
-       &amp;= \text{lcp}(i,k) - 1 \\
-       &amp;= H[i] - 1
+H[i-1] &amp;= ht[rk[i-1]] \\
+       &amp;= \text{lcp}(rk[i-1]-1,rk[i-1]) \\
+       &amp;= \text{LCP}(\text{suf}(sa[rk[i-1]-1]),\text{suf}(sa[rk[i-1]])) \\
+       &amp;= \text{LCP}(\text{suf}(j),\text{suf}(i-1)) 
 \end{aligned}
+\]</div>
+<p>由性质 X，有</p>
+<div class="arithmatex">\[
+\text{LCP}(\text{suf}(j+1),\text{suf}(i)) = H[i-1]-1
+\]</div>
+<p>易知 <span class="arithmatex">\(rk[j+1]&lt;rk[i]\)</span>，即 <span class="arithmatex">\(rk[j+1] \leq rk[i] - 1\)</span>。因为后缀 <span class="arithmatex">\(j\)</span> 和 <span class="arithmatex">\(i-1\)</span> 的 <span class="arithmatex">\(\text{LCP}\)</span> 至少为 <span class="arithmatex">\(1\)</span>，且有 <span class="arithmatex">\(rk[j] &lt; rk[i-1]\)</span>，去掉第一个字符即可。</p>
+<p>根据 <span class="arithmatex">\(\text{LCP Corollary}\)</span>，有</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\text{lcp}(rk[i]-1,rk[i]) &amp;\geq \text{lcp}(rk[j+1],rk[i]) \\
+&amp;= \text{LCP}(\text{suf}(rk[j+1]),\text{suf}(rk[i])) \\
+&amp;= H[i-1]-1
+\end{aligned}
+\]</div>
+<p>再根据 <span class="arithmatex">\(H\)</span> 数组定义，有</p>
+<div class="arithmatex">\[
+H[i] = \text{lcp}(rk[i]-1,rk[i])
 \]</div>
 <p>即</p>
 <div class="arithmatex">\[
 H[i] \geq H[i-1]-1
 \]</div>
 <p>证毕。</p>
-<p>注：证明中与 <span class="arithmatex">\(\text{lcp}(i,j)\)</span> 和 <span class="arithmatex">\(\text{suf}(i)\)</span> 有关的引理的详细说明在附录。</p>
-</div>
+</details>
 <h3 id="_7">求法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>利用上面的引理，我们可以暴力地求出 <span class="arithmatex">\(ht\)</span> 数组，代码如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">g_hei</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
