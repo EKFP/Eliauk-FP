@@ -1041,9 +1041,9 @@
 <p>对于字符串 <span class="arithmatex">\(s\)</span> 的所有后缀，它们有大量重复部分，而直接排序就会进行大量重复比较，不如换个角度入手。</p>
 <p>我们先从一组数据入手。对于 <span class="arithmatex">\(s = \texttt{abbaaaba}\)</span>，我们先以每个后缀第一个字符为第一关键字，第二个字符为第二关键字进行排序，其实也就是对于每个后缀的前两个字符进行排序，结果如下：</p>
 <p><img alt="" src="../images/img1.png" /></p>
-<p>观察这些后缀，我们发现，绿色部分是已经有序了，也就是说我们知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是一个后缀，那么其实我们也知道下图中黄色部分的排名：</p>
+<p>根据上面的定义，绿色部分的排名即为 <span class="arithmatex">\(rk\)</span> 数组。观察这些后缀，我们现在知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是后缀，那么其实我们也知道下图中黄色部分的排名：</p>
 <p><img alt="" src="../images/img2.png" /></p>
-<p>那么我们使用绿色部分的排名（即原排名，<span class="arithmatex">\(rk\)</span> 数组）为第一关键字，黄色部分的排名（即对于后缀 <span class="arithmatex">\(i\)</span>，第一个图的蓝色部分是后缀 <span class="arithmatex">\(i + 2\)</span>，那么黄色部分的排名即为后缀 <span class="arithmatex">\(i + 2\)</span> 的原排名，即 <span class="arithmatex">\(rk[i + 2]\)</span>）为第二关键字，进行排序，结果如下：</p>
+<p>那么我们使用绿色部分的排名（即原排名，<span class="arithmatex">\(rk\)</span> 数组）为第一关键字，黄色部分的排名（即对于后缀 <span class="arithmatex">\(i\)</span>，第一个图中的蓝色部分是后缀 <span class="arithmatex">\(i + 2\)</span>，那么黄色部分的排名即为后缀 <span class="arithmatex">\(i + 2\)</span> 的原排名，即 <span class="arithmatex">\(rk[i + 2]\)</span>）为第二关键字，进行排序，结果如下：</p>
 <p><img alt="" src="../images/img3.png" /></p>
 <p>很好，现在绿色部分（已排序部分）的长度由 <span class="arithmatex">\(2\)</span> 变为了 <span class="arithmatex">\(4\)</span>。我们接下来再选取长度为 <span class="arithmatex">\(4\)</span> 的黄色部分，这样，我们就成功对后缀的前 <span class="arithmatex">\(8\)</span> 个字符排序了。以此类推，我们每次都倍增排序长度，并且重复以上操作，那么我们就可以在 <span class="arithmatex">\(O(n \log^2{n})\)</span> 的复杂度内解决掉这个问题了（排序 <span class="arithmatex">\(O(n\log n)\)</span>，倍增 <span class="arithmatex">\(O(\log n)\)</span>）。</p>
 <details class="note" open="open">
