@@ -1579,12 +1579,12 @@ H[i] \geq H[i-1]-1
 <h3 id="p2852-usaco06dec-milk-patterns-g"><a href="https://www.luogu.com.cn/problem/P2852">P2852 [USACO06DEC] Milk Patterns G</a><a class="headerlink" href="#p2852-usaco06dec-milk-patterns-g" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
-<p>给你一个字符串，求出现至少 k 次的子串的最大长度。</p>
+<p>给你一个字符串，求出现至少 <span class="arithmatex">\(k\)</span> 次的子串的最大长度。</p>
 </details>
 <p>先求后缀数组和 <span class="arithmatex">\(ht\)</span> 数组，这样问题转化为排序后找到连续 <span class="arithmatex">\(k\)</span> 个后缀，使得它们的 <span class="arithmatex">\(\text{LCP}\)</span> 最大。其实就是在 <span class="arithmatex">\(ht\)</span> 数组中，求相邻 <span class="arithmatex">\(k-1\)</span> 个值的最小值，最后求这些最小值的最大值，单调队列维护即可。</p>
 <h3 id="p4248-ahoi2013"><a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a><a class="headerlink" href="#p4248-ahoi2013" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
-<summary>Info</summary>
+<summary>题意</summary>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，令 <span class="arithmatex">\(T_i\)</span> 表示它从第 <span class="arithmatex">\(i\)</span> 个字符开始的后缀。求</p>
 <div class="arithmatex">\[ 
 \sum_{1\leq i&lt;j\leq n}\text{len}(T_i)+\text{len}(T_j)-2\times\text{LCP}(T_i,T_j)\]</div>
