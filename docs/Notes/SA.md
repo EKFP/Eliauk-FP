@@ -169,7 +169,7 @@ $$
     令 $j=i+t$，原命题等价于
 
     $$
-    \text{lcp}(i, i+t) = \min_{1 < k \leq i+t}\{\text{lcp}(k-1, k)\}
+    \text{lcp}(i, i+t) = \min_{i < k \leq i+t}\{\text{lcp}(k-1, k)\}
     $$
 
     对 $t$ 使用数学归纳法，当 $t=1$ 或 $t=2$ 时显然成立。
@@ -183,19 +183,19 @@ $$
     由归纳假设，有
 
     $$
-    \text{lcp}(i, i+t-1) = \min_{1 < k \leq i+t-1}\{\text{lcp}(k-1, k)\}
+    \text{lcp}(i, i+t-1) = \min_{i < k \leq i+t-1}\{\text{lcp}(k-1, k)\}
     $$
 
     即
 
     $$
-    \text{lcp}(i, i+t) = \min\{\min_{1 < k \leq i+t-1}\{\text{lcp}(k-1, k)\},\text{lcp}(i+t-1,i+t)\}
+    \text{lcp}(i, i+t) = \min\{\min_{i < k \leq i+t-1}\{\text{lcp}(k-1, k)\},\text{lcp}(i+t-1,i+t)\}
     $$
 
     即 
 
     $$
-    \text{lcp}(i, i+t) = \min_{1 < k \leq i+t}\{\text{lcp}(k-1, k)\}
+    \text{lcp}(i, i+t) = \min_{i < k \leq i+t}\{\text{lcp}(k-1, k)\}
     $$
 
     证毕。
@@ -220,7 +220,7 @@ $$
 
 其中 $ht[1] = 0$。
 
-定义数组 $H[i]$，有 $H[i] = ht[rk[i]]$，即 $ht[i] = H[sa[i]]$。
+定义数组 $H[i]$，有 $H[i] = ht[rk[i]]$，则有 $ht[i] = H[sa[i]]$。
 
 ### 一个重要引理
 
@@ -254,14 +254,14 @@ $$
     \text{LCP}(\text{suf}(j+1),\text{suf}(i)) = H[i-1]-1
     $$
 
-    易知 $rk[j+1]<rk[i]$，即 $rk[j+1] \leq rk[i] - 1$。因为后缀 $j$ 和 $i-1$ 的 $\text{LCP}$ 至少为 $1$，且有 $rk[j] < rk[i-1]$，去掉第一个字符即可。
+    易知 $rk[j+1]<rk[i]$，即 $rk[j+1] \leq rk[i] - 1$。这是因为后缀 $j$ 和 $i-1$ 的 $\text{LCP}$ 至少为 $1$，且有 $rk[j] < rk[i-1]$，去掉第一个字符即可证明。
 
     根据 $\text{LCP Corollary}$，有
 
     $$
     \begin{aligned}
     \text{lcp}(rk[i]-1,rk[i]) &\geq \text{lcp}(rk[j+1],rk[i]) \\
-    &= \text{LCP}(\text{suf}(rk[j+1]),\text{suf}(rk[i])) \\
+    &= \text{LCP}(\text{suf}(j+1),\text{suf}(i)) \\
     &= H[i-1]-1
     \end{aligned}
     $$
@@ -303,6 +303,8 @@ void g_hei() {
 
     这样，总复杂度为 $O(n)$。
 
+    注：上述分析仅供初学者理解，严谨的分析需要用到上面的引理，~~但是我不会，~~所以具体内容见参考资料里的第二篇文章。
+
 ### 一些应用
 
 $\text{Height}$ 数组应用十分广泛。
@@ -311,9 +313,15 @@ $\text{Height}$ 数组应用十分广泛。
     有
 
     $$
-    \text{lcp}(sa[i], sa[j]) = \min_{i < k \leq j} \{ht[k]\}
+    \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j])) = \text{lcp}(i, j) = \min_{i < k \leq j} \{ht[k]\}
     $$
     
+    那么有
+
+    $$
+    \text{LCP}(\text{suf}(i),\text{suf}(j)) = \text{lcp}(rk[i], rk[j]) = \min_{rk[i] < k \leq rk[j]} \{ht[k]\}
+    $$
+
     这样，我们可以将原问题转化为 RMQ 问题，容易使用 ST 表或者线段树维护。
 
     其实这就是 $\text{LCP Theorem}$。
@@ -376,6 +384,8 @@ $$
 $$
 \sum_{1\leq i<j\leq n} \min_{i < k \leq j} ht[k]
 $$
+
+其实应该是 $rk[i]$ 和 $rk[j]$，但是它们覆盖了所有的区间，所以可以直接写成上面那样。
 
 考虑每个 $ht[i]$ 对答案的贡献，设其为 $f[i]$，设 $j(j<i)$ 为最大的满足 $ht[j-1]>ht[i]$ 的数，则 $ht[i]$ 对 $j$ 到 $i$ 都有贡献，则有
 

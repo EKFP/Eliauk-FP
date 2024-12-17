@@ -1453,7 +1453,7 @@
 <summary>证明</summary>
 <p>令 <span class="arithmatex">\(j=i+t\)</span>，原命题等价于</p>
 <div class="arithmatex">\[
-\text{lcp}(i, i+t) = \min_{1 &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
+\text{lcp}(i, i+t) = \min_{i &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
 \]</div>
 <p>对 <span class="arithmatex">\(t\)</span> 使用数学归纳法，当 <span class="arithmatex">\(t=1\)</span> 或 <span class="arithmatex">\(t=2\)</span> 时显然成立。</p>
 <p>由 <span class="arithmatex">\(\text{LCP Lemma}\)</span>，有</p>
@@ -1462,15 +1462,15 @@
 \]</div>
 <p>由归纳假设，有</p>
 <div class="arithmatex">\[
-\text{lcp}(i, i+t-1) = \min_{1 &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\}
+\text{lcp}(i, i+t-1) = \min_{i &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\}
 \]</div>
 <p>即</p>
 <div class="arithmatex">\[
-\text{lcp}(i, i+t) = \min\{\min_{1 &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\},\text{lcp}(i+t-1,i+t)\}
+\text{lcp}(i, i+t) = \min\{\min_{i &lt; k \leq i+t-1}\{\text{lcp}(k-1, k)\},\text{lcp}(i+t-1,i+t)\}
 \]</div>
 <p>即 </p>
 <div class="arithmatex">\[
-\text{lcp}(i, i+t) = \min_{1 &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
+\text{lcp}(i, i+t) = \min_{i &lt; k \leq i+t}\{\text{lcp}(k-1, k)\}
 \]</div>
 <p>证毕。</p>
 </details>
@@ -1486,7 +1486,7 @@
 ht[i] = \text{lcp}(i-1,i)
 \]</div>
 <p>其中 <span class="arithmatex">\(ht[1] = 0\)</span>。</p>
-<p>定义数组 <span class="arithmatex">\(H[i]\)</span>，有 <span class="arithmatex">\(H[i] = ht[rk[i]]\)</span>，即 <span class="arithmatex">\(ht[i] = H[sa[i]]\)</span>。</p>
+<p>定义数组 <span class="arithmatex">\(H[i]\)</span>，有 <span class="arithmatex">\(H[i] = ht[rk[i]]\)</span>，则有 <span class="arithmatex">\(ht[i] = H[sa[i]]\)</span>。</p>
 <h3 id="_6">一个重要引理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>有如下引理</p>
 <div class="arithmatex">\[
@@ -1510,12 +1510,12 @@ H[i-1] &amp;= ht[rk[i-1]] \\
 <div class="arithmatex">\[
 \text{LCP}(\text{suf}(j+1),\text{suf}(i)) = H[i-1]-1
 \]</div>
-<p>易知 <span class="arithmatex">\(rk[j+1]&lt;rk[i]\)</span>，即 <span class="arithmatex">\(rk[j+1] \leq rk[i] - 1\)</span>。因为后缀 <span class="arithmatex">\(j\)</span> 和 <span class="arithmatex">\(i-1\)</span> 的 <span class="arithmatex">\(\text{LCP}\)</span> 至少为 <span class="arithmatex">\(1\)</span>，且有 <span class="arithmatex">\(rk[j] &lt; rk[i-1]\)</span>，去掉第一个字符即可。</p>
+<p>易知 <span class="arithmatex">\(rk[j+1]&lt;rk[i]\)</span>，即 <span class="arithmatex">\(rk[j+1] \leq rk[i] - 1\)</span>。这是因为后缀 <span class="arithmatex">\(j\)</span> 和 <span class="arithmatex">\(i-1\)</span> 的 <span class="arithmatex">\(\text{LCP}\)</span> 至少为 <span class="arithmatex">\(1\)</span>，且有 <span class="arithmatex">\(rk[j] &lt; rk[i-1]\)</span>，去掉第一个字符即可证明。</p>
 <p>根据 <span class="arithmatex">\(\text{LCP Corollary}\)</span>，有</p>
 <div class="arithmatex">\[
 \begin{aligned}
 \text{lcp}(rk[i]-1,rk[i]) &amp;\geq \text{lcp}(rk[j+1],rk[i]) \\
-&amp;= \text{LCP}(\text{suf}(rk[j+1]),\text{suf}(rk[i])) \\
+&amp;= \text{LCP}(\text{suf}(j+1),\text{suf}(i)) \\
 &amp;= H[i-1]-1
 \end{aligned}
 \]</div>
@@ -1546,6 +1546,7 @@ H[i] \geq H[i-1]-1
 <p><span class="arithmatex">\(k\)</span> 代表的是 <span class="arithmatex">\(\text{LCP}\)</span> 的长度，显然有 <span class="arithmatex">\(k \leq n\)</span>。</p>
 <p>显然，代码中 <code>k--</code> 语句最多执行 <span class="arithmatex">\(n\)</span> 次，那么 <code>++k</code> 语句最多执行 <span class="arithmatex">\(2 \times n\)</span> 次，这是因为如果多于 <span class="arithmatex">\(2 \times n\)</span> 次，必然有一时刻 <span class="arithmatex">\(k\)</span> 会大于 <span class="arithmatex">\(n\)</span>。</p>
 <p>这样，总复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
+<p>注：上述分析仅供初学者理解，严谨的分析需要用到上面的引理，<sub>~但是我不会，</sub>~所以具体内容见参考资料里的第二篇文章。</p>
 </details>
 <h3 id="_8">一些应用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(\text{Height}\)</span> 数组应用十分广泛。</p>
@@ -1553,7 +1554,11 @@ H[i] \geq H[i-1]-1
 <summary>子串的最长公共前缀</summary>
 <p>有</p>
 <div class="arithmatex">\[
-\text{lcp}(sa[i], sa[j]) = \min_{i &lt; k \leq j} \{ht[k]\}
+\text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j])) = \text{lcp}(i, j) = \min_{i &lt; k \leq j} \{ht[k]\}
+\]</div>
+<p>那么有</p>
+<div class="arithmatex">\[
+\text{LCP}(\text{suf}(i),\text{suf}(j)) = \text{lcp}(rk[i], rk[j]) = \min_{rk[i] &lt; k \leq rk[j]} \{ht[k]\}
 \]</div>
 <p>这样，我们可以将原问题转化为 RMQ 问题，容易使用 ST 表或者线段树维护。</p>
 <p>其实这就是 <span class="arithmatex">\(\text{LCP Theorem}\)</span>。</p>
@@ -1602,6 +1607,7 @@ H[i] \geq H[i-1]-1
 <div class="arithmatex">\[
 \sum_{1\leq i&lt;j\leq n} \min_{i &lt; k \leq j} ht[k]
 \]</div>
+<p>其实应该是 <span class="arithmatex">\(rk[i]\)</span> 和 <span class="arithmatex">\(rk[j]\)</span>，但是它们覆盖了所有的区间，所以可以直接写成上面那样。</p>
 <p>考虑每个 <span class="arithmatex">\(ht[i]\)</span> 对答案的贡献，设其为 <span class="arithmatex">\(f[i]\)</span>，设 <span class="arithmatex">\(j(j&lt;i)\)</span> 为最大的满足 <span class="arithmatex">\(ht[j-1]&gt;ht[i]\)</span> 的数，则 <span class="arithmatex">\(ht[i]\)</span> 对 <span class="arithmatex">\(j\)</span> 到 <span class="arithmatex">\(i\)</span> 都有贡献，则有</p>
 <div class="arithmatex">\[
 f[i] = f[j] + (i - j) \times ht[i]
