@@ -10,28 +10,28 @@
         <meta name="author" content="Eliauk">
       
       
-        <link rel="canonical" href="https://ekfp.github.io/Eliauk-FP/CodeForces/CF404/">
+        <link rel="canonical" href="https://ekfp.github.io/Eliauk-FP/YBTOJ_FBH/Basics/dfs/">
       
       
-        <link rel="prev" href="../../AtCoder/AT_dp_sol/">
+        <link rel="prev" href="../div2/">
       
       
-        <link rel="next" href="../CF520/">
+        <link rel="next" href="../bfs/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
-        <title>CF404 - Eliauk 的博客</title>
+        <title>深度搜索 - Eliauk 的博客</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6f8fc17f.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#a-valera-and-x" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -92,7 +87,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="Eliauk 的博客" class="md-header__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+    <a href="../../.." title="Eliauk 的博客" class="md-header__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CF404
+              深度搜索
             
           </span>
         </div>
@@ -228,7 +223,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   简介
@@ -246,7 +241,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../AtCoder/AT_dp_sol/" class="md-tabs__link">
+        <a href="../../../AtCoder/AT_dp_sol/" class="md-tabs__link">
           
   
   AtCoder
@@ -260,13 +255,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../CodeForces/CF404/" class="md-tabs__link">
           
   
   CodeForces
@@ -284,7 +277,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Subject/2D-Point/" class="md-tabs__link">
+        <a href="../../../Subject/2D-Point/" class="md-tabs__link">
           
   
   专题
@@ -302,7 +295,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Notes/SA/" class="md-tabs__link">
+        <a href="../../../Notes/SA/" class="md-tabs__link">
           
   
   学习笔记
@@ -316,17 +309,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../YBTOJ_FBH/Basics/pdp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../pdp/" class="md-tabs__link">
           
   
   算法竞赛高效进阶
@@ -362,7 +359,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Eliauk 的博客" class="md-nav__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
+    <a href="../../.." title="Eliauk 的博客" class="md-nav__button md-logo" aria-label="Eliauk 的博客" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -432,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AtCoder/AT_dp_sol/" class="md-nav__link">
+      <a href="../../../AtCoder/AT_dp_sol/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -525,28 +522,25 @@
       
   
   
-    
   
   
-  
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -557,7 +551,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             CodeForces
@@ -568,28 +562,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    CF404
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../CodeForces/CF404/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -598,69 +574,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-valera-and-x" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Valera and X
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#b-marathon" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Marathon
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-restore-graph" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Restore Graph
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-minesweeper-1d" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. Minesweeper 1D
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-maze-1d" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. Maze 1D
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -673,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CF520/" class="md-nav__link">
+      <a href="../../../CodeForces/CF520/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -694,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CF558/" class="md-nav__link">
+      <a href="../../../CodeForces/CF558/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CF628/" class="md-nav__link">
+      <a href="../../../CodeForces/CF628/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -736,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CF847/" class="md-nav__link">
+      <a href="../../../CodeForces/CF847/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -757,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CF998/" class="md-nav__link">
+      <a href="../../../CodeForces/CF998/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -825,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Subject/2D-Point/" class="md-nav__link">
+      <a href="../../../Subject/2D-Point/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -846,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Subject/cdq/" class="md-nav__link">
+      <a href="../../../Subject/cdq/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -914,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Notes/SA/" class="md-nav__link">
+      <a href="../../../Notes/SA/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -939,25 +852,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -968,7 +884,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             算法竞赛高效进阶
@@ -979,8 +895,10 @@
                 
   
   
+    
   
   
+  
     
     
     
@@ -988,13 +906,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
         
           
           <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
@@ -1008,7 +924,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
             基础算法
@@ -1022,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Basics/pdp/" class="md-nav__link">
+      <a href="../pdp/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1043,7 +959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Basics/greedy/" class="md-nav__link">
+      <a href="../greedy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1064,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Basics/div2/" class="md-nav__link">
+      <a href="../div2/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1082,10 +998,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Basics/dfs/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1094,6 +1017,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1106,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Basics/bfs/" class="md-nav__link">
+      <a href="../bfs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1175,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../YBTOJ_FBH/Strings/pre/" class="md-nav__link">
+      <a href="../../Strings/pre/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1222,59 +1146,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#a-valera-and-x" class="md-nav__link">
-    <span class="md-ellipsis">
-      A. Valera and X
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#b-marathon" class="md-nav__link">
-    <span class="md-ellipsis">
-      B. Marathon
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c-restore-graph" class="md-nav__link">
-    <span class="md-ellipsis">
-      C. Restore Graph
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-minesweeper-1d" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. Minesweeper 1D
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#d-maze-1d" class="md-nav__link">
-    <span class="md-ellipsis">
-      D. Maze 1D
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1291,132 +1162,9 @@
   
 
 
-  <h1>CF404</h1>
+  <h1>深度搜索</h1>
 
-<h2 id="a-valera-and-x">A. Valera and X<a class="headerlink" href="#a-valera-and-x" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/404/problem/A">Link-CF</a> /
-<a href="https://www.luogu.com.cn/problem/CF404A">Link-Luogu</a></p>
-<p>【题目大意】</p>
-<p>判断一个 <span class="arithmatex">\(n \times n\)</span> 的字符矩阵 <span class="arithmatex">\(A\)</span> 是否合法。称其合法，当且仅当：</p>
-<ul>
-<li>矩阵两条对角线上的字符都相同。</li>
-<li>除了两条对角线以外的地方，字符都相同。</li>
-<li>矩阵不能只由一种字符组成。</li>
-</ul>
-<p>合法输出 <code>YES</code>，否则输出 <code>NO</code>。</p>
-<ul>
-<li><span class="arithmatex">\(3 \leq n \leq 300\)</span>。</li>
-</ul>
-<p>【解题思路】</p>
-<p>注意到 <span class="arithmatex">\(3 \leq n \leq 300\)</span>，模拟即可。</p>
-<hr />
-<h2 id="b-marathon">B. Marathon<a class="headerlink" href="#b-marathon" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/404/problem/B">Link-CF</a> /
-<a href="https://www.luogu.com.cn/problem/CF404B">Link-Luogu</a></p>
-<p><strong>题面看不懂，咕了</strong></p>
-<hr />
-<h2 id="c-restore-graph">C. Restore Graph<a class="headerlink" href="#c-restore-graph" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/404/problem/C">Link-CF</a> /
-<a href="https://www.luogu.com.cn/problem/CF404C">Link-Luogu</a></p>
-<p>【题目大意】</p>
-<p>给定 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(k\)</span>，构造一个无向图，使得从某一点开始到第 <span class="arithmatex">\(i\)</span> 个点最短路为 <span class="arithmatex">\(d_i\)</span>。</p>
-<p>不存在输出 <code>-1</code>。</p>
-<ul>
-<li><span class="arithmatex">\(1 \leq n, k \leq 10 ^ 5\)</span>，<span class="arithmatex">\(1 \leq d_i &lt; n\)</span>，输出的总边数应该不超过 <span class="arithmatex">\(10 ^ 6\)</span> 条。</li>
-</ul>
-<p>【解题思路】</p>
-<p>考虑到构造图较难，我们可以构造树。</p>
-<p>根节点可以选 <span class="arithmatex">\(d_i\)</span> 为 <span class="arithmatex">\(0\)</span> 的点。这样，<span class="arithmatex">\(d_i\)</span> 表示的就是每个点到根节点的距离，即深度。</p>
-<p>知道深度了，我们只需要上一层的向下一层的连边即可。容易证明这样构造是对的。</p>
-<p>不合法情况：</p>
-<ul>
-<li>不存在 <span class="arithmatex">\(d_i\)</span> 为 <span class="arithmatex">\(0\)</span> 的点。</li>
-<li><span class="arithmatex">\(d_i = 0\)</span> 的点不止一个。</li>
-<li>根节点度数 <span class="arithmatex">\(\ge k\)</span>。</li>
-<li>某个节点度数 <span class="arithmatex">\(\ge k - 1\)</span>。即设第 <span class="arithmatex">\(i\)</span> 层（<span class="arithmatex">\(1 \leq i &lt; 最大层数\)</span>）点数为 <span class="arithmatex">\(a\)</span>，第 <span class="arithmatex">\(i + 1\)</span> 层点数为 <span class="arithmatex">\(b\)</span>，有 <span class="arithmatex">\(a \times (k - 1) &lt; b\)</span>。</li>
-</ul>
-<hr />
-<h2 id="d-minesweeper-1d">D. Minesweeper 1D<a class="headerlink" href="#d-minesweeper-1d" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/404/problem/D">Link-CF</a> /
-<a href="https://www.luogu.com.cn/problem/CF404D">Link-Luogu</a></p>
-<p>【题目大意】</p>
-<p>一维扫雷。</p>
-<p>给定一个字符串 <span class="arithmatex">\(s\)</span>，<span class="arithmatex">\(s\)</span> 仅由 <code>0</code>、<code>1</code>、<code>2</code>、<code>*</code>、<code>?</code> 组成，它们表示：</p>
-<ul>
-<li><code>0</code>：它的左边和右边都没有雷。</li>
-<li><code>1</code>：它的左边和右边有一边有雷。</li>
-<li><code>2</code>：它的左边和右边都有雷。</li>
-<li><code>*</code>：它是雷。</li>
-<li><code>?</code>：它未知。</li>
-</ul>
-<p>将 <code>?</code> 替换为其他的任意一个，求总方案数，对 <span class="arithmatex">\(10 ^ 9 + 7\)</span> 取模。</p>
-<p>【解题思路】</p>
-<p>考虑 DP。</p>
-<p>设 <span class="arithmatex">\(f_{i, j}\)</span>，有：</p>
-<ul>
-<li><span class="arithmatex">\(f_{i, 0}\)</span> 表示位置 <span class="arithmatex">\(i - 1\)</span>、<span class="arithmatex">\(i\)</span>、<span class="arithmatex">\(i + 1\)</span> 均无雷。</li>
-<li><span class="arithmatex">\(f_{i, 1}\)</span> 表示位置 <span class="arithmatex">\(i\)</span> 无雷，<span class="arithmatex">\(i - 1\)</span>、<span class="arithmatex">\(i + 1\)</span> 有雷。</li>
-<li><span class="arithmatex">\(f_{i, 2}\)</span> 表示位置 <span class="arithmatex">\(i - 1\)</span> 有雷，<span class="arithmatex">\(i\)</span>、<span class="arithmatex">\(i + 1\)</span> 无雷。</li>
-<li><span class="arithmatex">\(f_{i, 3}\)</span> 表示位置 <span class="arithmatex">\(i + 1\)</span> 有雷，<span class="arithmatex">\(i\)</span>、<span class="arithmatex">\(i - 1\)</span> 无雷。</li>
-<li><span class="arithmatex">\(f_{i, 4}\)</span> 表示位置 <span class="arithmatex">\(i\)</span> 有雷，<span class="arithmatex">\(i - 1\)</span>、<span class="arithmatex">\(i + 1\)</span> 任意。</li>
-</ul>
-<p>有状态转移方程：</p>
-<p>若 <span class="arithmatex">\(s_i\)</span> 为</p>
-<ul>
-<li><code>0</code>，<span class="arithmatex">\(f_{i, 0} = f_{i - 1, 0} + f_{i - 1, 2}\)</span>。</li>
-<li><code>1</code>，<ul>
-<li><span class="arithmatex">\(f_{i, 2} = f_{i - 1, 4}\)</span>。</li>
-<li><span class="arithmatex">\(f_{i, 3} = f_{i - 1, 2}\)</span>。</li>
-</ul>
-</li>
-<li><code>2</code>，<span class="arithmatex">\(f_{i, 1} = f_{i - 1, 4}\)</span>。</li>
-<li><code>*</code>，<span class="arithmatex">\(f_{i, 4} = f_{i - 1, 1} + f_{i - 1, 3} + f_{i - 1, 4}\)</span>。</li>
-<li><code>?</code>，<ul>
-<li><span class="arithmatex">\(f_{i, 0} = f_{i - 1, 0} + f_{i - 1, 2}\)</span>。</li>
-<li><span class="arithmatex">\(f_{i, 1} = f_{i - 1, 4}\)</span>。</li>
-<li><span class="arithmatex">\(f_{i, 2} = f_{i - 1, 4}\)</span>。</li>
-<li><span class="arithmatex">\(f_{i, 3} = f_{i - 1, 0} + f_{i - 1, 2}\)</span>。</li>
-<li><span class="arithmatex">\(f_{i, 4} = f_{i - 1, 1} + f_{i - 1, 3} + f_{i - 1, 4}\)</span>。</li>
-</ul>
-</li>
-</ul>
-<p>初始值 <span class="arithmatex">\(f_{0, 0} = f_{0, 3} = 1\)</span>，答案为 <span class="arithmatex">\(f_{n, 0} + f_{n, 2} + f_{n, 4}\)</span>。</p>
-<hr />
-<h2 id="d-maze-1d">D. Maze 1D<a class="headerlink" href="#d-maze-1d" title="Permanent link">&para;</a></h2>
-<p><a href="https://codeforces.com/contest/404/problem/E">Link-CF</a> /
-<a href="https://www.luogu.com.cn/problem/CF404E">Link-Luogu</a></p>
-<p>【题目大意】</p>
-<p>一个机器人在数轴上的 <span class="arithmatex">\(0\)</span> 点。给一串指令，机器人按照指令走。</p>
-<p>为了使机器人最后一步走到一个从来没来过的位置，我们可以在数轴上放石头。每次机器人被石头卡住他就跳过当前的那个指令。</p>
-<p>问：最少使用石头的前提下，一共有几种放石头方法。</p>
-<p>指令只包含 <code>L</code> 和 <code>R</code>。前者表示往左走，后者表示往右走。</p>
-<ul>
-<li><span class="arithmatex">\(1 \leq 指令长度 \leq 10 ^ 6\)</span>。</li>
-</ul>
-<p>【解题思路】</p>
-<p>结论题。</p>
-<p><strong>结论一：要么不用放石头，要么只放一块石头。并且放的石头一定碰到过。</strong></p>
-<p><strong>证明：</strong></p>
-<p>为了保证使用的石头最少，显然，如果可以不放石头，那么就一定不放。</p>
-<p>如果必须要放石头，必须经过它们，否则可以撤去一块。</p>
-<p>如果不是一块，考虑放两块石头的情况：</p>
-<ul>
-<li>它们在原点同侧，那么必须经过它们之间的所有点，并且最后停留在它们之间，显然最后停留的不是一个从来没来过的位置，不成立。</li>
-<li>它们在原点同侧，那么碰到一块就不会往它后面走，那么它后面的石头也就没有用了，可以撤去。</li>
-</ul>
-<p>多块石头同理。</p>
-<p>证毕。</p>
-<p><strong>结论二：如果最后一步向左走，石头在原点右侧；否则石头在原点左侧。</strong></p>
-<p><strong>证明：</strong></p>
-<p>如果不然，即石头在原点左侧，且最后一步往左走。由于必须碰到石头，所以走过的区间左端点为石头，右端点为这个点，可是最后一次往左走，那么一定会走到这个区间里。反之同理。</p>
-<p>证毕。</p>
-<p><strong>结论三：石头可放的区间为以原点为一个端点的连续区间。</strong></p>
-<p><strong>证明：</strong></p>
-<p>如果可以放石头，那么一定有一个最远的可以放石头的点，记为 <span class="arithmatex">\(x\)</span>。</p>
-<p>考虑石头的作用：拦截操作。如果石头在右边，那么拦截的是 <code>R</code> 操作，否则反之。</p>
-<p>考虑所以比 <span class="arithmatex">\(x\)</span> 小的点。它拦截的操作一定比 <span class="arithmatex">\(x\)</span> 多。也就是说，机器人往反方向走（为什么往反方向走？参见结论二）的距离比 <span class="arithmatex">\(x\)</span> 更多。但是 <span class="arithmatex">\(x\)</span> 已经合法了，所以这个点一定合法。</p>
-<p>证毕。</p>
-<p>这样，我们的答案具有单调性，二分最远点，check 暴力模拟即可。</p>
+
 
 
 
@@ -1469,14 +1217,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "navigation.expand", "search.share"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../../../javascripts/extra.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
