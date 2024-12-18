@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#a1" class="md-skip">
+        <a href="#a-1" class="md-skip">
           跳转至
         </a>
       
@@ -995,18 +995,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a1" class="md-nav__link">
+  <a href="#a-1" class="md-nav__link">
     <span class="md-ellipsis">
-      A.【例题1】错排问题
+      A. 【例题1】错排问题
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b2" class="md-nav__link">
+  <a href="#b-2" class="md-nav__link">
     <span class="md-ellipsis">
-      B.【例题2】传球游戏
+      B. 【例题2】传球游戏
     </span>
   </a>
   
@@ -1277,18 +1277,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#a1" class="md-nav__link">
+  <a href="#a-1" class="md-nav__link">
     <span class="md-ellipsis">
-      A.【例题1】错排问题
+      A. 【例题1】错排问题
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#b2" class="md-nav__link">
+  <a href="#b-2" class="md-nav__link">
     <span class="md-ellipsis">
-      B.【例题2】传球游戏
+      B. 【例题2】传球游戏
     </span>
   </a>
   
@@ -1379,7 +1379,7 @@
 
 <p>递推，一般将复杂的问题拆解为较简易的子问题来求解。</p>
 <hr />
-<h2 id="a1"><a href="http://noip.ybtoj.com.cn/contest/866/problem/1">A.【例题1】错排问题</a><a class="headerlink" href="#a1" title="Permanent link">&para;</a></h2>
+<h2 id="a-1"><a href="http://noip.ybtoj.com.cn/contest/866/problem/1">A. 【例题1】错排问题</a><a class="headerlink" href="#a-1" title="Permanent link">&para;</a></h2>
 <p>称一个 <span class="arithmatex">\(n\)</span> 个数的排列 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(n\)</span> 个数的错位排列，当且仅当对于任意的 <span class="arithmatex">\(i \in [1,n]\)</span> 满足 <span class="arithmatex">\(A_i \neq i\)</span>。 </p>
 <p>设 <span class="arithmatex">\(f_i\)</span> 表示 <span class="arithmatex">\(i\)</span> 个数的错位排列的数量。考虑满足 <span class="arithmatex">\(A_j = i\)</span> 的 <span class="arithmatex">\(j\)</span>，即排列 <span class="arithmatex">\(A\)</span> 的第 <span class="arithmatex">\(j\)</span> 个位置为 <span class="arithmatex">\(i\)</span>。显然，这样的 <span class="arithmatex">\(j\)</span> 共有 <span class="arithmatex">\(i - 1\)</span> 个。</p>
 <ol>
@@ -1395,7 +1395,7 @@
 f_i = (i - 1) * (f_{i-1} + f_{i-2})
 \]</div>
 <hr />
-<h2 id="b2"><a href="http://noip.ybtoj.com.cn/contest/866/problem/2">B.【例题2】传球游戏</a><a class="headerlink" href="#b2" title="Permanent link">&para;</a></h2>
+<h2 id="b-2"><a href="http://noip.ybtoj.com.cn/contest/866/problem/2">B. 【例题2】传球游戏</a><a class="headerlink" href="#b-2" title="Permanent link">&para;</a></h2>
 <p>设 <span class="arithmatex">\(f_{i,j}\)</span> 表示传 <span class="arithmatex">\(j\)</span> 次后传到第 <span class="arithmatex">\(i\)</span> 个同学的不同传球方法的数量。显然，最后的答案为 <span class="arithmatex">\(f_{1,m}\)</span>。</p>
 <p>由于是个环，需要分三种情况讨论。</p>
 <ol>
