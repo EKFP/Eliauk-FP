@@ -1851,13 +1851,13 @@ H[i] \geq H[i-1]-1
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
-<details class="note" open="open">
-<summary>复杂度分析</summary>
+<div class="admonition note">
+<p class="admonition-title">复杂度分析</p>
 <p><span class="arithmatex">\(k\)</span> 代表的是 <span class="arithmatex">\(\text{LCP}\)</span> 的长度，显然有 <span class="arithmatex">\(k \leq n\)</span>。</p>
 <p>显然，代码中 <code>k--</code> 语句最多执行 <span class="arithmatex">\(n\)</span> 次，那么 <code>++k</code> 语句最多执行 <span class="arithmatex">\(2 \times n\)</span> 次，这是因为如果多于 <span class="arithmatex">\(2 \times n\)</span> 次，必然有一时刻 <span class="arithmatex">\(k\)</span> 会大于 <span class="arithmatex">\(n\)</span>。</p>
 <p>这样，总复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
-<p>注：上述分析仅供初学者理解，严谨的分析需要用到上面的引理，<sub>~但是我不会，</sub>~所以具体内容见参考资料里的第二篇文章。</p>
-</details>
+<p>注：上述分析仅供初学者理解，严谨的分析需要用到上面的引理，<del>但是我不会</del>，所以具体内容见参考资料里的第二篇文章。</p>
+</div>
 <h3 id="_8">一些应用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(\text{Height}\)</span> 数组应用十分广泛。</p>
 <details class="note" open="open">
