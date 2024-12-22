@@ -813,6 +813,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(O(n)\) 做法
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1323,6 +1332,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#on" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(O(n)\) 做法
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1600,6 +1618,9 @@
 <a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="p">}</span>
 </code></pre></div>
 </details>
+<h3 id="on"><span class="arithmatex">\(O(n)\)</span> 做法<a class="headerlink" href="#on" title="Permanent link">&para;</a></h3>
+<p>一般用不到，但是可以开拓一下眼界。</p>
+<p>常见的做法有 <span class="arithmatex">\(\text{SA-IS}\)</span> 和 <span class="arithmatex">\(\text{DC3}\)</span> 算法，分别参考 <a href="https://riteme.site/blog/2016-6-19/sais.html">诱导排序与 SA-IS 算法</a> 和 <a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf">国家集训队2009论文-后缀数组——处理字符串的有力工具-罗穗骞</a></p>
 <h2 id="textheight"><span class="arithmatex">\(\text{Height}\)</span> 数组<a class="headerlink" href="#textheight" title="Permanent link">&para;</a></h2>
 <p>这部分主要讲解 <span class="arithmatex">\(\text{Height}\)</span> 数组，记为 <span class="arithmatex">\(ht[i]\)</span>。</p>
 <h3 id="_4">最长公共前缀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -1989,10 +2010,16 @@ f_i = f_j + (i - j) \times ht[i]
 <p><a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2004%E8%AE%BA%E6%96%87%E9%9B%86/%E8%AE%B8%E6%99%BA%E7%A3%8A--%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf">国家集训队2004论文-许智磊-后缀数组</a></p>
 </li>
 <li>
+<p><a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf">国家集训队2009论文-罗穗骞-后缀数组——处理字符串的有力工具</a></p>
+</li>
+<li>
 <p><a href="https://www.cnblogs.com/alex-wei/p/Basic_String_Theory.html">字符串基础 - qAlex_Weiq - 博客园</a></p>
 </li>
 <li>
 <p><a href="https://www.cnblogs.com/victorique/p/8480093.html">后缀数组 最详细讲解 - <sub>victorique</sub> - 博客园</a></p>
+</li>
+<li>
+<p><a href="https://riteme.site/blog/2016-6-19/sais.html">诱导排序与 SA-IS 算法</a> </p>
 </li>
 </ol>
 
