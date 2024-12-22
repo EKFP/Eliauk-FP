@@ -15,21 +15,20 @@ nav:
     - CF628: CodeForces/CF628.md
     - CF847: CodeForces/CF847.md
     - CF998: CodeForces/CF998.md
-  - 专题:
-    - 二维数点: Subject/2D-Point.md
-    - CDQ 分治: Subject/cdq.md
   - 学习笔记:
     - 后缀数组: Notes/SA.md
+    - CDQ 分治: Notes/cdq.md
+    - 网络流: Notes/Flow.md
   - 高效进阶:
     - 简介: YBTOJ-FBH/intro.md
     - 基础算法:
       - 递推算法: YBTOJ-FBH/Basics/pdp.md
-      - 贪心算法: YBTOJ-FBH/Basics/greedy.md
-      - 二分算法: YBTOJ-FBH/Basics/div2.md
-      - 深度搜索: YBTOJ-FBH/Basics/dfs.md
-      - 广度搜索: YBTOJ-FBH/Basics/bfs.md
-    - 字符串算法:
-      - 字符串处理: YBTOJ-FBH/Strings/pre.md
+      #- 贪心算法: YBTOJ-FBH/Basics/greedy.md
+      #- 二分算法: YBTOJ-FBH/Basics/div2.md
+      #- 深度搜索: YBTOJ-FBH/Basics/dfs.md
+      #- 广度搜索: YBTOJ-FBH/Basics/bfs.md
+    #- 字符串算法:
+      #- 字符串处理: YBTOJ-FBH/Strings/pre.md
     - 数据结构:
       - 线段树: YBTOJ-FBH/DS/seg.md
 
