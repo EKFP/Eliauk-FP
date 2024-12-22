@@ -1892,7 +1892,7 @@ f_i = f_j + (i - j) \times ht[i]
 <li><span class="arithmatex">\(1 \leq n \leq 5 \times 10 ^ 5\)</span>，<span class="arithmatex">\(\sum t \leq 3 \times 10^6\)</span>。</li>
 </ul>
 </details>
-<p>将每次询问的 <span class="arithmatex">\(t\)</span> 个数按 <span class="arithmatex">\(rk\)</span> 值进行排序，得到 <span class="arithmatex">\(p_1 \dots p_t\)</span>。记 <span class="arithmatex">\(v_i = \text{LCP}(\text{suf}(p_{i-1}), \text{suf}(p_i))\)</span>，那么由 <span class="arithmatex">\(ht\)</span> 数组的第一个应用，有</p>
+<p>将每次询问的 <span class="arithmatex">\(t\)</span> 个数按 <span class="arithmatex">\(rk\)</span> 值进行排序，得到 <span class="arithmatex">\(p_1 \dots p_t\)</span>。记 <span class="arithmatex">\(v_i = \text{LCP}(\text{suf}(p_{i-1}), \text{suf}(p_i))\)</span>，那么由 <span class="arithmatex">\(ht\)</span> 数组的第一个应用和 <span class="arithmatex">\(\text{LCP Theorem}\)</span>，有</p>
 <div class="arithmatex">\[
 \text{LCP}(\text{suf}(p_i), \text{suf}(p_j)) = \min_{i &lt; k \leq j} v_k
 \]</div>
