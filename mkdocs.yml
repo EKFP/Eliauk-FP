@@ -30,13 +30,14 @@ nav:
       - 广度搜索: YBTOJ-FBH/Basics/bfs.md
     - 字符串算法:
       - 字符串处理: YBTOJ-FBH/Strings/pre.md
+    - 数据结构:
+      - 线段树: YBTOJ-FBH/DS/seg.md
 
 #[UI]
 theme:
   name: material
   palette:
     #primary: blue grey
-  
     - scheme: default # 日间模式
       primary: white # 上方的
       accent: red # 链接等可交互元件的高亮色
