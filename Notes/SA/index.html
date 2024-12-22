@@ -1518,7 +1518,7 @@
 <p>字符串即为 <span class="arithmatex">\(s\)</span>。</p>
 <p>记 "后缀 <span class="arithmatex">\(i\)</span>" 表示从 <span class="arithmatex">\(i\)</span> 开始的后缀，即 <span class="arithmatex">\(s[i\dots n]\)</span>，它代表后缀的编号。</p>
 <p>记 <span class="arithmatex">\(sa[i]\)</span> 表示排名为 <span class="arithmatex">\(i\)</span> 的后缀的编号，<span class="arithmatex">\(rk[i]\)</span> 表示后缀 <span class="arithmatex">\(i\)</span> 的排名。显然有 <span class="arithmatex">\(sa[rk[i]] = rk[sa[i]] = i\)</span>。</p>
-<p>如果以 <span class="arithmatex">\(a[i]\)</span> 表示一个数组，那么这意味着会出现与该数组有关的嵌套（比如 <span class="arithmatex">\(sa[rk[i]]\)</span>）。如果以 <span class="arithmatex">\(a_i\)</span> 表示一个数组，那么意味着它的表示比较简单且不会出现嵌套。严格来说，不应该使用前者来表示一个数组，但为了方便读者阅读本文使用了该方式，我尽量做到能用后者就用后者。</p>
+<p>如果以 <span class="arithmatex">\(a[i]\)</span> 表示一个数组，那么这意味着会出现与该数组有关的嵌套（比如 <span class="arithmatex">\(sa[rk[i]]\)</span>）。如果以 <span class="arithmatex">\(a_i\)</span> 表示一个数组，那么意味着它的表示比较简单且不会出现嵌套。严格来说，不应该使用前者来表示一个数组，但为了方便读者阅读，本文使用了该方式，我尽量做到能用后者就用后者。</p>
 <h2 id="_3">求法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="on2log-n"><span class="arithmatex">\(O(n^2\log n)\)</span> 做法<a class="headerlink" href="#on2log-n" title="Permanent link">&para;</a></h3>
 <p>暴力对每个后缀进行排序，每次比较的复杂度为 <span class="arithmatex">\(O(n)\)</span>，排序复杂度为 <span class="arithmatex">\(O(n\log n)\)</span>，总复杂度 <span class="arithmatex">\(O(n^2\log n)\)</span>。</p>
