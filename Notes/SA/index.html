@@ -975,6 +975,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p2463-sdoi2008-sandy" class="md-nav__link">
+    <span class="md-ellipsis">
+      P2463 [SDOI2008] Sandy 的卡片
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1494,6 +1503,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#p2463-sdoi2008-sandy" class="md-nav__link">
+    <span class="md-ellipsis">
+      P2463 [SDOI2008] Sandy 的卡片
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1620,7 +1638,7 @@
 </details>
 <h3 id="on"><span class="arithmatex">\(O(n)\)</span> 做法<a class="headerlink" href="#on" title="Permanent link">&para;</a></h3>
 <p>一般用不到，但是可以开拓一下眼界。</p>
-<p>常见的做法有 <span class="arithmatex">\(\text{SA-IS}\)</span> 算法和 <span class="arithmatex">\(\text{DC3}\)</span> 算法，请分别参考 <a href="https://riteme.site/blog/2016-6-19/sais.html">诱导排序与 SA-IS 算法</a> 和 <a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf">国家集训队2009论文-后缀数组——处理字符串的有力工具-罗穗骞</a></p>
+<p>常见的做法有 <span class="arithmatex">\(\text{SA-IS}\)</span> 算法和 <span class="arithmatex">\(\text{DC3}\)</span> 算法，请分别参考 <a href="https://riteme.site/blog/2016-6-19/sais.html">诱导排序与 SA-IS 算法</a> 和 <a href="https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf">国家集训队2009论文-后缀数组——处理字符串的有力工具-罗穗骞</a>。</p>
 <h2 id="textheight"><span class="arithmatex">\(\text{Height}\)</span> 数组<a class="headerlink" href="#textheight" title="Permanent link">&para;</a></h2>
 <p>这部分主要讲解 <span class="arithmatex">\(\text{Height}\)</span> 数组，记为 <span class="arithmatex">\(ht[i]\)</span>。</p>
 <h3 id="_4">最长公共前缀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -1780,13 +1798,13 @@ H[i] \geq H[i-1]-1
 <summary>题意</summary>
 <p>给你一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，你可以把它排成一圈，这样可以生成 <span class="arithmatex">\(n\)</span> 个字符串。现在对这 <span class="arithmatex">\(n\)</span> 个字符串进行排序，求排序后从小到大每个字符串的末尾组成的字符串。</p>
 </details>
-<p>环形似乎不好处理，但是我们有一种经典方法，将 <span class="arithmatex">\(S\)</span> 拼接成 <span class="arithmatex">\(SS\)</span>，再求后缀数组即可。</p>
+<p>环形似乎不好处理，但是我们有一种经典方法，将 <span class="arithmatex">\(S\)</span> 拼接成 <span class="arithmatex">\(SS\)</span>，再求后缀数组即可，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <h3 id="p2852-usaco06dec-milk-patterns-g"><a href="https://www.luogu.com.cn/problem/P2852">P2852 [USACO06DEC] Milk Patterns G</a><a class="headerlink" href="#p2852-usaco06dec-milk-patterns-g" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
 <p>给你一个字符串，求出现至少 <span class="arithmatex">\(k\)</span> 次的子串的最大长度。</p>
 </details>
-<p>先求后缀数组和 <span class="arithmatex">\(ht\)</span> 数组，这样问题转化为排序后找到连续 <span class="arithmatex">\(k\)</span> 个后缀，使得它们的 <span class="arithmatex">\(\text{LCP}\)</span> 最大。其实就是在 <span class="arithmatex">\(ht\)</span> 数组中，求相邻 <span class="arithmatex">\(k-1\)</span> 个值的最小值，最后求这些最小值的最大值，单调队列维护即可。</p>
+<p>先求后缀数组和 <span class="arithmatex">\(ht\)</span> 数组，这样问题转化为排序后找到连续 <span class="arithmatex">\(k\)</span> 个后缀，使得它们的 <span class="arithmatex">\(\text{LCP}\)</span> 最大。其实就是在 <span class="arithmatex">\(ht\)</span> 数组中，求相邻 <span class="arithmatex">\(k-1\)</span> 个值的最小值，最后求这些最小值的最大值，单调队列维护即可，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <h3 id="p4248-ahoi2013"><a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a><a class="headerlink" href="#p4248-ahoi2013" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
@@ -1815,7 +1833,7 @@ H[i] \geq H[i-1]-1
 <div class="arithmatex">\[
 f_i = f_j + (i - j) \times ht[i]
 \]</div>
-<p>使用单调栈维护这个东西即可。</p>
+<p>使用单调栈维护这个东西即可，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -1900,7 +1918,7 @@ f_i = f_j + (i - j) \times ht[i]
 <div class="arithmatex">\[
 \sum_{i=1}^{n-1} \sum_{j=i+1}^n \min_{i &lt; k \leq j} v_k
 \]</div>
-<p>与 <a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a> 一样，使用单调栈维护即可。<span class="arithmatex">\(v\)</span> 数组的维护可以使用 ST 表。</p>
+<p>与 <a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a> 一样，使用单调栈维护即可。<span class="arithmatex">\(v\)</span> 数组的维护可以使用 ST 表，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -2001,6 +2019,17 @@ f_i = f_j + (i - j) \times ht[i]
 <a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a><span class="p">}</span>
 </code></pre></div>
 </details>
+<h3 id="p2463-sdoi2008-sandy"><a href="https://www.luogu.com.cn/problem/P2463">P2463 [SDOI2008] Sandy 的卡片</a><a class="headerlink" href="#p2463-sdoi2008-sandy" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">题意</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个字符串 <span class="arithmatex">\(T_1 \dots T_n\)</span>，求它们的最长公共子串的长度。</p>
+</div>
+<p>将它们拼接在一起，两个字符串之间加一个分隔符分开，这样成了一个新的字符串 <span class="arithmatex">\(S\)</span>，记其长度为 <span class="arithmatex">\(N\)</span>。我们先求出它的 <span class="arithmatex">\(ht\)</span> 数组，不难发现，题目转化为求出</p>
+<div class="arithmatex">\[
+\max_{1 \leq l \leq r \leq N} \min_{l &lt; k \leq r} ht[k]
+\]</div>
+<p>其中，<span class="arithmatex">\(l,r\)</span> 需满足，对于任意的 <span class="arithmatex">\(T_i\)</span>，区间 <span class="arithmatex">\([l, r]\)</span> 覆盖了 <span class="arithmatex">\(n\)</span> 它的一个的字串。这是因为区间 <span class="arithmatex">\([l, r]\)</span> 需要覆盖所有的字符串的字串。</p>
+<p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <h2 id="_10">参考资料<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
