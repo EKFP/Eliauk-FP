@@ -958,6 +958,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#p2870-usaco07dec-best-cow-line-g" class="md-nav__link">
+    <span class="md-ellipsis">
+      P2870 [USACO07DEC] Best Cow Line G
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#p4248-ahoi2013" class="md-nav__link">
     <span class="md-ellipsis">
       P4248 [AHOI2013] 差异
@@ -1495,6 +1504,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#p2870-usaco07dec-best-cow-line-g" class="md-nav__link">
+    <span class="md-ellipsis">
+      P2870 [USACO07DEC] Best Cow Line G
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#p4248-ahoi2013" class="md-nav__link">
     <span class="md-ellipsis">
       P4248 [AHOI2013] 差异
@@ -1817,13 +1835,18 @@ H[i] \geq H[i-1]-1
 <summary>题意</summary>
 <p>给你一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，你可以把它排成一圈，这样可以生成 <span class="arithmatex">\(n\)</span> 个字符串。现在对这 <span class="arithmatex">\(n\)</span> 个字符串进行排序，求排序后从小到大每个字符串的末尾组成的字符串。</p>
 </details>
-<p>环形似乎不好处理，但是我们有一种经典方法，将 <span class="arithmatex">\(S\)</span> 拼接成 <span class="arithmatex">\(SS\)</span>，再求后缀数组即可，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
+<p>环形似乎不好处理，但是我们有一种经典方法，将 <span class="arithmatex">\(S\)</span> 拼接成 <span class="arithmatex">\(SS\)</span>，再求后缀数组即可。时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <h3 id="p2852-usaco06dec-milk-patterns-g"><a href="https://www.luogu.com.cn/problem/P2852">P2852 [USACO06DEC] Milk Patterns G</a><a class="headerlink" href="#p2852-usaco06dec-milk-patterns-g" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
 <p>给你一个字符串 <span class="arithmatex">\(S\)</span>，求出现至少 <span class="arithmatex">\(k\)</span> 次的子串的最大长度。</p>
 </details>
-<p>先求后缀数组和 <span class="arithmatex">\(ht\)</span> 数组，这样问题转化为排序后找到连续 <span class="arithmatex">\(k\)</span> 个后缀，使得它们的 <span class="arithmatex">\(\text{LCP}\)</span> 最大。其实就是在 <span class="arithmatex">\(ht\)</span> 数组中，求相邻 <span class="arithmatex">\(k-1\)</span> 个值的最小值，最后求这些最小值的最大值，单调队列维护即可，时间复杂度 <span class="arithmatex">\(O(\lvert S \rvert \log {\lvert S \rvert})\)</span>。</p>
+<p>先求后缀数组和 <span class="arithmatex">\(ht\)</span> 数组，这样问题转化为排序后找到连续 <span class="arithmatex">\(k\)</span> 个后缀，使得它们的 <span class="arithmatex">\(\text{LCP}\)</span> 最大。其实就是在 <span class="arithmatex">\(ht\)</span> 数组中，求相邻 <span class="arithmatex">\(k-1\)</span> 个值的最小值，最后求这些最小值的最大值，单调队列维护即可。时间复杂度 <span class="arithmatex">\(O(\lvert S \rvert \log {\lvert S \rvert})\)</span>。</p>
+<h3 id="p2870-usaco07dec-best-cow-line-g"><a href="https://www.luogu.com.cn/problem/P2870">P2870 [USACO07DEC] Best Cow Line G</a><a class="headerlink" href="#p2870-usaco07dec-best-cow-line-g" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">题意</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，每次可以选择 <span class="arithmatex">\(S\)</span> 的第一个或者最后一个字符，把它加到一个新的字符串的尾部，然后去掉 <span class="arithmatex">\(S\)</span> 中的它。求最后产生的字符串的最小字典序。</p>
+</div>
 <h3 id="p4248-ahoi2013"><a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a><a class="headerlink" href="#p4248-ahoi2013" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
@@ -1849,7 +1872,7 @@ H[i] \geq H[i-1]-1
 <div class="arithmatex">\[
 f_i = f_j + (i - j) \times ht[i]
 \]</div>
-<p>使用单调栈维护这个东西即可，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
+<p>使用单调栈维护这个东西即可。时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -1931,7 +1954,7 @@ f_i = f_j + (i - j) \times ht[i]
 <div class="arithmatex">\[
 \sum_{i=1}^{n-1} \sum_{j=i+1}^n \min_{i &lt; k \leq j} v_k
 \]</div>
-<p>与 <a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a> 一样，使用单调栈维护即可。<span class="arithmatex">\(v\)</span> 数组的维护可以使用 ST 表，时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
+<p>与 <a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a> 一样，使用单调栈维护即可。<span class="arithmatex">\(v\)</span> 数组的维护可以使用 ST 表。时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -2042,7 +2065,7 @@ f_i = f_j + (i - j) \times ht[i]
 \max_{1 \leq l \leq r \leq N} \min_{l &lt; k \leq r} ht[k]
 \]</div>
 <p>其中，<span class="arithmatex">\(l,r\)</span> 需满足，对于任意的 <span class="arithmatex">\(T_i\)</span>，区间 <span class="arithmatex">\([l, r]\)</span> 覆盖了 <span class="arithmatex">\(n\)</span> 它的一个的字串。这是因为区间 <span class="arithmatex">\([l, r]\)</span> 需要覆盖所有的字符串的字串。</p>
-<p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护，时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
+<p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护。时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
