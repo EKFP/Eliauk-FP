@@ -14,7 +14,9 @@
 
 记 $sa[i]$ 表示排名为 $i$ 的后缀的编号，$rk[i]$ 表示后缀 $i$ 的排名。显然有 $sa[rk[i]] = rk[sa[i]] = i$。
 
-剩下的数组下文会说。
+记 $\lvert T \rvert$ 表示字符串 $T$ 的长度。特别地，记 $n = \lvert s \rvert$。
+
+如果以 $a[i]$ 表示一个数组，那么这意味着会出现与该数组有关的嵌套（比如 $sa[rk[i]]$）。如果以 $a_i$ 表示一个数组，那么意味着它的表示比较简单且不会出现嵌套。严格来说，不应该使用前者来表示一个数组，但为了方便读者阅读，本文使用了该方式，我尽量做到能用后者就用后者。
 
 ## 求法
 
@@ -117,6 +119,12 @@ void f_sort() {
         return 0;
     }
     ```
+
+### $O(n)$ 做法
+
+一般用不到，但是可以开拓一下眼界。
+
+常见的做法有 $\text{SA-IS}$ 算法和 $\text{DC3}$ 算法，请分别参考 [诱导排序与 SA-IS 算法](https://riteme.site/blog/2016-6-19/sais.html) 和 [国家集训队2009论文-后缀数组——处理字符串的有力工具-罗穗骞](https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf)。
 
 ## $\text{Height}$ 数组
 
@@ -296,7 +304,7 @@ void g_hei() {
 }
 ```
 
-!!! note "复杂度分析"
+???+ note "复杂度分析"
     $k$ 代表的是 $\text{LCP}$ 的长度，显然有 $k \leq n$。
 
     显然，代码中 `k--` 语句最多执行 $n$ 次，那么 `++k` 语句最多执行 $2 \times n$ 次，这是因为如果多于 $2 \times n$ 次，必然有一时刻 $k$ 会大于 $n$。
@@ -348,14 +356,14 @@ $\text{Height}$ 数组应用十分广泛。
 ???+ info "题意"
     给你一个长度为 $n$ 的字符串 $S$，你可以把它排成一圈，这样可以生成 $n$ 个字符串。现在对这 $n$ 个字符串进行排序，求排序后从小到大每个字符串的末尾组成的字符串。
 
-环形似乎不好处理，但是我们有一种经典方法，将 $S$ 拼接成 $SS$，再求后缀数组即可。
+环形似乎不好处理，但是我们有一种经典方法，将 $S$ 拼接成 $SS$，再求后缀数组即可，时间复杂度 $O(n\log n)$。
 
 ### [P2852 [USACO06DEC] Milk Patterns G](https://www.luogu.com.cn/problem/P2852)
 
 ???+ info "题意"
-    给你一个字符串，求出现至少 $k$ 次的子串的最大长度。
+    给你一个字符串 $S$，求出现至少 $k$ 次的子串的最大长度。
 
-先求后缀数组和 $ht$ 数组，这样问题转化为排序后找到连续 $k$ 个后缀，使得它们的 $\text{LCP}$ 最大。其实就是在 $ht$ 数组中，求相邻 $k-1$ 个值的最小值，最后求这些最小值的最大值，单调队列维护即可。
+先求后缀数组和 $ht$ 数组，这样问题转化为排序后找到连续 $k$ 个后缀，使得它们的 $\text{LCP}$ 最大。其实就是在 $ht$ 数组中，求相邻 $k-1$ 个值的最小值，最后求这些最小值的最大值，单调队列维护即可，时间复杂度 $O(\lvert S \rvert \log {\lvert S \rvert})$。
 
 ### [P4248 [AHOI2013] 差异](https://www.luogu.com.cn/problem/P4248)
 
@@ -387,13 +395,13 @@ $$
 
 其实应该是 $rk[i]$ 和 $rk[j]$，但是它们覆盖了所有的区间，所以可以直接写成上面那样。
 
-考虑每个 $ht[i]$ 对答案的贡献，设其为 $f[i]$，设 $j(j<i)$ 为最大的满足 $ht[j-1]>ht[i]$ 的数，则 $ht[i]$ 对 $j$ 到 $i$ 都有贡献，则有
+考虑每个 $ht[i]$ 对答案的贡献，设其为 $f_i$，设 $j(j<i)$ 为最大的满足 $ht[j]\leq ht[i]$ 的数，则 $ht[i]$ 对 $j+1$ 到 $i$ 都有贡献，则有
 
 $$
-f[i] = f[j] + (i - j) \times ht[i]
+f_i = f_j + (i - j) \times ht[i]
 $$
 
-使用单调栈维护这个东西即可。
+使用单调栈维护这个东西即可，时间复杂度 $O(n\log n)$。
 
 ??? note "代码"
     ```cpp
@@ -463,13 +471,380 @@ $$
     }
     ```
 
+### [P7409 SvT](https://www.luogu.com.cn/problem/P7409)
+
+???+ info "题意"
+    给定一个长度为 $n$ 的字符串 $S$。有 $q$ 次询问，每次询问给定 $t$ 个数，求去掉重复元素后，这些后缀两两之间的最长公共前缀长度之和。答案对 $23333333333333333$ 取模。
+
+将每次询问的 $t$ 个数按 $rk$ 值进行排序，得到 $p_1 \dots p_t$。记 $v_i = \text{LCP}(\text{suf}(p_{i-1}), \text{suf}(p_i))$，那么由 $ht$ 数组的第一个应用和 $\text{LCP Theorem}$，有
+
+$$
+\text{LCP}(\text{suf}(p_i), \text{suf}(p_j)) = \min_{i < k \leq j} v_k
+$$
+
+问题转化为求
+
+$$
+\sum_{i=1}^{n-1} \sum_{j=i+1}^n \min_{i < k \leq j} v_k
+$$
+
+与 [P4248 [AHOI2013] 差异](https://www.luogu.com.cn/problem/P4248) 一样，使用单调栈维护即可。$v$ 数组的维护可以使用 ST 表，时间复杂度 $O(n\log n)$。
+
+??? note "代码"
+    ```cpp
+    #include <bits/stdc++.h>
+    #define int long long 
+    using namespace std;
+
+    const int N = 5e5 + 10;
+    const int P = 23333333333333333;
+    const int I = 1e9 + 10;
+    int n, q, t, s[N];
+    int sa[N], rk[N], ht[N];
+    int m, b[N], tp[N];
+    int lg[N], f[N][22];
+    int v[N], g[N];
+    int stk[N], top;
+    char c[N];
+
+    void f_sort() {
+        for (int i = 1; i <= m; i++) b[i] = 0;
+        for (int i = 1; i <= n; i++) b[rk[i]]++;
+        for (int i = 1; i <= m; i++) b[i] += b[i - 1];
+        for (int i = n; i; i--) sa[b[rk[tp[i]]]--] = tp[i];
+    }
+    void g_sa() {
+        for (int i = 1; i <= n; i++) rk[i] = c[i], tp[i] = i;
+        f_sort();
+        int p = 0;
+        for (int w = 1; w <= n; w <<= 1) {
+            if (p == n) break;
+            p = 0;
+            for (int i = n - w + 1; i <= n; i++) tp[++p] = i;
+            for (int i = 1; i <= n; i++) {
+                if (sa[i] > w) tp[++p] = sa[i] - w;
+            }
+            f_sort(), swap(rk, tp), rk[sa[1]] = p = 1;
+            for (int i = 2; i <= n; i++) {
+                int sl = sa[i - 1], sr = sa[i];
+                if (tp[sl] == tp[sr] && tp[sl + w] == tp[sr + w]) {
+                    rk[sa[i]] = p;
+                } else rk[sa[i]] = ++p;
+            }
+            m = p;
+        }
+    }
+    void g_hei() {
+        int k = 0;
+        for (int i = 1; i <= n; i++) {
+            if (!rk[i]) continue;
+            if (k) k--;
+            while (c[i + k] == c[sa[rk[i] - 1] + k]) ++k;
+            ht[rk[i]] = k;
+        }
+    }
+    void init() {
+        memset(f, I, sizeof f);
+        lg[0] = -1;
+        for (int i = 1; i <= n; i++) lg[i] = lg[i >> 1] + 1;
+        for (int i = 1; i <= n; i++) f[i][0] = ht[i];
+        for (int j = 1; j <= lg[n]; j++) {
+            for (int i = 1; i + (1 << (j - 1)) <= n; i++) {
+                f[i][j] = min(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
+            }
+        }
+    }
+    int qry(int l, int r) {
+        int le = lg[r - l + 1];
+        return min(f[l][le], f[r - (1 << le) + 1][le]);
+    }
+    bool cmp(int x, int y) {
+        return rk[x] < rk[y];
+    }
+
+    signed main() {
+        scanf("%lld%lld", &n, &q);
+        scanf("%s", c + 1);
+        m = 127;
+        g_sa(), g_hei(), init();
+        while (q--) {
+            scanf("%lld", &t);
+            for (int i = 1; i <= t; i++) scanf("%lld", &s[i]);
+            sort(s + 1, s + t + 1);
+            int tot = unique(s + 1, s + t + 1) - s - 1;
+            sort(s + 1, s + tot + 1, cmp);
+            v[1] = 0;
+            for (int i = 2; i <= tot; i++) v[i] = qry(rk[s[i - 1]] + 1, rk[s[i]]);
+            top = 0, stk[top] = 0;
+            for (int i = 1; i <= tot; i++) {
+                while (top && v[stk[top]] > v[i]) top--;
+                int j = stk[top];
+                g[i] = (g[j] + (i - j) * v[i] % P) % P;
+                stk[++top] = i;
+            }
+            int ans = 0;
+            for (int i = 2; i <= tot; i++) ans = (ans + g[i]) % P;
+            printf("%lld\n", ans);
+        }
+        return 0;
+    }
+    ```
+
+### [P2463 [SDOI2008] Sandy 的卡片](https://www.luogu.com.cn/problem/P2463)
+
+???+ info "题意"
+    给定 $n$ 个字符串 $T_1 \dots T_n$，求它们的最长公共子串的长度。
+
+
+将它们拼接在一起，两个字符串之间加一个分隔符分开，这样成了一个新的字符串 $S$，记 $N = \lvert S \rvert$。我们先求出它的 $ht$ 数组，不难发现，题目转化为求出
+
+$$
+\max_{1 \leq l \leq r \leq N} \min_{l < k \leq r} ht[k]
+$$
+
+其中，$l,r$ 需满足，对于任意的 $T_i$，区间 $[l, r]$ 覆盖了 $n$ 它的一个的字串。这是因为区间 $[l, r]$ 需要覆盖所有的字符串的字串。
+
+显然，如果 $[l, r]$ 满足上述要求，那么 $[l^{\prime}, r^{\prime}]$ 也满足上述要求，其中 $l^{\prime} \leq l \leq r \leq r^{\prime}$。那么，容易知道，随着 $l$ 的增加，$r$ 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 $\max$），至于里面那个 $\min$ 可以用单调队列维护，时间复杂度 $O(N \log N)$。
+
+??? note "代码"
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    const int N = 2e6 + 10;
+    int tn, sn, a[N], cf[N];
+    int n, m, c[N], ans;
+    int sa[N], rk[N], ht[N];
+    int b[N], tp[N];
+    int col[N], ct[N], cnt;
+    int q[N], hd = 1, tl;
+
+    void f_sort() {
+        for (int i = 1; i <= m; i++) b[i] = 0;
+        for (int i = 1; i <= n; i++) b[rk[i]]++;
+        for (int i = 1; i <= m; i++) b[i] += b[i - 1];
+        for (int i = n; i; i--) sa[b[rk[tp[i]]]--] = tp[i];
+    }
+    void g_sa() {
+        for (int i = 1; i <= n; i++) rk[i] = c[i], tp[i] = i;
+        f_sort();
+        int p = 0;
+        for (int w = 1; w <= n; w <<= 1) {
+            if (p == n) break;
+            p = 0;
+            for (int i = n - w + 1; i <= n; i++) tp[++p] = i;
+            for (int i = 1; i <= n; i++) {
+                if (sa[i] > w) tp[++p] = sa[i] - w;
+            }
+            f_sort(), swap(rk, tp), rk[sa[1]] = p = 1;
+            for (int i = 2; i <= n; i++) {
+                int sl = sa[i - 1], sr = sa[i];
+                if (tp[sl] == tp[sr] && tp[sl + w] == tp[sr + w]) {
+                    rk[sa[i]] = p;
+                } else rk[sa[i]] = ++p;
+            }
+            m = p;
+        }
+    }
+    void g_hei() {
+        int k = 0;
+        for (int i = 1; i <= n; i++) {
+            if (!rk[i]) continue;
+            if (k) k--;
+            while (c[i + k] == c[sa[rk[i] - 1] + k]) ++k;
+            ht[rk[i]] = k;
+        }
+    }
+
+    int main() {
+        m = 1e5;
+        scanf("%d", &tn);
+        for (int i = 1; i <= tn; i++) {
+            scanf("%d", &sn);
+            if (n == 1) {
+                cout << sn;
+                return 0;
+            }
+            for (int j = 1; j <= sn; j++) {
+                scanf("%d", &a[j]);
+                cf[j] = a[j] - a[j - 1] + 2e3;
+            }
+            for (int j = 2; j <= sn; j++) {
+                c[++n] = cf[j], col[n] = i;
+            }
+            c[++n] = m - i;
+        }
+        g_sa(), g_hei();
+        ht[1] = 1e9;
+        int l = 1, r = 0;
+        while (l <= n) {
+            #define cr col[sa[r]]
+            #define cl col[sa[l]]
+            while (r < n && cnt < tn) {
+                if (col[sa[++r]]) cnt += !ct[cr], ct[cr]++;
+                while (hd <= tl && ht[q[tl]] >= ht[r]) tl--;
+                q[++tl] = r;
+            }
+            if (cnt < tn) break;
+            ans = max(ans, ht[q[hd]]);
+            if (col[sa[l]]) ct[cl]--, cnt -= !ct[cl];
+            while (hd <= tl && q[hd] == l + 1) hd++;
+            l++;
+            #undef cr
+            #undef cl
+        }
+        cout << ans + 1;
+        return 0;
+    }
+    ```
+
+### [P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117)
+
+???+ info "题意"
+    给定字符串 $S$，求它能表示成 $AABB$ 形式的子串的数量，$T$ 组数据。
+
+设 $f_i$ 表示以 $i$ 结尾的 $AA$ 串的个数，$g_i$ 表示以 $i$ 开头的 $AA$ 串的个数。那么有答案
+
+$$
+Ans = \prod_{i=1}^{n-1} f_i \times g_{i + 1}
+$$
+
+考虑枚举 $AA$ 串中 $A$ 的长度，设此时长度为 $\text{Len}$，设点 $\text{Len},2\times\text{Len},3\times\text{Len}\dots$ 为关键点，那么 $AA$ 串一定经过两个相邻的关键点。
+
+我们枚举两个相邻的关键点 $i$ 和 $j$，求出后缀 $i$ 和后缀 $j$ 的最长公共前缀 $\text{Lcp}$ 与前缀 $i$ 和前缀 $j$ 的最长公共后缀 $\text{Lcs}$。那么，只有在 $\lvert \text{Lcp} \rvert + \lvert \text{Lcs} \rvert \geq \text{Len}$ 才会产生贡献。否则，它会形成这样一种情况：
+
+$$
+\underbrace{.....i-1}_{\text{Lcs}} \ \overbrace{\underbrace{i.....}_{\text{Lcp}} \textcolor{red}{\dots} \underbrace{.....j-1}_{\text{Lcs}}}^{\text{Len}} \ \underbrace{j.....}_{\text{Lcp}}
+$$
+
+这样显然是不行的，因为红色那段无法在 $AA$ 串中。如果 $\text{Lcp}$ 和 $\text{Lcs}$ 有交，那么第一个 $A$ 串的终点一定落在它们相交的区间。这样，我们可以确定一段满足要求的起点区间，使用差分数组维护 $f$ 和 $g$ 即可。时间复杂度 $O(T \lvert S \rvert \log \lvert S \rvert)$。
+
+??? note "代码"
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    const int N = 1e5 + 10;
+    const int I = 0x3f3f3f3f;
+    typedef long long ll;
+    int t, n, m;
+    char c[N];
+    int a[N], b[N];
+
+    struct SA{
+        int sa[N], rk[N], ht[N];
+        int b[N], tp[N];
+        int lg[N], f[N][20];
+
+        void f_sort() {
+            for (int i = 1; i <= m; i++) b[i] = 0;
+            for (int i = 1; i <= n; i++) b[rk[i]]++;
+            for (int i = 1; i <= m; i++) b[i] += b[i - 1];
+            for (int i = n; i; i--) sa[b[rk[tp[i]]]--] = tp[i];
+        }
+        void g_sa() {
+            rk[n + 1] = 0, tp[n + 1] = n + 1;
+            memset(sa, 0, sizeof sa);
+            m = 127;
+            for (int i = 1; i <= n; i++) rk[i] = c[i], tp[i] = i;
+            f_sort();
+            int p = 0;
+            for (int w = 1; w <= n; w <<= 1) {
+                if (p == n) break;
+                p = 0;
+                for (int i = n - w + 1; i <= n; i++) tp[++p] = i;
+                for (int i = 1; i <= n; i++) {
+                    if (sa[i] > w) tp[++p] = sa[i] - w;
+                }
+                f_sort(), swap(rk, tp), rk[sa[1]] = p = 1;
+                for (int i = 2; i <= n; i++) {
+                    int sl = sa[i - 1], sr = sa[i];
+                    if (tp[sl] == tp[sr] && tp[sl + w] == tp[sr + w]) {
+                        rk[sa[i]] = p;
+                    } else rk[sa[i]] = ++p;
+                }
+                m = p;
+            }
+        }
+        void g_hei() {
+            memset(ht, 0, sizeof ht);
+            int k = 0;
+            for (int i = 1; i <= n; i++) {
+                if (!rk[i]) continue;
+                if (k) k--;
+                while (c[i + k] == c[sa[rk[i] - 1] + k]) ++k;
+                ht[rk[i]] = k;
+            }
+        }
+        void init() {
+            memset(f, I, sizeof f);
+            lg[1] = 0;
+            for (int i = 2; i < N; i++) lg[i] = lg[i >> 1] + 1;
+            for (int i = 1; i <= n; i++) f[i][0] = ht[i];
+            for (int j = 1; j <= lg[n]; j++) {
+                for (int i = 1; i + (1 << j) - 1 <= n; i++) {
+                    f[i][j] = min(f[i][j - 1], f[i + (1 << (j - 1))][j - 1]);
+                }
+            }
+        }
+        int qry(int l, int r) {
+            l = rk[l], r = rk[r];
+            if (l > r) swap(l, r);
+            l++; 
+            int k = lg[r - l + 1];
+            return min(f[l][k], f[r - (1 << k) + 1][k]);
+        }
+        void work() {
+            g_sa(), g_hei(), init();
+        }
+    }pr, sf;
+
+    ll solve() {
+        memset(a, 0, sizeof a);
+        memset(b, 0, sizeof b);
+        ll ans = 0;
+        scanf("%s", c + 1);
+        n = strlen(c + 1);
+        sf.work();
+        reverse(c + 1, c + n + 1);
+        pr.work();
+        for (int le = 1; le * 2 <= n; le++) {
+            int i = le, j = 2 * le;
+            while (j <= n) {
+                int p = sf.qry(i, j), s = pr.qry(n - i + 2, n - j + 2);
+                p = min(p, le), s = min(s, le - 1);
+                int vl = s + p - le + 1;
+                if (s + p >= le) {
+                    a[i - s]++, a[i - s + vl]--;
+                    b[j + p - vl]++, b[j + p]--;
+                }
+                i += le, j += le;
+            }
+        }
+        for (int i = 1; i <= n; i++) a[i] += a[i - 1], b[i] += b[i - 1];
+        for (int i = 1; i < n; i++) ans += 1ll * b[i] * a[i + 1];
+        return ans;
+    }
+
+    int main() {
+        scanf("%d", &t);
+        while (t--) {
+            printf("%lld\n", solve());
+        }
+        return 0;
+    }
+    ```
 
 ## 参考资料
 
 1. [后缀数组简介 - OI Wiki](https://oi-wiki.org/string/sa/)
 
-2. [国家集训队2004论文-许智磊-后缀数组](https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2004%E8%AE%BA%E6%96%87%E9%9B%86/%E8%AE%B8%E6%99%BA%E7%A3%8A--%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf)
+2. [国家集训队2004论文 - 许智磊 - 后缀数组](https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2004%E8%AE%BA%E6%96%87%E9%9B%86/%E8%AE%B8%E6%99%BA%E7%A3%8A--%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84.pdf)
 
-3. [字符串基础 - qAlex_Weiq - 博客园](https://www.cnblogs.com/alex-wei/p/Basic_String_Theory.html)
+3. [国家集训队2009论文 - 罗穗骞 - 后缀数组——处理字符串的有力工具](https://github.com/OI-wiki/libs/blob/master/%E9%9B%86%E8%AE%AD%E9%98%9F%E5%8E%86%E5%B9%B4%E8%AE%BA%E6%96%87/%E5%9B%BD%E5%AE%B6%E9%9B%86%E8%AE%AD%E9%98%9F2009%E8%AE%BA%E6%96%87%E9%9B%86/11.%E7%BD%97%E7%A9%97%E9%AA%9E%E3%80%8A%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7%E3%80%8B/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84%E2%80%94%E2%80%94%E5%A4%84%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%89%E5%8A%9B%E5%B7%A5%E5%85%B7.pdf)
 
-4. [后缀数组 最详细讲解 - ~victorique~ - 博客园](https://www.cnblogs.com/victorique/p/8480093.html)
+4. [字符串基础 - qAlex_Weiq - 博客园](https://www.cnblogs.com/alex-wei/p/Basic_String_Theory.html)
+
+5. [后缀数组 最详细讲解 - ~victorique~ - 博客园](https://www.cnblogs.com/victorique/p/8480093.html)
+
+6. [诱导排序与 SA-IS 算法](https://riteme.site/blog/2016-6-19/sais.html) 
