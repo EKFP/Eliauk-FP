@@ -882,7 +882,7 @@
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      基本定义
+      一个重要引理
     </span>
   </a>
   
@@ -891,15 +891,6 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      一个重要引理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
       求法
     </span>
   </a>
@@ -907,7 +898,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       一些应用
     </span>
@@ -921,7 +912,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       例题
     </span>
@@ -1008,7 +999,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       参考资料
     </span>
@@ -1428,7 +1419,7 @@
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      基本定义
+      一个重要引理
     </span>
   </a>
   
@@ -1437,15 +1428,6 @@
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
-      一个重要引理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
       求法
     </span>
   </a>
@@ -1453,7 +1435,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       一些应用
     </span>
@@ -1467,7 +1449,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       例题
     </span>
@@ -1554,7 +1536,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
       参考资料
     </span>
@@ -1588,20 +1570,23 @@
 <p>前置知识：基数排序、倍增。</p>
 <h2 id="_2">记号与约定<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>字符串即为 <span class="arithmatex">\(s\)</span>。</p>
-<p>记 "后缀 <span class="arithmatex">\(i\)</span>" 表示从 <span class="arithmatex">\(i\)</span> 开始的后缀，即 <span class="arithmatex">\(s[i\dots n]\)</span>，它代表后缀的编号。</p>
+<p>记 "后缀 <span class="arithmatex">\(i\)</span>" 表示从 <span class="arithmatex">\(i\)</span> 开始的后缀，即 <span class="arithmatex">\(s[i\dots n]\)</span>，它代表后缀的编号。记 <span class="arithmatex">\(\text{suf}(i)\)</span> 表示后缀 <span class="arithmatex">\(i\)</span>。</p>
 <p>记 <span class="arithmatex">\(sa[i]\)</span> 表示排名为 <span class="arithmatex">\(i\)</span> 的后缀的编号，<span class="arithmatex">\(rk[i]\)</span> 表示后缀 <span class="arithmatex">\(i\)</span> 的排名。显然有 <span class="arithmatex">\(sa[rk[i]] = rk[sa[i]] = i\)</span>。</p>
 <p>记 <span class="arithmatex">\(\lvert T \rvert\)</span> 表示字符串 <span class="arithmatex">\(T\)</span> 的长度。特别地，记 <span class="arithmatex">\(n = \lvert s \rvert\)</span>。</p>
+<p>对于字符串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span>，定义其最长公共前缀 <span class="arithmatex">\(\text{LCP}(S,T)\)</span> 为最大的 <span class="arithmatex">\(k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})\)</span>，使得对于任意 <span class="arithmatex">\(i(1 \leq i \leq k)\)</span>，有 <span class="arithmatex">\(S_i = T_i\)</span>。</p>
+<p>记 <span class="arithmatex">\(\text{lcp}(i, j)\)</span> 为后缀 <span class="arithmatex">\(sa[i]\)</span> 与后缀 <span class="arithmatex">\(sa[j]\)</span> 的最长公共前缀的长度。容易知道 <span class="arithmatex">\(\text{lcp}(i, j) = \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j]))\)</span>。</p>
+<p>记 <span class="arithmatex">\(ht[i] = \text{lcp}(i-1,i)\)</span>，其中 <span class="arithmatex">\(ht[1] = 0\)</span>。记 <span class="arithmatex">\(H[i] = ht[rk[i]]\)</span>，显然有 <span class="arithmatex">\(ht[i] = H[sa[i]]\)</span>。</p>
 <p>如果以 <span class="arithmatex">\(a[i]\)</span> 表示一个数组，那么这意味着会出现与该数组有关的嵌套（比如 <span class="arithmatex">\(sa[rk[i]]\)</span>）。如果以 <span class="arithmatex">\(a_i\)</span> 表示一个数组，那么意味着它的表示比较简单且不会出现嵌套。严格来说，不应该使用前者来表示一个数组，但为了方便读者阅读，本文使用了该方式，我尽量做到能用后者就用后者。</p>
 <h2 id="_3">求法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="on2log-n"><span class="arithmatex">\(O(n^2\log n)\)</span> 做法<a class="headerlink" href="#on2log-n" title="Permanent link">&para;</a></h3>
 <p>暴力对每个后缀进行排序，每次比较的复杂度为 <span class="arithmatex">\(O(n)\)</span>，排序复杂度为 <span class="arithmatex">\(O(n\log n)\)</span>，总复杂度 <span class="arithmatex">\(O(n^2\log n)\)</span>。</p>
 <h3 id="on-log2n"><span class="arithmatex">\(O(n \log^2{n})\)</span> 做法<a class="headerlink" href="#on-log2n" title="Permanent link">&para;</a></h3>
-<p>对于字符串 <span class="arithmatex">\(s\)</span> 的所有后缀，它们有大量重复部分，而直接排序就会进行大量重复比较，不如换个角度入手。</p>
+<p>对于字符串 <span class="arithmatex">\(s\)</span> 的所有后缀，它们有大量重复部分，而直接排序就会进行大量重复比较，不如换个角度考虑。</p>
 <p>我们先从一组数据入手。对于 <span class="arithmatex">\(s = \texttt{abbaaaba}\)</span>，我们先以每个后缀第一个字符为第一关键字，第二个字符为第二关键字进行排序，其实也就是对于每个后缀的前两个字符进行排序，结果如下：</p>
 <p><img alt="" src="../images/img1.png" /></p>
-<p>根据上面的定义，绿色部分的排名即为 <span class="arithmatex">\(rk\)</span> 数组。观察这些后缀，我们现在知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是后缀，那么其实我们也知道下图中黄色部分的排名：</p>
+<p>根据上面的定义，绿色部分的排名即为 <span class="arithmatex">\(rk\)</span> 数组。观察这些后缀，我们现在知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是后缀，那么其实我们也知道下图中黄色部分的排名： </p>
 <p><img alt="" src="../images/img2.png" /></p>
-<p>那么我们使用绿色部分的排名（即原排名，<span class="arithmatex">\(rk\)</span> 数组）为第一关键字，黄色部分的排名（即对于后缀 <span class="arithmatex">\(i\)</span>，第一个图中的蓝色部分是后缀 <span class="arithmatex">\(i + 2\)</span>，那么黄色部分的排名即为后缀 <span class="arithmatex">\(i + 2\)</span> 的原排名，即 <span class="arithmatex">\(rk[i + 2]\)</span>）为第二关键字，进行排序，结果如下：</p>
+<p>那么我们使用绿色部分的排名（即原排名，<span class="arithmatex">\(rk[i]\)</span>）为第一关键字，黄色部分的排名（即对于后缀 <span class="arithmatex">\(i\)</span>，第一个图中的蓝色部分是后缀 <span class="arithmatex">\(i + 2\)</span>，那么黄色部分的排名即为后缀 <span class="arithmatex">\(i + 2\)</span> 的原排名，即 <span class="arithmatex">\(rk[i + 2]\)</span>）为第二关键字，进行排序，结果如下：</p>
 <p><img alt="" src="../images/img3.png" /></p>
 <p>很好，现在绿色部分（已排序部分）的长度由 <span class="arithmatex">\(2\)</span> 变为了 <span class="arithmatex">\(4\)</span>。我们接下来再选取长度为 <span class="arithmatex">\(4\)</span> 的黄色部分，这样，我们就成功对后缀的前 <span class="arithmatex">\(8\)</span> 个字符排序了。以此类推，我们每次都倍增排序长度，并且重复以上操作，那么我们就可以在 <span class="arithmatex">\(O(n \log^2{n})\)</span> 的复杂度内解决掉这个问题了（排序 <span class="arithmatex">\(O(n\log n)\)</span>，倍增 <span class="arithmatex">\(O(\log n)\)</span>）。</p>
 <details class="note" open="open">
@@ -1679,10 +1664,7 @@
 <h2 id="textheight"><span class="arithmatex">\(\text{Height}\)</span> 数组<a class="headerlink" href="#textheight" title="Permanent link">&para;</a></h2>
 <p>这部分主要讲解 <span class="arithmatex">\(\text{Height}\)</span> 数组，记为 <span class="arithmatex">\(ht[i]\)</span>。</p>
 <h3 id="_4">最长公共前缀<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>记 <span class="arithmatex">\(\text{suf}(i)\)</span> 表示后缀 <span class="arithmatex">\(i\)</span>。</p>
-<p>对于字符串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span>，定义其最长公共前缀 <span class="arithmatex">\(\text{LCP}(S,T)\)</span> 为最大的 <span class="arithmatex">\(k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})\)</span>，使得对于任意 <span class="arithmatex">\(i(1 \leq i \leq k)\)</span>，有 <span class="arithmatex">\(S_i = T_i\)</span>。</p>
-<p>记 <span class="arithmatex">\(\text{lcp}(i, j)\)</span> 为后缀 <span class="arithmatex">\(sa[i]\)</span> 与后缀 <span class="arithmatex">\(sa[j]\)</span> 的最长公共前缀的长度。</p>
-<p>容易知道 <span class="arithmatex">\(\text{lcp}(i, j) = \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j]))\)</span></p>
+<p>下面有三个非常重要的结论，分别是 <a href="https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-lemma"><span class="arithmatex">\(\text{LCP Lemma}\)</span></a>，<a href="https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-theorem"><span class="arithmatex">\(\text{LCP Theorem}\)</span></a> 和 <a href="https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-corollary"><span class="arithmatex">\(\text{LCP Corollary}\)</span></a>。</p>
 <h4 id="textlcp-lemma"><span class="arithmatex">\(\text{LCP Lemma}\)</span><a class="headerlink" href="#textlcp-lemma" title="Permanent link">&para;</a></h4>
 <p>对任意 <span class="arithmatex">\(1 \leq i &lt; j &lt; k \leq n\)</span>，有</p>
 <div class="arithmatex">\[
@@ -1690,10 +1672,10 @@
 \]</div>
 <details class="note" open="open">
 <summary>证明</summary>
-<p>设 <span class="arithmatex">\(p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}\)</span>，则有 <span class="arithmatex">\(\text{lcp}(i,j)\geq p,\text{lcp}(i,j)\geq p\)</span>。</p>
-<p>设 <span class="arithmatex">\(\text{suf}(sa[i])=u,\text{suf}(sa[j])=v,\text{suf}(sa[k])=w\)</span>。</p>
+<p>设 <span class="arithmatex">\(p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}\)</span>，则有 <span class="arithmatex">\(\text{lcp}(i,j)\geq p,\text{lcp}(j,k)\geq p\)</span>。</p>
+<p>记 <span class="arithmatex">\(u=\text{suf}(sa[i]),v=\text{suf}(sa[j]),w=\text{suf}(sa[k])\)</span>。</p>
 <p>所以 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 的前 <span class="arithmatex">\(p\)</span> 个字符相等，<span class="arithmatex">\(v\)</span> 和 <span class="arithmatex">\(w\)</span> 的前 <span class="arithmatex">\(p\)</span> 个字符相等。所以 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(w\)</span> 的前 <span class="arithmatex">\(p\)</span> 个字符相等，即 <span class="arithmatex">\(\text{lcp}(i,k)\geq p\)</span>，设其为 <span class="arithmatex">\(q\)</span>，则 <span class="arithmatex">\(q \geq p\)</span>。</p>
-<p>假设 <span class="arithmatex">\(q &gt; p\)</span>，即 <span class="arithmatex">\(q \geq p + 1\)</span>，所以 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(w\)</span> 的前 <span class="arithmatex">\(p + 1\)</span> 个字符相等。记上述性质为性质 X。</p>
+<p>假设 <span class="arithmatex">\(q &gt; p\)</span>，即 <span class="arithmatex">\(q \geq p + 1\)</span>，所以 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(w\)</span> 的前 <span class="arithmatex">\(p + 1\)</span> 个字符相等，记上述性质为性质 X。</p>
 <p>又因为 <span class="arithmatex">\(p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}\)</span>，所以 <span class="arithmatex">\(u[p+1]\neq v[p+1]\)</span> 或 <span class="arithmatex">\(v[p+1]\neq w[p+1]\)</span>，且 <span class="arithmatex">\(u[p+1] \leq v[p+1] \leq w[p+1]\)</span>。</p>
 <p>但又由性质 X，<span class="arithmatex">\(u[p+1]=w[p+1]\)</span>，即 <span class="arithmatex">\(u[p+1] = v[p+1] = w[p+1]\)</span>，矛盾，故 <span class="arithmatex">\(q \leq p\)</span>。</p>
 <p>综上所述，有 <span class="arithmatex">\(q \geq p\)</span>，且 <span class="arithmatex">\(q \leq p\)</span>，则 <span class="arithmatex">\(q = p\)</span>，所以 <span class="arithmatex">\(\text{lcp}(i,k) = p\)</span>，即 <span class="arithmatex">\(\text{lcp}(i,k) = \min\{\text{lcp}(i,j),\text{lcp}(j,k)\}\)</span>。</p>
@@ -1735,14 +1717,7 @@
 \text{lcp}(j, k) \geq \text{lcp}(i, k)
 \]</div>
 <p>利用 <span class="arithmatex">\(\text{LCP Theorem}\)</span>，证明显然。</p>
-<h3 id="_5">基本定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>有定义</p>
-<div class="arithmatex">\[
-ht[i] = \text{lcp}(i-1,i)
-\]</div>
-<p>其中 <span class="arithmatex">\(ht[1] = 0\)</span>。</p>
-<p>定义数组 <span class="arithmatex">\(H[i]\)</span>，有 <span class="arithmatex">\(H[i] = ht[rk[i]]\)</span>，则有 <span class="arithmatex">\(ht[i] = H[sa[i]]\)</span>。</p>
-<h3 id="_6">一个重要引理<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_5">一个重要引理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>有如下引理</p>
 <div class="arithmatex">\[
 H[i] \geq H[i - 1] - 1
@@ -1774,17 +1749,10 @@ H[i-1] &amp;= ht[rk[i-1]] \\
 &amp;= H[i-1]-1
 \end{aligned}
 \]</div>
-<p>再根据 <span class="arithmatex">\(H\)</span> 数组定义，有</p>
-<div class="arithmatex">\[
-H[i] = \text{lcp}(rk[i]-1,rk[i])
-\]</div>
-<p>即</p>
-<div class="arithmatex">\[
-H[i] \geq H[i-1]-1
-\]</div>
+<p>再根据 <span class="arithmatex">\(H\)</span> 数组定义，有 <span class="arithmatex">\(H[i] = \text{lcp}(rk[i]-1,rk[i])\)</span>，即 <span class="arithmatex">\(H[i] \geq H[i-1]-1\)</span>。</p>
 <p>证毕。</p>
 </details>
-<h3 id="_7">求法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_6">求法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>利用上面的引理，我们可以暴力地求出 <span class="arithmatex">\(ht\)</span> 数组，代码如下：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">g_hei</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -1803,7 +1771,7 @@ H[i] \geq H[i-1]-1
 <p>这样，总复杂度为 <span class="arithmatex">\(O(n)\)</span>。</p>
 <p>注：上述分析仅供初学者理解，严谨的分析需要用到上面的引理，<del>但是我不会</del>，所以具体内容见参考资料里的第二篇文章。</p>
 </details>
-<h3 id="_8">一些应用<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_7">一些应用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p><span class="arithmatex">\(\text{Height}\)</span> 数组应用十分广泛。</p>
 <details class="note" open="open">
 <summary>子串的最长公共前缀</summary>
@@ -1827,7 +1795,7 @@ H[i] \geq H[i-1]-1
 <p>证明略。</p>
 </details>
 <p>更多 <span class="arithmatex">\(ht\)</span> 数组的应用我们结合例题来分析。</p>
-<h2 id="_9">例题<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_8">例题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="p3809"><a href="https://www.luogu.com.cn/problem/P3809">P3809 【模板】后缀排序</a><a class="headerlink" href="#p3809" title="Permanent link">&para;</a></h3>
 <p>模板题。</p>
 <h3 id="p4051-jsoi2007"><a href="https://www.luogu.com.cn/problem/P4051">P4051 [JSOI2007] 字符加密</a><a class="headerlink" href="#p4051-jsoi2007" title="Permanent link">&para;</a></h3>
@@ -1845,15 +1813,18 @@ H[i] \geq H[i-1]-1
 <h3 id="p2870-usaco07dec-best-cow-line-g"><a href="https://www.luogu.com.cn/problem/P2870">P2870 [USACO07DEC] Best Cow Line G</a><a class="headerlink" href="#p2870-usaco07dec-best-cow-line-g" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">题意</p>
-<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，每次可以选择 <span class="arithmatex">\(S\)</span> 的第一个或者最后一个字符，把它加到一个新的字符串的尾部，然后去掉 <span class="arithmatex">\(S\)</span> 中的它。求最后产生的字符串的最小字典序。</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，每次可以选择 <span class="arithmatex">\(S\)</span> 的第一个或者最后一个字符，把它移动到一个新的字符串的尾部。求最后产生的字符串的最小字典序。</p>
 </div>
+<p>显然，每次选取 <span class="arithmatex">\(S\)</span> 首尾字符中字典序最小的那个。那如果字典序一样呢？</p>
+<p>设 <span class="arithmatex">\(i\)</span> 为开头，<span class="arithmatex">\(j\)</span> 为结尾，那么显然，如果原字符串中前缀 <span class="arithmatex">\(j\)</span> 字典序比后缀 <span class="arithmatex">\(i\)</span> 小，那么就选 <span class="arithmatex">\(j\)</span>（因为选了之后剩下的更好），否则选 <span class="arithmatex">\(i\)</span>。</p>
+<p>那么如何比较前缀 <span class="arithmatex">\(j\)</span> 和后缀 <span class="arithmatex">\(i\)</span> 呢？我们可以把 <span class="arithmatex">\(S\)</span> 和翻转过的 <span class="arithmatex">\(S\)</span> 拼接起来，中间加一个不属于字符集的分隔符（例如 <span class="arithmatex">\(\texttt{|}\)</span>），形成的新字符串记为 <span class="arithmatex">\(T\)</span>。比如 <span class="arithmatex">\(S=\texttt{AABCAC}\)</span>，那么 <span class="arithmatex">\(T=\texttt{AABCAC|CACBAA}\)</span>。对 <span class="arithmatex">\(T\)</span> 建出后缀数组，那么只需要比较 <span class="arithmatex">\(rk[i]\)</span> 和 <span class="arithmatex">\(rk[2 \times (n + 1) - j]\)</span> 即可。</p>
 <h3 id="p4248-ahoi2013"><a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a><a class="headerlink" href="#p4248-ahoi2013" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>，令 <span class="arithmatex">\(T_i\)</span> 表示它从第 <span class="arithmatex">\(i\)</span> 个字符开始的后缀。求</p>
 <div class="arithmatex">\[ 
 \sum_{1\leq i&lt;j\leq n}\text{len}(T_i)+\text{len}(T_j)-2\times\text{LCP}(T_i,T_j)\]</div>
-<p>其中，<span class="arithmatex">\(\text{len}(a)\)</span> 表示字符串 <span class="arithmatex">\(a\)</span> 的长度，<span class="arithmatex">\(\text{LCP}(a,b)\)</span> 表示字符串 <span class="arithmatex">\(a\)</span> 和字符串 <span class="arithmatex">\(b\)</span> 的最长公共前缀。</p>
+<p>其中，<span class="arithmatex">\(\text{len}(a)\)</span> 表示字符串 <span class="arithmatex">\(a\)</span> 的长度，<span class="arithmatex">\(\text{LCP}(a,b)\)</span> 表示字符串 <span class="arithmatex">\(a\)</span> 和字符串 <span class="arithmatex">\(b\)</span> 的最长公共前缀的长度。</p>
 </details>
 <p>原式即为</p>
 <div class="arithmatex">\[
@@ -2065,7 +2036,7 @@ f_i = f_j + (i - j) \times ht[i]
 \max_{1 \leq l \leq r \leq N} \min_{l &lt; k \leq r} ht[k]
 \]</div>
 <p>其中，<span class="arithmatex">\(l,r\)</span> 需满足，对于任意的 <span class="arithmatex">\(T_i\)</span>，区间 <span class="arithmatex">\([l, r]\)</span> 覆盖了 <span class="arithmatex">\(n\)</span> 它的一个的字串。这是因为区间 <span class="arithmatex">\([l, r]\)</span> 需要覆盖所有的字符串的字串。</p>
-<p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护。时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
+<p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，这样对答案没有影响。这样我们可以使用双指针维护它（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护。时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
@@ -2289,7 +2260,7 @@ Ans = \prod_{i=1}^{n-1} f_i \times g_{i + 1}
 <a id="__codelineno-6-112" name="__codelineno-6-112" href="#__codelineno-6-112"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<h2 id="_10">参考资料<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<h2 id="_9">参考资料<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><a href="https://oi-wiki.org/string/sa/">后缀数组简介 - OI Wiki</a></p>
