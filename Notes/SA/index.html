@@ -1913,7 +1913,7 @@ f_i = f_j + (i - j) \times ht[i]
 <h3 id="p7409-svt"><a href="https://www.luogu.com.cn/problem/P7409">P7409 SvT</a><a class="headerlink" href="#p7409-svt" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
-<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>。有 <span class="arithmatex">\(q\)</span> 次询问，每次询问给定 <span class="arithmatex">\(t\)</span> 个数，求去掉重复元素后，这些后缀两两之间的最长公共前缀长度之和。答案对 <span class="arithmatex">\(23333333333333333\)</span> 取模。</p>
+<p>给定一个长度为 <span class="arithmatex">\(n\)</span> 的字符串 <span class="arithmatex">\(S\)</span>。有 <span class="arithmatex">\(q\)</span> 次询问，每次询问给定 <span class="arithmatex">\(t\)</span> 个后缀，求去掉重复元素后，这些后缀两两之间的最长公共前缀长度之和。答案对 <span class="arithmatex">\(23333333333333333\)</span> 取模。</p>
 </details>
 <p>将每次询问的 <span class="arithmatex">\(t\)</span> 个数按 <span class="arithmatex">\(rk\)</span> 值进行排序，得到 <span class="arithmatex">\(p_1 \dots p_t\)</span>。记 <span class="arithmatex">\(v_i = \text{LCP}(\text{suf}(p_{i-1}), \text{suf}(p_i))\)</span>，那么由 <span class="arithmatex">\(ht\)</span> 数组的第一个应用和 <span class="arithmatex">\(\text{LCP Theorem}\)</span>，有</p>
 <div class="arithmatex">\[
@@ -1921,7 +1921,7 @@ f_i = f_j + (i - j) \times ht[i]
 \]</div>
 <p>问题转化为求</p>
 <div class="arithmatex">\[
-\sum_{i=1}^{n-1} \sum_{j=i+1}^n \min_{i &lt; k \leq j} v_k
+\sum_{i=1}^{t-1} \sum_{j=i+1}^t \min_{i &lt; k \leq j} v_k
 \]</div>
 <p>与 <a href="https://www.luogu.com.cn/problem/P4248">P4248 [AHOI2013] 差异</a> 一样，使用单调栈维护即可。<span class="arithmatex">\(v\)</span> 数组的维护可以使用 ST 表。时间复杂度 <span class="arithmatex">\(O(n\log n)\)</span>。</p>
 <details class="note">
