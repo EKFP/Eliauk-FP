@@ -10,11 +10,18 @@
 
 字符串即为 $s$。
 
-记 "后缀 $i$" 表示从 $i$ 开始的后缀，即 $s[i\dots n]$，它代表后缀的编号。
+记 "后缀 $i$" 表示从 $i$ 开始的后缀，即 $s[i\dots n]$，它代表后缀的编号。记 $\text{suf}(i)$ 表示后缀 $i$。
 
 记 $sa[i]$ 表示排名为 $i$ 的后缀的编号，$rk[i]$ 表示后缀 $i$ 的排名。显然有 $sa[rk[i]] = rk[sa[i]] = i$。
 
 记 $\lvert T \rvert$ 表示字符串 $T$ 的长度。特别地，记 $n = \lvert s \rvert$。
+
+对于字符串 $S$ 和 $T$，定义其最长公共前缀 $\text{LCP}(S,T)$ 为最大的 $k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})$，使得对于任意 $i(1 \leq i \leq k)$，有 $S_i = T_i$。
+
+记 $\text{lcp}(i, j)$ 为后缀 $sa[i]$ 与后缀 $sa[j]$ 的最长公共前缀的长度。容易知道 $\text{lcp}(i, j) = \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j]))$。
+
+
+记 $ht[i] = \text{lcp}(i-1,i)$，其中 $ht[1] = 0$。记 $H[i] = ht[rk[i]]$，显然有 $ht[i] = H[sa[i]]$。
 
 如果以 $a[i]$ 表示一个数组，那么这意味着会出现与该数组有关的嵌套（比如 $sa[rk[i]]$）。如果以 $a_i$ 表示一个数组，那么意味着它的表示比较简单且不会出现嵌套。严格来说，不应该使用前者来表示一个数组，但为了方便读者阅读，本文使用了该方式，我尽量做到能用后者就用后者。
 
@@ -26,17 +33,17 @@
 
 ### $O(n \log^2{n})$ 做法
 
-对于字符串 $s$ 的所有后缀，它们有大量重复部分，而直接排序就会进行大量重复比较，不如换个角度入手。
+对于字符串 $s$ 的所有后缀，它们有大量重复部分，而直接排序就会进行大量重复比较，不如换个角度考虑。
 
 我们先从一组数据入手。对于 $s = \texttt{abbaaaba}$，我们先以每个后缀第一个字符为第一关键字，第二个字符为第二关键字进行排序，其实也就是对于每个后缀的前两个字符进行排序，结果如下：
 
 ![](images/img1.png)
 
-根据上面的定义，绿色部分的排名即为 $rk$ 数组。观察这些后缀，我们现在知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是后缀，那么其实我们也知道下图中黄色部分的排名：
+根据上面的定义，绿色部分的排名即为 $rk$ 数组。观察这些后缀，我们现在知道绿色部分的排名。而由后缀的性质，蓝色部分其实也是后缀，那么其实我们也知道下图中黄色部分的排名： 
 
 ![](images/img2.png)
 
-那么我们使用绿色部分的排名（即原排名，$rk$ 数组）为第一关键字，黄色部分的排名（即对于后缀 $i$，第一个图中的蓝色部分是后缀 $i + 2$，那么黄色部分的排名即为后缀 $i + 2$ 的原排名，即 $rk[i + 2]$）为第二关键字，进行排序，结果如下：
+对于后缀 $i$，我们使用绿色部分的排名（即原排名，$rk[i]$）为第一关键字，黄色部分的排名（第一个图中的蓝色部分是后缀 $i + 2$，那么黄色部分的排名即为后缀 $i + 2$ 的原排名，即 $rk[i + 2]$）为第二关键字，进行排序，结果如下：
 
 ![](images/img3.png)
 
@@ -132,13 +139,7 @@ void f_sort() {
 
 ### 最长公共前缀
 
-记 $\text{suf}(i)$ 表示后缀 $i$。
-
-对于字符串 $S$ 和 $T$，定义其最长公共前缀 $\text{LCP}(S,T)$ 为最大的 $k(k \leq \min\{\lvert S \rvert,\lvert T \rvert\})$，使得对于任意 $i(1 \leq i \leq k)$，有 $S_i = T_i$。
-
-记 $\text{lcp}(i, j)$ 为后缀 $sa[i]$ 与后缀 $sa[j]$ 的最长公共前缀的长度。
-
-容易知道 $\text{lcp}(i, j) = \text{LCP}(\text{suf}(sa[i]),\text{suf}(sa[j]))$
+下面有三个非常重要的结论，分别是 [$\text{LCP Lemma}$](https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-lemma)，[$\text{LCP Theorem}$](https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-theorem) 和 [$\text{LCP Corollary}$](https://ekfp.github.io/Eliauk-FP/Notes/SA/#textlcp-corollary)。
 
 #### $\text{LCP Lemma}$
 
@@ -149,13 +150,13 @@ $$
 $$
 
 ???+ note "证明"
-    设 $p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}$，则有 $\text{lcp}(i,j)\geq p,\text{lcp}(i,j)\geq p$。
+    设 $p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}$，则有 $\text{lcp}(i,j)\geq p,\text{lcp}(j,k)\geq p$。
 
-    设 $\text{suf}(sa[i])=u,\text{suf}(sa[j])=v,\text{suf}(sa[k])=w$。
+    记 $u=\text{suf}(sa[i]),v=\text{suf}(sa[j]),w=\text{suf}(sa[k])$。
 
     所以 $u$ 和 $v$ 的前 $p$ 个字符相等，$v$ 和 $w$ 的前 $p$ 个字符相等。所以 $u$ 和 $w$ 的前 $p$ 个字符相等，即 $\text{lcp}(i,k)\geq p$，设其为 $q$，则 $q \geq p$。
 
-    假设 $q > p$，即 $q \geq p + 1$，所以 $u$ 和 $w$ 的前 $p + 1$ 个字符相等。记上述性质为性质 X。
+    假设 $q > p$，即 $q \geq p + 1$，所以 $u$ 和 $w$ 的前 $p + 1$ 个字符相等，记上述性质为性质 X。
     
     又因为 $p=\min\{\text{lcp}(i,j),\text{lcp}(j,k)\}$，所以 $u[p+1]\neq v[p+1]$ 或 $v[p+1]\neq w[p+1]$，且 $u[p+1] \leq v[p+1] \leq w[p+1]$。
 
@@ -218,18 +219,6 @@ $$
 
 利用 $\text{LCP Theorem}$，证明显然。
 
-### 基本定义
-
-有定义
-
-$$
-ht[i] = \text{lcp}(i-1,i)
-$$
-
-其中 $ht[1] = 0$。
-
-定义数组 $H[i]$，有 $H[i] = ht[rk[i]]$，则有 $ht[i] = H[sa[i]]$。
-
 ### 一个重要引理
 
 有如下引理
@@ -274,18 +263,8 @@ $$
     \end{aligned}
     $$
 
-    再根据 $H$ 数组定义，有
-
-    $$
-    H[i] = \text{lcp}(rk[i]-1,rk[i])
-    $$
-
-    即
-
-    $$
-    H[i] \geq H[i-1]-1
-    $$
-
+    再根据 $H$ 数组定义，有 $H[i] = \text{lcp}(rk[i]-1,rk[i])$，即 $H[i] \geq H[i-1]-1$。
+    
     证毕。
 
 ### 求法
@@ -351,19 +330,34 @@ $\text{Height}$ 数组应用十分广泛。
 
 模板题。
 
+
 ### [P4051 [JSOI2007] 字符加密](https://www.luogu.com.cn/problem/P4051)
 
 ???+ info "题意"
     给你一个长度为 $n$ 的字符串 $S$，你可以把它排成一圈，这样可以生成 $n$ 个字符串。现在对这 $n$ 个字符串进行排序，求排序后从小到大每个字符串的末尾组成的字符串。
 
-环形似乎不好处理，但是我们有一种经典方法，将 $S$ 拼接成 $SS$，再求后缀数组即可，时间复杂度 $O(n\log n)$。
+环形似乎不好处理，但是我们有一种经典方法，将 $S$ 拼接成 $SS$，再求后缀数组即可。时间复杂度 $O(n\log n)$。
+
 
 ### [P2852 [USACO06DEC] Milk Patterns G](https://www.luogu.com.cn/problem/P2852)
 
 ???+ info "题意"
     给你一个字符串 $S$，求出现至少 $k$ 次的子串的最大长度。
 
-先求后缀数组和 $ht$ 数组，这样问题转化为排序后找到连续 $k$ 个后缀，使得它们的 $\text{LCP}$ 最大。其实就是在 $ht$ 数组中，求相邻 $k-1$ 个值的最小值，最后求这些最小值的最大值，单调队列维护即可，时间复杂度 $O(\lvert S \rvert \log {\lvert S \rvert})$。
+先求后缀数组和 $ht$ 数组，这样问题转化为排序后找到连续 $k$ 个后缀，使得它们的 $\text{LCP}$ 最大。其实就是在 $ht$ 数组中，求相邻 $k-1$ 个值的最小值，最后求这些最小值的最大值，单调队列维护即可。时间复杂度 $O(\lvert S \rvert \log {\lvert S \rvert})$。
+
+
+### [P2870 [USACO07DEC] Best Cow Line G](https://www.luogu.com.cn/problem/P2870)
+
+???+ info "题意"
+    给定一个长度为 $n$ 的字符串 $S$，每次可以选择 $S$ 的第一个或者最后一个字符，把它移动到一个新的字符串的尾部。求最后产生的字符串的最小字典序。
+
+显然，每次选取 $S$ 首尾字符中字典序最小的那个。那如果字典序一样呢？
+
+设 $i$ 为开头，$j$ 为结尾，那么显然，如果原字符串中前缀 $j$ 字典序比后缀 $i$ 小，那么就选 $j$（因为选了之后剩下的更好），否则选 $i$。
+
+那么如何比较前缀 $j$ 和后缀 $i$ 呢？我们可以把 $S$ 和翻转过的 $S$ 拼接起来，中间加一个不属于字符集的分隔符（例如 $\texttt{|}$），形成的新字符串记为 $T$。比如 $S=\texttt{ABAC}$，那么 $T=\texttt{ABAC|CABA}$。对 $T$ 建出后缀数组，那么只需要比较 $rk[i]$ 和 $rk[2 \times (n + 1) - j]$ 即可。
+
 
 ### [P4248 [AHOI2013] 差异](https://www.luogu.com.cn/problem/P4248)
 
@@ -373,7 +367,7 @@ $\text{Height}$ 数组应用十分广泛。
     $$ 
     \sum_{1\leq i<j\leq n}\text{len}(T_i)+\text{len}(T_j)-2\times\text{LCP}(T_i,T_j)$$
 
-    其中，$\text{len}(a)$ 表示字符串 $a$ 的长度，$\text{LCP}(a,b)$ 表示字符串 $a$ 和字符串 $b$ 的最长公共前缀。
+    其中，$\text{len}(a)$ 表示字符串 $a$ 的长度，$\text{LCP}(a,b)$ 表示字符串 $a$ 和字符串 $b$ 的最长公共前缀的长度。
 
 原式即为
 
@@ -401,7 +395,7 @@ $$
 f_i = f_j + (i - j) \times ht[i]
 $$
 
-使用单调栈维护这个东西即可，时间复杂度 $O(n\log n)$。
+使用单调栈维护这个东西即可。时间复杂度 $O(n\log n)$。
 
 ??? note "代码"
     ```cpp
@@ -471,6 +465,7 @@ $$
     }
     ```
 
+
 ### [P7409 SvT](https://www.luogu.com.cn/problem/P7409)
 
 ???+ info "题意"
@@ -488,7 +483,7 @@ $$
 \sum_{i=1}^{n-1} \sum_{j=i+1}^n \min_{i < k \leq j} v_k
 $$
 
-与 [P4248 [AHOI2013] 差异](https://www.luogu.com.cn/problem/P4248) 一样，使用单调栈维护即可。$v$ 数组的维护可以使用 ST 表，时间复杂度 $O(n\log n)$。
+与 [P4248 [AHOI2013] 差异](https://www.luogu.com.cn/problem/P4248) 一样，使用单调栈维护即可。$v$ 数组的维护可以使用 ST 表。时间复杂度 $O(n\log n)$。
 
 ??? note "代码"
     ```cpp
@@ -590,6 +585,7 @@ $$
     }
     ```
 
+
 ### [P2463 [SDOI2008] Sandy 的卡片](https://www.luogu.com.cn/problem/P2463)
 
 ???+ info "题意"
@@ -604,7 +600,7 @@ $$
 
 其中，$l,r$ 需满足，对于任意的 $T_i$，区间 $[l, r]$ 覆盖了 $n$ 它的一个的字串。这是因为区间 $[l, r]$ 需要覆盖所有的字符串的字串。
 
-显然，如果 $[l, r]$ 满足上述要求，那么 $[l^{\prime}, r^{\prime}]$ 也满足上述要求，其中 $l^{\prime} \leq l \leq r \leq r^{\prime}$。那么，容易知道，随着 $l$ 的增加，$r$ 可以保证单调不降，因为这样对答案没有影响。所以这可以使用双指针维护（外面的 $\max$），至于里面那个 $\min$ 可以用单调队列维护，时间复杂度 $O(N \log N)$。
+显然，如果 $[l, r]$ 满足上述要求，那么 $[l^{\prime}, r^{\prime}]$ 也满足上述要求，其中 $l^{\prime} \leq l \leq r \leq r^{\prime}$。那么，容易知道，随着 $l$ 的增加，$r$ 可以保证单调不降，这样对答案没有影响。这样我们可以使用双指针维护它（外面的 $\max$），至于里面那个 $\min$ 可以用单调队列维护。时间复杂度 $O(N \log N)$。
 
 ??? note "代码"
     ```cpp
@@ -697,6 +693,7 @@ $$
         return 0;
     }
     ```
+
 
 ### [P1117 [NOI2016] 优秀的拆分](https://www.luogu.com.cn/problem/P1117)
 
@@ -834,6 +831,7 @@ $$
         return 0;
     }
     ```
+
 
 ## 参考资料
 
