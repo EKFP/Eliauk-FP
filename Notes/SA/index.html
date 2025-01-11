@@ -2033,7 +2033,7 @@ f_i = f_j + (i - j) \times ht[i]
 <div class="arithmatex">\[
 \max_{1 \leq l \leq r \leq N} \min_{l &lt; k \leq r} ht[k]
 \]</div>
-<p>其中，<span class="arithmatex">\(l,r\)</span> 需满足，对于任意的 <span class="arithmatex">\(T_i\)</span>，区间 <span class="arithmatex">\([l, r]\)</span> 覆盖了 <span class="arithmatex">\(n\)</span> 它的一个的字串。这是因为区间 <span class="arithmatex">\([l, r]\)</span> 需要覆盖所有的字符串的字串。</p>
+<p>其中，<span class="arithmatex">\(l,r\)</span> 需满足，对于任意的 <span class="arithmatex">\(T_i\)</span>，排名区间 <span class="arithmatex">\([l, r]\)</span> 覆盖了它的一个的子串。这是因为区间 <span class="arithmatex">\([l, r]\)</span> 需要覆盖所有的字符串的子串。</p>
 <p>显然，如果 <span class="arithmatex">\([l, r]\)</span> 满足上述要求，那么 <span class="arithmatex">\([l^{\prime}, r^{\prime}]\)</span> 也满足上述要求，其中 <span class="arithmatex">\(l^{\prime} \leq l \leq r \leq r^{\prime}\)</span>。那么，容易知道，随着 <span class="arithmatex">\(l\)</span> 的增加，<span class="arithmatex">\(r\)</span> 可以保证单调不降，这样对答案没有影响。这样我们可以使用双指针维护它（外面的 <span class="arithmatex">\(\max\)</span>），至于里面那个 <span class="arithmatex">\(\min\)</span> 可以用单调队列维护。时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
 <details class="note">
 <summary>代码</summary>
@@ -2130,7 +2130,7 @@ f_i = f_j + (i - j) \times ht[i]
 <h3 id="p1117-noi2016"><a href="https://www.luogu.com.cn/problem/P1117">P1117 [NOI2016] 优秀的拆分</a><a class="headerlink" href="#p1117-noi2016" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
-<p>给定字符串 <span class="arithmatex">\(S\)</span>，求它能表示成 <span class="arithmatex">\(AABB\)</span> 形式的子串的数量，<span class="arithmatex">\(T\)</span> 组数据。</p>
+<p>给定字符串 <span class="arithmatex">\(S\)</span>，求它的能表示成 <span class="arithmatex">\(AABB\)</span> 形式的子串的数量，<span class="arithmatex">\(T\)</span> 组数据。</p>
 </details>
 <p>设 <span class="arithmatex">\(f_i\)</span> 表示以 <span class="arithmatex">\(i\)</span> 结尾的 <span class="arithmatex">\(AA\)</span> 串的个数，<span class="arithmatex">\(g_i\)</span> 表示以 <span class="arithmatex">\(i\)</span> 开头的 <span class="arithmatex">\(AA\)</span> 串的个数。那么有答案</p>
 <div class="arithmatex">\[
