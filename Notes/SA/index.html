@@ -1803,12 +1803,16 @@ H[i-1] &amp;= ht[rk[i-1]] \\
 <p>其实这就是 <span class="arithmatex">\(\text{LCP Theorem}\)</span>。</p>
 </details>
 <details class="note">
-<summary>不同字串的数目</summary>
-<p>答案为</p>
+<summary>本质不同子串数</summary>
+<p>显然，每个子串 <span class="arithmatex">\(s[l\dots r]\)</span> 都可以对应一个后缀 <span class="arithmatex">\(\text{suf}(l)\)</span>。</p>
+<p>对于两个排名相邻的后缀，它们之间产生的相同子串数有 <span class="arithmatex">\(ht[i]\)</span> 个，那么本质不同子串数就是</p>
 <div class="arithmatex">\[
-\frac{n(n + 1)}{2} - \sum_{i=2}^n ht[i]
+\frac{n\times (n+1)}{2}-\sum_{i=2}^n ht[i]
 \]</div>
-<p>证明略。</p>
+</details>
+<details class="note">
+<summary>结合单调栈</summary>
+<p>当我们要求形如 <span class="arithmatex">\(\sum \min\)</span> 的式子时，可以考虑使用单调栈维护。</p>
 </details>
 <p>更多 <span class="arithmatex">\(ht\)</span> 数组的应用我们结合例题来分析。</p>
 <h2 id="_8">例题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
