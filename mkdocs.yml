@@ -96,6 +96,7 @@ repo_name: EKFP 的 GitHub # 右上角的名字
   #     如果你同意,你可以帮助我们让我们的网站更好~
     #描述
       
+
 plugins:
   - search
   - tags  #标签
@@ -128,3 +129,4 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css

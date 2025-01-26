@@ -965,6 +965,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#p3181-haoi2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      P3181 [HAOI2016] 找相同字符
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#p7409-svt" class="md-nav__link">
     <span class="md-ellipsis">
       P7409 SvT
@@ -1502,6 +1511,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#p3181-haoi2016" class="md-nav__link">
+    <span class="md-ellipsis">
+      P3181 [HAOI2016] 找相同字符
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#p7409-svt" class="md-nav__link">
     <span class="md-ellipsis">
       P7409 SvT
@@ -1785,12 +1803,16 @@ H[i-1] &amp;= ht[rk[i-1]] \\
 <p>其实这就是 <span class="arithmatex">\(\text{LCP Theorem}\)</span>。</p>
 </details>
 <details class="note">
-<summary>不同字串的数目</summary>
-<p>答案为</p>
+<summary>本质不同子串数</summary>
+<p>显然，每个子串 <span class="arithmatex">\(s[l\dots r]\)</span> 都可以对应一个后缀 <span class="arithmatex">\(\text{suf}(l)\)</span>。</p>
+<p>对于两个排名相邻的后缀，它们之间产生的相同子串数有 <span class="arithmatex">\(ht[i]\)</span> 个，那么本质不同子串数就是</p>
 <div class="arithmatex">\[
-\frac{n(n + 1)}{2} - \sum_{i=2}^n ht[i]
+\frac{n\times (n+1)}{2}-\sum_{i=2}^n ht[i]
 \]</div>
-<p>证明略。</p>
+</details>
+<details class="note">
+<summary>结合单调栈</summary>
+<p>当我们要求形如 <span class="arithmatex">\(\sum \min\)</span> 的式子时，可以考虑使用单调栈维护。</p>
 </details>
 <p>更多 <span class="arithmatex">\(ht\)</span> 数组的应用我们结合例题来分析。</p>
 <h2 id="_8">例题<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
@@ -1910,6 +1932,19 @@ f_i = f_j + (i - j) \times ht[i]
 <a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a><span class="p">}</span>
 </code></pre></div>
 </details>
+<h3 id="p3181-haoi2016"><a href="https://www.luogu.com.cn/problem/P3181">P3181 [HAOI2016] 找相同字符</a><a class="headerlink" href="#p3181-haoi2016" title="Permanent link">&para;</a></h3>
+<details class="info" open="open">
+<summary>题意</summary>
+<p>给定两个字符串 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span>，求它们的相同子串数。</p>
+</details>
+<p>显然，对于一个字符串，它的两两相同子串数量为</p>
+<div class="arithmatex">\[
+\sum_{1\leq i&lt;j\leq n} \min_{i &lt; k \leq j} ht[k]
+\]</div>
+<p>和上一题一样，我们可以用单调栈维护这个东西。</p>
+<p>我们把 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span> 拼接在一起，中间添加一个分隔符，形成一个新的字符串 <span class="arithmatex">\(X\)</span>。这样，我们只需要求出 <span class="arithmatex">\(X\)</span> 中的两两相同子串数。这两个子串一个在 <span class="arithmatex">\(S\)</span> 中，一个在 <span class="arithmatex">\(T\)</span> 中。</p>
+<p>考虑到有后面这个限制比较难做，我们先求没有限制时 <span class="arithmatex">\(X\)</span> 中两两相同子串数。但是这样会多出两个子串都在 <span class="arithmatex">\(S\)</span> 中或都在 <span class="arithmatex">\(T\)</span> 中的情况。我们要减去 <span class="arithmatex">\(S\)</span> 中和 <span class="arithmatex">\(T\)</span> 中的两两相同子串数。</p>
+<p>记 <span class="arithmatex">\(N=\lvert X \rvert\)</span>，时间复杂度 <span class="arithmatex">\(O(N \log N)\)</span>。</p>
 <h3 id="p7409-svt"><a href="https://www.luogu.com.cn/problem/P7409">P7409 SvT</a><a class="headerlink" href="#p7409-svt" title="Permanent link">&para;</a></h3>
 <details class="info" open="open">
 <summary>题意</summary>
