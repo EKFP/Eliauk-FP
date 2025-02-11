@@ -16,7 +16,7 @@
         <link rel="prev" href="../../CodeForces/CF998/">
       
       
-        <link rel="next" href="../cdq/">
+        <link rel="next" href="../SAM/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -308,6 +308,24 @@
           
   
   高效进阶
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Joke/Attention/" class="md-tabs__link">
+          
+  
+  整活
 
         </a>
       </li>
@@ -1034,6 +1052,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../SAM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后缀自动机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cdq/" class="md-nav__link">
         
   
@@ -1270,6 +1309,74 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    整活
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            整活
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Joke/Attention/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    优雅的注意力
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2173,7 +2280,7 @@ f_i = f_j + (i - j) \times ht[i]
 </details>
 <p>设 <span class="arithmatex">\(f_i\)</span> 表示以 <span class="arithmatex">\(i\)</span> 结尾的 <span class="arithmatex">\(AA\)</span> 串的个数，<span class="arithmatex">\(g_i\)</span> 表示以 <span class="arithmatex">\(i\)</span> 开头的 <span class="arithmatex">\(AA\)</span> 串的个数。那么有答案</p>
 <div class="arithmatex">\[
-Ans = \prod_{i=1}^{n-1} f_i \times g_{i + 1}
+Ans = \sum_{i=1}^{n-1} f_i \times g_{i + 1}
 \]</div>
 <p>考虑枚举 <span class="arithmatex">\(AA\)</span> 串中 <span class="arithmatex">\(A\)</span> 的长度，设此时长度为 <span class="arithmatex">\(\text{Len}\)</span>，设点 <span class="arithmatex">\(\text{Len},2\times\text{Len},3\times\text{Len}\dots\)</span> 为关键点，那么 <span class="arithmatex">\(AA\)</span> 串一定经过两个相邻的关键点。</p>
 <p>我们枚举两个相邻的关键点 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span>，求出后缀 <span class="arithmatex">\(i\)</span> 和后缀 <span class="arithmatex">\(j\)</span> 的最长公共前缀 <span class="arithmatex">\(\text{Lcp}\)</span> 与前缀 <span class="arithmatex">\(i\)</span> 和前缀 <span class="arithmatex">\(j\)</span> 的最长公共后缀 <span class="arithmatex">\(\text{Lcs}\)</span>。那么，只有在 <span class="arithmatex">\(\lvert \text{Lcp} \rvert + \lvert \text{Lcs} \rvert \geq \text{Len}\)</span> 才会产生贡献。否则，它会形成这样一种情况：</p>
