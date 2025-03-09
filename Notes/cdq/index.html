@@ -1034,8 +1034,8 @@
 <p>给定 <span class="arithmatex">\(n\)</span> 个三维点 <span class="arithmatex">\((x_i, y_i, z_i)\)</span>。对于每个 <span class="arithmatex">\(i\)</span>，求满足 <span class="arithmatex">\(x_i \leq x_j, y_i \leq y_j, z_i \leq z_j\)</span> 的 <span class="arithmatex">\(j(j \neq i)\)</span> 的数量。</p>
 </details>
 <p>我们已经知道二维数点的做法了，那么现在是三维数点。如果我们能想办法去掉一维，那么题目也就好做多了。</p>
-<p>CDQ 分治给出的方法是，对第一维 <span class="arithmatex">\(x\)</span> 的<strong>值域</strong>进行分治。具体地，对于区间 <span class="arithmatex">\([l, r]\)</span>，把它分为 <span class="arithmatex">\([l, mid]\)</span> 和 <span class="arithmatex">\([mid, r]\)</span> 两个区间，其中 <span class="arithmatex">\(mid\)</span> 是区间 <span class="arithmatex">\([l, r]\)</span> 的中点。</p>
-<p>显然，左区间点的 <span class="arithmatex">\(x\)</span> 值一定小于等于右区间。这样，左区间的<strong>所有</strong>点都会对右区间的<strong>询问</strong>点产生贡献。这时，这一维已经满足偏序了，我们只需要统计剩下两维的偏序数量，这就是经典的二维数点问题。</p>
+<p>CDQ 分治给出的方法是，对第一维 <span class="arithmatex">\(x\)</span> 的**值域**进行分治。具体地，对于区间 <span class="arithmatex">\([l, r]\)</span>，把它分为 <span class="arithmatex">\([l, mid]\)</span> 和 <span class="arithmatex">\([mid, r]\)</span> 两个区间，其中 <span class="arithmatex">\(mid\)</span> 是区间 <span class="arithmatex">\([l, r]\)</span> 的中点。</p>
+<p>显然，左区间点的 <span class="arithmatex">\(x\)</span> 值一定小于等于右区间。这样，左区间的**所有**点都会对右区间的**询问**点产生贡献。这时，这一维已经满足偏序了，我们只需要统计剩下两维的偏序数量，这就是经典的二维数点问题。</p>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>

@@ -1019,10 +1019,10 @@
 <h2 id="b-2"><a href="http://noip.ybtoj.com.cn/contest/899/problem/2">B. 【例题2】区间查改</a><a class="headerlink" href="#b-2" title="Permanent link">&para;</a></h2>
 <p>区修区查板子，当然依旧可以树状数组。</p>
 <h2 id="c-3"><a href="http://noip.ybtoj.com.cn/contest/899/problem/3">C. 【例题3】公园遛狗</a><a class="headerlink" href="#c-3" title="Permanent link">&para;</a></h2>
-<p>维护四个值：区间和，区间<strong>中</strong>最大子段和，最大<strong>前缀和</strong>，最大<strong>后缀和</strong>。</p>
+<p>维护四个值：区间和，区间**中**最大子段和，最大**前缀和**，最大**后缀和**。</p>
 <p>接下来我们重点考虑合并操作（即 pushup 操作）。</p>
 <p>区间和的合并只需要将两个区间的区间和加起来即可。</p>
-<p><strong>区间最大前缀和：</strong><span class="arithmatex">\(\max(\)</span><strong>左</strong>区间的最大<strong>前缀</strong>和，<strong>左</strong>区间的<strong>总</strong>和+<strong>右</strong>区间的最大<strong>前缀和</strong><span class="arithmatex">\()\)</span>。</p>
+<p><strong>区间最大前缀和：</strong><span class="arithmatex">\(\max(\)</span><strong>左**区间的最大**前缀**和，**左**区间的**总**和+**右**区间的最大**前缀和</strong><span class="arithmatex">\()\)</span>。</p>
 <details class="note" open="open">
 <summary>证明</summary>
 <p>我们考虑区间前缀和右端点的位置。</p>
@@ -1038,8 +1038,8 @@
 </details>
 <p>区间最大后缀和同理。</p>
 <p><strong>区间中最大子段和：</strong></p>
-<p>首先先选取 <span class="arithmatex">\(\max\{\)</span><strong>左</strong>区间<strong>中</strong>的最大<strong>前缀</strong>和，<strong>右</strong>区间<strong>中</strong>的最大<strong>子段</strong>和<span class="arithmatex">\(\}\)</span>，这是显然的。</p>
-<p>接下来，如果<strong>左</strong>区间的最大<strong>后缀和</strong>或<strong>右</strong>区间的最大<strong>前缀和</strong>有一个小于 <span class="arithmatex">\(0\)</span>，那么就选取两个的最大值，否则就选取两者的和。这容易证明，证明略。</p>
+<p>首先先选取 <span class="arithmatex">\(\max\{\)</span>**左**区间**中**的最大**前缀**和，**右**区间**中**的最大**子段**和<span class="arithmatex">\(\}\)</span>，这是显然的。</p>
+<p>接下来，如果**左**区间的最大**后缀和**或**右**区间的最大**前缀和**有一个小于 <span class="arithmatex">\(0\)</span>，那么就选取两个的最大值，否则就选取两者的和。这容易证明，证明略。</p>
 <p>最后为两者的最大值。</p>
 <h2 id="d-4"><a href="http://noip.ybtoj.com.cn/contest/899/problem/4">D. 【例题4】维护序列</a><a class="headerlink" href="#d-4" title="Permanent link">&para;</a></h2>
 <p>板子题，打两个懒标记即可。</p>

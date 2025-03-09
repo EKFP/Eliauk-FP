@@ -1273,14 +1273,14 @@
 <p>【解题思路】</p>
 <p>神仙贪心。</p>
 <p>注意到这题有一个很好的性质：所有狗粮的价值都一样。</p>
-<p>首先，对于第  <span class="arithmatex">\(i\)</span> 盆狗粮，吃掉它需要在它这里<strong>停留</strong> <span class="arithmatex">\(\max{(t_i - i, 0)}\)</span> 秒，因为移动到它需要 <span class="arithmatex">\(i\)</span> 秒，这样剩下的时间就是<strong>停留</strong>的时间。</p>
+<p>首先，对于第  <span class="arithmatex">\(i\)</span> 盆狗粮，吃掉它需要在它这里**停留** <span class="arithmatex">\(\max{(t_i - i, 0)}\)</span> 秒，因为移动到它需要 <span class="arithmatex">\(i\)</span> 秒，这样剩下的时间就是**停留**的时间。</p>
 <p>但是，我们最多有 <span class="arithmatex">\(T\)</span> 秒，所以狗最多在那里停留 <span class="arithmatex">\(T - i - 1\)</span> 秒。为什么减 <span class="arithmatex">\(i\)</span>？因为需要花费 <span class="arithmatex">\(i\)</span> 秒移动到那里；为什么减一？因为第 <span class="arithmatex">\(T\)</span> 秒不能吃。</p>
 <p>那么为什么要计算停留时间呢？对于一个狗粮，如果要停留，显然不管在哪里停留都一样（当然不能是在该狗粮后面），于是我们只在意停留时间。</p>
 <p>好，我们这里先说做法，等会再解释。</p>
 <p>具体地，我们对于第 <span class="arithmatex">\(i\)</span> 个狗粮，显然对于第 <span class="arithmatex">\(1\)</span> 到 <span class="arithmatex">\(i - 1\)</span> 个狗粮，如果停留时间超过了 <span class="arithmatex">\(T - i - 1\)</span> 那么就不能吃，否则就能吃。</p>
 <p>注意到我们在枚举 <span class="arithmatex">\(i\)</span> 时，<span class="arithmatex">\(T - i - 1\)</span> 是递减的。于是，我们可以用大根堆来维护停留时间。如果堆顶大于 <span class="arithmatex">\(T - i - 1\)</span> 那么就弹掉，直到堆顶小于这个值，然后再把在第 <span class="arithmatex">\(i\)</span> 个狗粮停留的时间扔堆里。这时候，堆的大小就是现在的答案。总答案是所有这些答案的最大值。</p>
-<p>好，那么现在有人会问：我现在把所有大于 <span class="arithmatex">\(T - i - 1\)</span> 的停留时间都弹掉了，但是剩下的停留时间的<strong>和</strong>可能大于 <span class="arithmatex">\(T - i - 1\)</span>，怎么办？</p>
-<p>这个事情是这样的。我们总共的停留时间不是<strong>求和</strong>，而是求<strong>最大值</strong>。因为我们在前面的狗粮停留时，间接地，我们也等待了后面的狗粮。因为对于每个狗粮，时间流逝是一样的。其实这就是一个木桶原理（仔细读读题目，如果想看详细的去看 luogu 的）。</p>
+<p>好，那么现在有人会问：我现在把所有大于 <span class="arithmatex">\(T - i - 1\)</span> 的停留时间都弹掉了，但是剩下的停留时间的**和**可能大于 <span class="arithmatex">\(T - i - 1\)</span>，怎么办？</p>
+<p>这个事情是这样的。我们总共的停留时间不是**求和**，而是求**最大值**。因为我们在前面的狗粮停留时，间接地，我们也等待了后面的狗粮。因为对于每个狗粮，时间流逝是一样的。其实这就是一个木桶原理（仔细读读题目，如果想看详细的去看 luogu 的）。</p>
 <p>好了，这样真的直接做就做完了。这道题是道蓝题，代码只有 19 行。</p>
 <hr />
 <h2 id="e-packmen">E. Packmen<a class="headerlink" href="#e-packmen" title="Permanent link">&para;</a></h2>

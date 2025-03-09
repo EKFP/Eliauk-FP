@@ -1085,13 +1085,13 @@
 <p><strong><em>难度解析：此题的难度瓶颈在于理解题意。</em></strong></p>
 <p>【题目大意】</p>
 <p><strong>注意：洛谷上的题目翻译不准确。</strong></p>
-<p>定义一个序列的美丽值 <span class="arithmatex">\(f(A)\)</span>，为在序列 <span class="arithmatex">\(A\)</span> 中，出现次数最多的数<strong>的出现次数</strong>。</p>
+<p>定义一个序列的美丽值 <span class="arithmatex">\(f(A)\)</span>，为在序列 <span class="arithmatex">\(A\)</span> 中，出现次数最多的数**的出现次数**。</p>
 <p>形式化地，有</p>
 <div class="arithmatex">\[
 f(A) = \max_{1 \leq i \leq n}(\sum_{j = 1}^{n}[A_i = A_j])
 \]</div>
 <p>其中，<span class="arithmatex">\(n\)</span> 是序列 <span class="arithmatex">\(A\)</span> 的长度。<span class="arithmatex">\([]\)</span>（方括号）表示，如果它内部的表达式为真，那么值为 <span class="arithmatex">\(1\)</span>，否则为 <span class="arithmatex">\(0\)</span>。</p>
-<p>现在，给定你序列 <span class="arithmatex">\(A\)</span>，你需要求出 <span class="arithmatex">\(A\)</span> 的一个<strong>连续的</strong>子段 <span class="arithmatex">\(B\)</span>，使得 <span class="arithmatex">\(f(A) = f(B)\)</span>。如果 <span class="arithmatex">\(B\)</span> 在 <span class="arithmatex">\(A\)</span> 中的位置为 <span class="arithmatex">\([l, r]\)</span>，你只需要输出 <span class="arithmatex">\(l\)</span> 和 <span class="arithmatex">\(r\)</span>。</p>
+<p>现在，给定你序列 <span class="arithmatex">\(A\)</span>，你需要求出 <span class="arithmatex">\(A\)</span> 的一个**连续的**子段 <span class="arithmatex">\(B\)</span>，使得 <span class="arithmatex">\(f(A) = f(B)\)</span>。如果 <span class="arithmatex">\(B\)</span> 在 <span class="arithmatex">\(A\)</span> 中的位置为 <span class="arithmatex">\([l, r]\)</span>，你只需要输出 <span class="arithmatex">\(l\)</span> 和 <span class="arithmatex">\(r\)</span>。</p>
 <ul>
 <li><span class="arithmatex">\(1 \leq n \leq 10 ^ 5\)</span>，<span class="arithmatex">\(1 \leq a_i \leq 10 ^ 6\)</span>。</li>
 </ul>

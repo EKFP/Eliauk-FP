@@ -1541,7 +1541,7 @@ f_{i, j} = \max\{f_{i-1, j-w_i}+v_i, f_{i-1, j}\}
 <div class="arithmatex">\[
 f_j = \max\{f_j, f_{j-w_i} + v_i\}
 \]</div>
-<p>这种优化方法叫做<strong>滚动数组</strong>。</p>
+<p>这种优化方法叫做**滚动数组**。</p>
 <p>注意一个小细节：在枚举 <span class="arithmatex">\(j\)</span> 时候，需要倒序循环，为什么？我们在转移时，<span class="arithmatex">\(f_{j-w_i}\)</span> 表示的是原来的 <span class="arithmatex">\(f_{i-1,j-w_i}\)</span>。但是，这个性质成立有个条件：<span class="arithmatex">\(f_{j-w_i}\)</span> 没被计算过。否则它表示的就是 <span class="arithmatex">\(f_{i, j-w_i}\)</span>。如果正序循环，它正好被计算过，所以表示的是 <span class="arithmatex">\(f_{i,j-w_i}\)</span>，这样显然是不行的。倒序循环就能很好地避免这个问题。</p>
 <details> 
 <summary> Code </summary>
@@ -1577,7 +1577,7 @@ f_j = \max\{f_j, f_{j-w_i} + v_i\}
 <p>【题目大意】</p>
 <p>与上一题一样，只不过 <span class="arithmatex">\(W\)</span> 的最大值变为 <span class="arithmatex">\(10^9\)</span>，<span class="arithmatex">\(v_i\)</span> 的最大值变为 <span class="arithmatex">\(v_i\)</span>。</p>
 <p>【解题思路】</p>
-<p>注意到 <span class="arithmatex">\(v_i\)</span> 的范围很小，那么我们只需要将状态变为 <span class="arithmatex">\(f_{j}\)</span> 表示选取<strong>价值</strong>为 <span class="arithmatex">\(j\)</span> 时的最小<strong>重量</strong>和。</p>
+<p>注意到 <span class="arithmatex">\(v_i\)</span> 的范围很小，那么我们只需要将状态变为 <span class="arithmatex">\(f_{j}\)</span> 表示选取**价值**为 <span class="arithmatex">\(j\)</span> 时的最小**重量**和。</p>
 <p>转移方程与上一题完全一样（当然，要把 <span class="arithmatex">\(v_i\)</span> 和 <span class="arithmatex">\(w_i\)</span> 交换）。</p>
 <p>如何求答案？枚举 <span class="arithmatex">\(1\)</span> 到最大价值（即价值和），合法（即 <span class="arithmatex">\(f_i \leq W\)</span>）就输出。倒序循环。</p>
 <hr />
@@ -1598,7 +1598,7 @@ f_{i, j} = \begin{cases}f_{i-1,j-1}+1 &amp; s_i=t_j\\
 <hr />
 <h2 id="g-longest-path">G. Longest Path<a class="headerlink" href="#g-longest-path" title="Permanent link">&para;</a></h2>
 <p>【题目大意】</p>
-<p>求<strong>有向无环图</strong>上的最长路长度。</p>
+<p>求**有向无环图**上的最长路长度。</p>
 <p>长度为路径上边的数量。</p>
 <p>【解题思路】</p>
 <p>注意到是 DAG（有向无环图），考虑拓扑排序。</p>
@@ -1779,7 +1779,7 @@ f_{l, r} = \min_{l \leq k &lt; r} \{f_{l, k} + f_{k + 1, r} + \sum_{i = l}^r a_i
 <p>【解题思路】</p>
 <p>令符号 <span class="arithmatex">\(|\)</span> 表示按位或运算。</p>
 <p>观察数据范围可知，这题是状压 DP。</p>
-<p>令 <span class="arithmatex">\(f_{i, j}\)</span> 表示第一个集合前 <span class="arithmatex">\(i\)</span> 个点<strong>全部</strong>匹配完，此时第二个集合匹配状态为 <span class="arithmatex">\(j\)</span> 时，匹配的数量。</p>
+<p>令 <span class="arithmatex">\(f_{i, j}\)</span> 表示第一个集合前 <span class="arithmatex">\(i\)</span> 个点**全部**匹配完，此时第二个集合匹配状态为 <span class="arithmatex">\(j\)</span> 时，匹配的数量。</p>
 <p>这里，状态 <span class="arithmatex">\(j\)</span> 表示：如果在二进制下，<span class="arithmatex">\(j\)</span> 的第 <span class="arithmatex">\(t\)</span> 位为 <span class="arithmatex">\(1\)</span>，说明第二个集合的点 <span class="arithmatex">\(t\)</span> 被匹配了，否则未匹配。 </p>
 <p>容易知道，二进制下，<span class="arithmatex">\(j\)</span> 中 <span class="arithmatex">\(1\)</span> 的数量一定为 <span class="arithmatex">\(i\)</span>，否则匹配不成立。统计二进制下 <span class="arithmatex">\(1\)</span> 的个数可以使用 <code>__builtin_popcount()</code>。</p>
 <p>考虑由 <span class="arithmatex">\(f_{i, j}\)</span> 转移到 <span class="arithmatex">\(f_{i + 1, ?}\)</span>，枚举第 <span class="arithmatex">\(i + 1\)</span> 个点匹配的点 <span class="arithmatex">\(k\)</span>，那么状态变为 <span class="arithmatex">\(j | 2^k\)</span>。即</p>
@@ -2079,7 +2079,7 @@ f_S = \max_{T \subseteq S} \{f_T + f_{\complement_S T}\}
 <p>【解题思路】</p>
 <p>换根 DP。</p>
 <p>记集合 <span class="arithmatex">\(S_u\)</span> 表示 <span class="arithmatex">\(u\)</span> 的子节点。点 <span class="arithmatex">\(F_u\)</span> 表示 <span class="arithmatex">\(u\)</span> 的父节点。 </p>
-<p>设 <span class="arithmatex">\(f_u\)</span> 为 <span class="arithmatex">\(u\)</span> 为黑色时，<span class="arithmatex">\(u\)</span> 的子树<strong>内</strong>黑色点组成一个联通块的个数。<span class="arithmatex">\(g_u\)</span> 为 <span class="arithmatex">\(u\)</span> 为黑色时，<span class="arithmatex">\(u\)</span> 的子树<strong>外</strong>黑色点组成一个联通块的个数。</p>
+<p>设 <span class="arithmatex">\(f_u\)</span> 为 <span class="arithmatex">\(u\)</span> 为黑色时，<span class="arithmatex">\(u\)</span> 的子树**内**黑色点组成一个联通块的个数。<span class="arithmatex">\(g_u\)</span> 为 <span class="arithmatex">\(u\)</span> 为黑色时，<span class="arithmatex">\(u\)</span> 的子树**外**黑色点组成一个联通块的个数。</p>
 <p>容易写出状态转移方程</p>
 <div class="arithmatex">\[
 f_u = \prod_{v \in S_u} (f_v+1)

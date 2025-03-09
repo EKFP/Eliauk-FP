@@ -1091,14 +1091,14 @@
 <a href="https://www.luogu.com.cn/problem/CF520C" title="Link-Luogu">Link-Luogu</a></p>
 <p>【题目大意】</p>
 <p>给定一个长度为 <span class="arithmatex">\(n\)</span> 字符串，只包含<code>A</code>，<code>T</code>，<code>G</code>，<code>C</code>四种字符。</p>
-<p>定义 <span class="arithmatex">\(shift\)</span> 值，指两个字符串<strong>分别</strong>移位之后的相同位的个数。</p>
-<p>你需要求出满足与原字符串 <span class="arithmatex">\(shift\)</span> 值最大的字符串的<strong>个数</strong>。</p>
+<p>定义 <span class="arithmatex">\(shift\)</span> 值，指两个字符串**分别**移位之后的相同位的个数。</p>
+<p>你需要求出满足与原字符串 <span class="arithmatex">\(shift\)</span> 值最大的字符串的**个数**。</p>
 <p>【解题思路】</p>
 <p>考虑贪心构造。</p>
 <p>我们对于构造的字符串，每个字符都选取原字符串出现次数最多的字符，这样可以使 <span class="arithmatex">\(shift\)</span> 值最大。</p>
 <p>可以这么理解，选字符串出现次数更多的字符会让移位时相同位出现的“概率”更大，这样的话，选出现次数越多的字符那也就比选其他的 <span class="arithmatex">\(shift\)</span> 值越大。</p>
 <p>也就是说，构造的字符串中，每个位置都选择原字符串里出现次数最多的字符即可。</p>
-<p>注意这题的问法，我们需要求的是这样的字符串的<strong>个数</strong>。我们每个位置都要 <span class="arithmatex">\(k\)</span> 种选法，其中 <span class="arithmatex">\(k\)</span> 为在字符串中出现次数最多次的字符的<strong>个数</strong>。这样，答案就是 <span class="arithmatex">\(k ^ n\)</span>。</p>
+<p>注意这题的问法，我们需要求的是这样的字符串的**个数**。我们每个位置都要 <span class="arithmatex">\(k\)</span> 种选法，其中 <span class="arithmatex">\(k\)</span> 为在字符串中出现次数最多次的字符的**个数**。这样，答案就是 <span class="arithmatex">\(k ^ n\)</span>。</p>
 <hr />
 <h2 id="d-cubes">D. Cubes<a class="headerlink" href="#d-cubes" title="Permanent link">&para;</a></h2>
 <p><a href="https://codeforces.com/problemset/problem/520/D" title="Link-CF">Link-CF</a> /
@@ -1107,11 +1107,11 @@
 <p><span class="arithmatex">\(m\)</span> 个方块（每个方块边长为 <span class="arithmatex">\(1\)</span>），每个方块的左下角坐标为 <span class="arithmatex">\((x_i, y_i)\)</span>。这些方块构成了一个图形。</p>
 <p>称这个图形是稳定的，如果对于任何一个左下角坐标为 <span class="arithmatex">\((x_0, y_0)(y_0 \neq 0)\)</span> 的方块，它在图形里，且存在一个左下角坐标为 <span class="arithmatex">\((x_0 - 1, y_0 - 1)\)</span> 或 <span class="arithmatex">\((x_0, y_0 - 1)\)</span> 或 <span class="arithmatex">\((x_0 + 1, y_0 - 1)\)</span> 的在图形里的方块。</p>
 <p>现在，两个人甲和乙来拆除这个图形。每次操作可以移除一个方块，然后按拆除的顺序排列好。他们需要保证每次拆除后图形是稳定的。最开始，图形是稳定的。</p>
-<p>最后，这些<strong>方块的编号</strong>组成了一个 <span class="arithmatex">\(m\)</span> 进制数（因为是按拆除的顺序排列的，越先拆就在越高位），甲希望这个数尽可能大，乙希望这个数尽可能小。甲先操作，然后两个人交替操作。求在两人按照最优策略操作时，最终的 <span class="arithmatex">\(m\)</span> 进制数的十进制是多少。</p>
+<p>最后，这些**方块的编号**组成了一个 <span class="arithmatex">\(m\)</span> 进制数（因为是按拆除的顺序排列的，越先拆就在越高位），甲希望这个数尽可能大，乙希望这个数尽可能小。甲先操作，然后两个人交替操作。求在两人按照最优策略操作时，最终的 <span class="arithmatex">\(m\)</span> 进制数的十进制是多少。</p>
 <p>方块的编号是 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(m - 1\)</span>。</p>
 <p>【解题思路】</p>
 <p>考虑贪心。</p>
-<p>由于越先拆的放在越高位，所以说，甲的最优策略是每次拆除<strong>可以拆</strong>的方块中编号最大的，乙每次拆除<strong>可以拆</strong>的方块中编号最小的。这可以用一个大根堆和一个小根堆来维护。</p>
+<p>由于越先拆的放在越高位，所以说，甲的最优策略是每次拆除**可以拆**的方块中编号最大的，乙每次拆除**可以拆**的方块中编号最小的。这可以用一个大根堆和一个小根堆来维护。</p>
 <p>如何判断一个方块可不可以拆？这只需要考虑它的上方和斜上方的方块即可。</p>
 <p>删除操作可以用 <span class="arithmatex">\(map\)</span> 来维护。每次删除后需要更新它的下发和斜下方的方块，判断能否加入堆。</p>
 <p>注意编号是从 <span class="arithmatex">\(0\)</span> 开始的。</p>
@@ -1122,7 +1122,7 @@
 <p>【题目大意】</p>
 <p>给定 <span class="arithmatex">\(n\)</span> 个数 <span class="arithmatex">\(a_i\)</span>，每次操作可以在这些数中间添加 <span class="arithmatex">\(k\)</span> 个 <span class="arithmatex">\(+\)</span> 号，得到若干个不同的表达式，求这些表达式的和。</p>
 <p>【解题思路】</p>
-<p>考虑对每个 <span class="arithmatex">\(a_i\)</span> <strong>单独</strong>计算它的贡献。</p>
+<p>考虑对每个 <span class="arithmatex">\(a_i\)</span> **单独**计算它的贡献。</p>
 <p>若在 <span class="arithmatex">\(a_{i + j}\)</span> 的后面放加号，<span class="arithmatex">\(a_i\)</span> 在表达式中的实际值为 <span class="arithmatex">\(a_i \times 10 ^ j\)</span>。剩下 <span class="arithmatex">\(k - 1\)</span> 个加号，有 <span class="arithmatex">\(n - j - 2\)</span> 个位置可以放加号，这样，这个表达式的出现次数为 <span class="arithmatex">\(C_{n - j - 2}^{k - 1}\)</span>，<span class="arithmatex">\(a_i\)</span> 这时的贡献为 <span class="arithmatex">\(a_i \times 10 ^ j \times C_{n - j - 2}^{k - 1}\)</span>。特别地，当 <span class="arithmatex">\(a_i\)</span> 后面没有加号时，它的贡献为 <span class="arithmatex">\(a_i \times 10 ^ {n - i} \times C_{i - 1}^k\)</span>（所有的加号都放在 <span class="arithmatex">\(i\)</span> 的前 <span class="arithmatex">\(i - 1\)</span> 个位置里）。</p>
 <p>综上，<span class="arithmatex">\(a_i\)</span> 的贡献为</p>
 <div class="arithmatex">\[

@@ -1020,10 +1020,10 @@
 <p>设 <span class="arithmatex">\(f_i\)</span> 表示 <span class="arithmatex">\(i\)</span> 个数的错位排列的数量。考虑满足 <span class="arithmatex">\(A_j = i\)</span> 的 <span class="arithmatex">\(j\)</span>，即排列 <span class="arithmatex">\(A\)</span> 的第 <span class="arithmatex">\(j\)</span> 个位置为 <span class="arithmatex">\(i\)</span>。显然，这样的 <span class="arithmatex">\(j\)</span> 共有 <span class="arithmatex">\(i - 1\)</span> 个。</p>
 <ol>
 <li>
-<p>若 <span class="arithmatex">\(A_i = j\)</span>。则对于<strong>除了位置 <span class="arithmatex">\(i\)</span> 和位置 <span class="arithmatex">\(j\)</span> 剩下的 <span class="arithmatex">\(i - 2\)</span> 个位置</strong>，它是一个独立的子问题。这样共有 <span class="arithmatex">\(f_{i-2}\)</span> 种情况。</p>
+<p>若 <span class="arithmatex">\(A_i = j\)</span>。则对于**除了位置 <span class="arithmatex">\(i\)</span> 和位置 <span class="arithmatex">\(j\)</span> 剩下的 <span class="arithmatex">\(i - 2\)</span> 个位置**，它是一个独立的子问题。这样共有 <span class="arithmatex">\(f_{i-2}\)</span> 种情况。</p>
 </li>
 <li>
-<p>若 <span class="arithmatex">\(A_i \neq j\)</span>。则对于<strong>除了位置 <span class="arithmatex">\(j\)</span> 外的剩下 <span class="arithmatex">\(i - 1\)</span> 个位置</strong>，它也是一个独立的子问题。这样共有 <span class="arithmatex">\(f_{i - 1}\)</span> 种情况。</p>
+<p>若 <span class="arithmatex">\(A_i \neq j\)</span>。则对于**除了位置 <span class="arithmatex">\(j\)</span> 外的剩下 <span class="arithmatex">\(i - 1\)</span> 个位置**，它也是一个独立的子问题。这样共有 <span class="arithmatex">\(f_{i - 1}\)</span> 种情况。</p>
 </li>
 </ol>
 <p>综合以上两种情况，再结合乘法原理，不难得到递推式为</p>
